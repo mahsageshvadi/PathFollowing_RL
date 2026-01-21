@@ -1,0 +1,71 @@
+{
+  "image": {
+    "height": 128,
+    "width": 128
+  },
+  "training_stages": [
+    {
+      "stage_id": 1,
+      "name": "Bin1_Straight",
+      "episodes": 5000,
+      "learning_rate": 1e-4,
+      "curve_generation": {
+        "width_range": [3, 5],
+        "curvature_factor": 0.1,
+        "curvature_range": [0.0, 0.2],
+        "noise_prob": 0.0,
+        "branches": false,
+        "allow_self_cross": false
+      },
+      "training": { "strict_stop": true }
+    },
+    {
+      "stage_id": 2,
+      "name": "Bin2_Wavy",
+      "episodes": 5000,
+      "learning_rate": 1e-4,
+      "curve_generation": {
+        "width_range": [3, 5],
+        "curvature_factor": 0.6,
+        "curvature_range": [0.4, 0.8],
+        "noise_prob": 0.0,
+        "branches": false,
+        "allow_self_cross": false
+      },
+      "training": { "strict_stop": true }
+    },
+    {
+      "stage_id": 3,
+      "name": "Bin3_Complex_Loops",
+      "episodes": 5000,
+      "learning_rate": 5e-5,
+      "curve_generation": {
+        "width_range": [2, 4],
+        "curvature_factor": 1.5,
+        "curvature_range": [1.2, 2.0],
+        "noise_prob": 0.0,
+        "branches": false,
+        "allow_self_cross": true,
+        "self_cross_prob": 0.8
+      },
+      "training": { "strict_stop": true }
+    },
+    {
+      "stage_id": 4,
+      "name": "Bin4_Mixed_Random",
+      "episodes": 10000,
+      "learning_rate": 5e-5,
+      "curve_generation": {
+        "width_range": [2, 6],
+        "curvature_factor": 1.0,
+        "curvature_range": [0.0, 1.8],
+        "noise_prob": 0.3,
+        "noise_range": [0.0, 0.5],
+        "branches": false,
+        "allow_self_cross": true,
+        "self_cross_prob": 0.3
+      },
+      "training": { "strict_stop": true }
+    }
+  ]
+}

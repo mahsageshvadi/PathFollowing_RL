@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_4/src/train_deeper_model.py", line 797, in <module>
+    run_unified_training(args.run_dir, args.base_seed, args.clean_previous, args.resume_from, args.curve_config)
+  File "/home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_4/src/train_deeper_model.py", line 671, in run_unified_training
+    model.load_state_dict(torch.load(resume_from, map_location=DEVICE))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mahsa.geshvadi001/miniconda3/envs/RL/lib/python3.11/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mahsa.geshvadi001/miniconda3/envs/RL/lib/python3.11/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mahsa.geshvadi001/miniconda3/envs/RL/lib/python3.11/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'runs/20260116_030245/weights/model_Bin4_Mixed_Random_FINAL.pth'

@@ -1,0 +1,210 @@
+
+=============================================
+STARTING Stage1_Foundation
+Episodes: 10000 | LR: 0.0001
+Global Episode Offset: 0
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Stage1_Foundation] Ep 100 | Avg Rew: -6.70 | Success: 0.00
+[Stage1_Foundation] Ep 200 | Avg Rew: -10.34 | Success: 0.00
+[Stage1_Foundation] Ep 300 | Avg Rew: -3.98 | Success: 0.03
+[Stage1_Foundation] Ep 400 | Avg Rew: 7.29 | Success: 0.08
+[Stage1_Foundation] Ep 500 | Avg Rew: 7.28 | Success: 0.10
+[Stage1_Foundation] Ep 600 | Avg Rew: 19.07 | Success: 0.16
+[Stage1_Foundation] Ep 700 | Avg Rew: 22.13 | Success: 0.17
+[Stage1_Foundation] Ep 800 | Avg Rew: 19.74 | Success: 0.17
+[Stage1_Foundation] Ep 900 | Avg Rew: 24.36 | Success: 0.25
+[Stage1_Foundation] Ep 1000 | Avg Rew: 36.93 | Success: 0.29
+[Stage1_Foundation] Ep 1100 | Avg Rew: 23.46 | Success: 0.19
+[Stage1_Foundation] Ep 1200 | Avg Rew: 27.87 | Success: 0.20
+[Stage1_Foundation] Ep 1300 | Avg Rew: 33.46 | Success: 0.31
+[Stage1_Foundation] Ep 1400 | Avg Rew: 29.27 | Success: 0.19
+[Stage1_Foundation] Ep 1500 | Avg Rew: 43.12 | Success: 0.32
+[Stage1_Foundation] Ep 1600 | Avg Rew: 53.25 | Success: 0.40
+[Stage1_Foundation] Ep 1700 | Avg Rew: 43.05 | Success: 0.35
+[Stage1_Foundation] Ep 1800 | Avg Rew: 49.99 | Success: 0.39
+[Stage1_Foundation] Ep 1900 | Avg Rew: 51.99 | Success: 0.42
+[Stage1_Foundation] Ep 2000 | Avg Rew: 49.66 | Success: 0.40
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/ckpt_Stage1_Foundation_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/actor_Stage1_Foundation_ep2000.pth
+[Stage1_Foundation] Ep 2100 | Avg Rew: 48.77 | Success: 0.35
+[Stage1_Foundation] Ep 2200 | Avg Rew: 52.49 | Success: 0.40
+[Stage1_Foundation] Ep 2300 | Avg Rew: 55.13 | Success: 0.41
+[Stage1_Foundation] Ep 2400 | Avg Rew: 61.81 | Success: 0.49
+[Stage1_Foundation] Ep 2500 | Avg Rew: 63.12 | Success: 0.43
+[Stage1_Foundation] Ep 2600 | Avg Rew: 71.85 | Success: 0.42
+[Stage1_Foundation] Ep 2700 | Avg Rew: 63.75 | Success: 0.41
+[Stage1_Foundation] Ep 2800 | Avg Rew: 59.97 | Success: 0.42
+[Stage1_Foundation] Ep 2900 | Avg Rew: 56.78 | Success: 0.34
+[Stage1_Foundation] Ep 3000 | Avg Rew: 71.87 | Success: 0.47
+[Stage1_Foundation] Ep 3100 | Avg Rew: 61.60 | Success: 0.44
+[Stage1_Foundation] Ep 3200 | Avg Rew: 72.92 | Success: 0.46
+[Stage1_Foundation] Ep 3300 | Avg Rew: 66.12 | Success: 0.38
+[Stage1_Foundation] Ep 3400 | Avg Rew: 52.06 | Success: 0.32
+[Stage1_Foundation] Ep 3500 | Avg Rew: 74.41 | Success: 0.41
+[Stage1_Foundation] Ep 3600 | Avg Rew: 67.62 | Success: 0.36
+[Stage1_Foundation] Ep 3700 | Avg Rew: 79.21 | Success: 0.53
+[Stage1_Foundation] Ep 3800 | Avg Rew: 73.68 | Success: 0.49
+[Stage1_Foundation] Ep 3900 | Avg Rew: 78.75 | Success: 0.49
+[Stage1_Foundation] Ep 4000 | Avg Rew: 83.50 | Success: 0.56
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/ckpt_Stage1_Foundation_ep4000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/actor_Stage1_Foundation_ep4000.pth
+[Stage1_Foundation] Ep 4100 | Avg Rew: 88.07 | Success: 0.56
+[Stage1_Foundation] Ep 4200 | Avg Rew: 70.85 | Success: 0.45
+[Stage1_Foundation] Ep 4300 | Avg Rew: 94.08 | Success: 0.59
+[Stage1_Foundation] Ep 4400 | Avg Rew: 83.50 | Success: 0.57
+[Stage1_Foundation] Ep 4500 | Avg Rew: 94.86 | Success: 0.61
+[Stage1_Foundation] Ep 4600 | Avg Rew: 98.09 | Success: 0.65
+[Stage1_Foundation] Ep 4700 | Avg Rew: 113.60 | Success: 0.73
+[Stage1_Foundation] Ep 4800 | Avg Rew: 94.47 | Success: 0.63
+[Stage1_Foundation] Ep 4900 | Avg Rew: 82.06 | Success: 0.47
+[Stage1_Foundation] Ep 5000 | Avg Rew: 78.37 | Success: 0.51
+[Stage1_Foundation] Ep 5100 | Avg Rew: 88.57 | Success: 0.53
+[Stage1_Foundation] Ep 5200 | Avg Rew: 92.30 | Success: 0.52
+[Stage1_Foundation] Ep 5300 | Avg Rew: 96.93 | Success: 0.53
+[Stage1_Foundation] Ep 5400 | Avg Rew: 106.14 | Success: 0.60
+[Stage1_Foundation] Ep 5500 | Avg Rew: 102.38 | Success: 0.69
+[Stage1_Foundation] Ep 5600 | Avg Rew: 98.08 | Success: 0.63
+[Stage1_Foundation] Ep 5700 | Avg Rew: 79.54 | Success: 0.53
+[Stage1_Foundation] Ep 5800 | Avg Rew: 77.36 | Success: 0.61
+[Stage1_Foundation] Ep 5900 | Avg Rew: 97.64 | Success: 0.61
+[Stage1_Foundation] Ep 6000 | Avg Rew: 95.47 | Success: 0.66
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/ckpt_Stage1_Foundation_ep6000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/actor_Stage1_Foundation_ep6000.pth
+[Stage1_Foundation] Ep 6100 | Avg Rew: 93.56 | Success: 0.63
+[Stage1_Foundation] Ep 6200 | Avg Rew: 110.83 | Success: 0.74
+[Stage1_Foundation] Ep 6300 | Avg Rew: 109.85 | Success: 0.68
+[Stage1_Foundation] Ep 6400 | Avg Rew: 111.29 | Success: 0.72
+[Stage1_Foundation] Ep 6500 | Avg Rew: 116.05 | Success: 0.72
+[Stage1_Foundation] Ep 6600 | Avg Rew: 119.48 | Success: 0.75
+[Stage1_Foundation] Ep 6700 | Avg Rew: 123.05 | Success: 0.68
+[Stage1_Foundation] Ep 6800 | Avg Rew: 102.84 | Success: 0.75
+[Stage1_Foundation] Ep 6900 | Avg Rew: 106.18 | Success: 0.72
+[Stage1_Foundation] Ep 7000 | Avg Rew: 118.28 | Success: 0.71
+[Stage1_Foundation] Ep 7100 | Avg Rew: 122.27 | Success: 0.75
+[Stage1_Foundation] Ep 7200 | Avg Rew: 125.71 | Success: 0.78
+[Stage1_Foundation] Ep 7300 | Avg Rew: 113.59 | Success: 0.75
+[Stage1_Foundation] Ep 7400 | Avg Rew: 108.19 | Success: 0.74
+[Stage1_Foundation] Ep 7500 | Avg Rew: 121.52 | Success: 0.74
+[Stage1_Foundation] Ep 7600 | Avg Rew: 111.58 | Success: 0.70
+[Stage1_Foundation] Ep 7700 | Avg Rew: 132.62 | Success: 0.81
+[Stage1_Foundation] Ep 7800 | Avg Rew: 131.86 | Success: 0.82
+[Stage1_Foundation] Ep 7900 | Avg Rew: 125.00 | Success: 0.77
+[Stage1_Foundation] Ep 8000 | Avg Rew: 135.11 | Success: 0.90
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/ckpt_Stage1_Foundation_ep8000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/actor_Stage1_Foundation_ep8000.pth
+[Stage1_Foundation] Ep 8100 | Avg Rew: 138.50 | Success: 0.91
+[Stage1_Foundation] Ep 8200 | Avg Rew: 147.56 | Success: 0.90
+[Stage1_Foundation] Ep 8300 | Avg Rew: 137.76 | Success: 0.92
+[Stage1_Foundation] Ep 8400 | Avg Rew: 122.04 | Success: 0.91
+[Stage1_Foundation] Ep 8500 | Avg Rew: 146.67 | Success: 0.95
+[Stage1_Foundation] Ep 8600 | Avg Rew: 117.72 | Success: 0.80
+[Stage1_Foundation] Ep 8700 | Avg Rew: 130.09 | Success: 0.82
+[Stage1_Foundation] Ep 8800 | Avg Rew: 126.62 | Success: 0.85
+[Stage1_Foundation] Ep 8900 | Avg Rew: 131.48 | Success: 0.94
+[Stage1_Foundation] Ep 9000 | Avg Rew: 118.38 | Success: 0.86
+[Stage1_Foundation] Ep 9100 | Avg Rew: 120.16 | Success: 0.85
+[Stage1_Foundation] Ep 9200 | Avg Rew: 121.46 | Success: 0.88
+[Stage1_Foundation] Ep 9300 | Avg Rew: 129.52 | Success: 0.96
+[Stage1_Foundation] Ep 9400 | Avg Rew: 123.01 | Success: 0.86
+[Stage1_Foundation] Ep 9500 | Avg Rew: 134.96 | Success: 0.91
+[Stage1_Foundation] Ep 9600 | Avg Rew: 142.00 | Success: 0.94
+[Stage1_Foundation] Ep 9700 | Avg Rew: 124.46 | Success: 0.86
+[Stage1_Foundation] Ep 9800 | Avg Rew: 125.21 | Success: 0.94
+[Stage1_Foundation] Ep 9900 | Avg Rew: 130.39 | Success: 0.89
+[Stage1_Foundation] Ep 10000 | Avg Rew: 104.38 | Success: 0.67
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/ckpt_Stage1_Foundation_ep10000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/actor_Stage1_Foundation_ep10000.pth
+Finished Stage1_Foundation. Saved model to /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/weights/model_Stage1_Foundation_FINAL.pth
+✅ Added Stage1_Foundation to previous stages pool (total: 1 stages)
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/weights/actor_Stage1_Foundation_FINAL.pth
+
+=============================================
+STARTING Stage2_Curvature
+Episodes: 12000 | LR: 0.0001
+Global Episode Offset: 20000
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Stage2_Curvature] Ep 100 | Avg Rew: 96.72 | Success: 0.62 [Prev: 1]
+[Stage2_Curvature] Ep 200 | Avg Rew: 99.46 | Success: 0.58 [Prev: 1]
+[Stage2_Curvature] Ep 300 | Avg Rew: 124.13 | Success: 0.70 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1_Foundation'
+[Stage2_Curvature] Ep 400 | Avg Rew: 139.21 | Success: 0.80 [Prev: 1]
+[Stage2_Curvature] Ep 500 | Avg Rew: 148.36 | Success: 0.92 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1_Foundation: Success=1.00, Return=144.02
+
+[Stage2_Curvature] Ep 600 | Avg Rew: 152.01 | Success: 0.95 [Prev: 1]
+[Stage2_Curvature] Ep 700 | Avg Rew: 139.24 | Success: 0.89 [Prev: 1]
+[Stage2_Curvature] Ep 800 | Avg Rew: 146.49 | Success: 0.97 [Prev: 1]
+[Stage2_Curvature] Ep 900 | Avg Rew: 142.45 | Success: 0.97 [Prev: 1]
+[Stage2_Curvature] Ep 1000 | Avg Rew: 146.48 | Success: 0.94 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1_Foundation: Success=1.00, Return=147.73
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1_Foundation'
+[Stage2_Curvature] Ep 1100 | Avg Rew: 141.54 | Success: 0.95 [Prev: 1]
+[Stage2_Curvature] Ep 1200 | Avg Rew: 140.63 | Success: 0.97 [Prev: 1]
+[Stage2_Curvature] Ep 1300 | Avg Rew: 146.50 | Success: 0.97 [Prev: 1]
+[Stage2_Curvature] Ep 1400 | Avg Rew: 151.36 | Success: 0.96 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1_Foundation'
+[Stage2_Curvature] Ep 1500 | Avg Rew: 131.96 | Success: 0.93 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1_Foundation: Success=0.90, Return=145.09
+
+[Stage2_Curvature] Ep 1600 | Avg Rew: 130.06 | Success: 0.81 [Prev: 1]
+[Stage2_Curvature] Ep 1700 | Avg Rew: 140.12 | Success: 0.92 [Prev: 1]
+[Stage2_Curvature] Ep 1800 | Avg Rew: 141.39 | Success: 0.92 [Prev: 1]
+[Stage2_Curvature] Ep 1900 | Avg Rew: 145.04 | Success: 0.84 [Prev: 1]
+[Stage2_Curvature] Ep 2000 | Avg Rew: 150.76 | Success: 0.86 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1_Foundation: Success=0.90, Return=145.28
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/ckpt_Stage2_Curvature_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_2/runs/20260115_144325/checkpoints/actor_Stage2_Curvature_ep2000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Stage1_Foundation'
+[Stage2_Curvature] Ep 2100 | Avg Rew: 145.13 | Success: 0.95 [Prev: 1]
+[Stage2_Curvature] Ep 2200 | Avg Rew: 149.38 | Success: 0.98 [Prev: 1]
+[Stage2_Curvature] Ep 2300 | Avg Rew: 163.45 | Success: 1.00 [Prev: 1]
+[Stage2_Curvature] Ep 2400 | Avg Rew: 143.86 | Success: 0.94 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1_Foundation'
+[Stage2_Curvature] Ep 2500 | Avg Rew: 152.24 | Success: 0.90 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1_Foundation: Success=1.00, Return=151.27
+
+[Stage2_Curvature] Ep 2600 | Avg Rew: 160.25 | Success: 0.95 [Prev: 1]
+[Stage2_Curvature] Ep 2700 | Avg Rew: 163.92 | Success: 0.95 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1_Foundation'
+[Stage2_Curvature] Ep 2800 | Avg Rew: 157.78 | Success: 0.96 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1_Foundation'
+[Stage2_Curvature] Ep 2900 | Avg Rew: 156.65 | Success: 0.96 [Prev: 1]
+[Stage2_Curvature] Ep 3000 | Avg Rew: 159.13 | Success: 0.98 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1_Foundation: Success=1.00, Return=146.32
+
+[Stage2_Curvature] Ep 3100 | Avg Rew: 162.56 | Success: 0.96 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1_Foundation'
+[Stage2_Curvature] Ep 3200 | Avg Rew: 142.55 | Success: 0.99 [Prev: 1]
+[Stage2_Curvature] Ep 3300 | Avg Rew: 144.22 | Success: 0.94 [Prev: 1]
+[Stage2_Curvature] Ep 3400 | Avg Rew: 155.06 | Success: 0.98 [Prev: 1]
+[Stage2_Curvature] Ep 3500 | Avg Rew: 153.42 | Success: 0.96 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1_Foundation: Success=0.90, Return=142.16
+
+[Stage2_Curvature] Ep 3600 | Avg Rew: 141.50 | Success: 0.87 [Prev: 1]
+[Stage2_Curvature] Ep 3700 | Avg Rew: 146.94 | Success: 0.85 [Prev: 1]
+[Stage2_Curvature] Ep 3800 | Avg Rew: 160.11 | Success: 0.94 [Prev: 1]

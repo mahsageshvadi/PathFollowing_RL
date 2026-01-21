@@ -1,0 +1,186 @@
+===== JOB INFO =====
+JobID:   681829
+Node:    chimera21
+Tasks:   4
+GPUs:    
+Account: cs_funda.durupinarbabur
+====================
+
+===== NVIDIA-SMI =====
+Wed Jan 21 01:28:15 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    On  |   00000000:1B:00.0 Off |                    0 |
+| N/A   25C    P0             76W /  700W |       0MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+Current directory: /var/spool/slurm/d
+Running training from: /var/spool/slurm/d
+✅ GPU detected: NVIDIA H200
+✓ Loaded curve configuration from: config/curve_config.json
+
+============================================================
+FULL CONFIGURATION LOADED FROM: config/curve_config.json
+============================================================
+{
+  "image": {
+    "height": 128,
+    "width": 128
+  },
+  "bezier": {
+    "margin": 20,
+    "min_distance": 45.0,
+    "control_point_spread": 0.4
+  },
+  "training_stages": [
+    {
+      "stage_id": 1,
+      "name": "Stage1_Foundations",
+      "episodes": 6000,
+      "learning_rate": 0.0001,
+      "curve_generation": {
+        "width_range": [
+          3,
+          5
+        ],
+        "curvature_range": [
+          0.0,
+          0.3
+        ],
+        "min_intensity": 0.8,
+        "max_intensity": 1.0,
+        "noise_prob": 0.0,
+        "invert_prob": 0.0,
+        "branches": false,
+        "allow_self_cross": false
+      },
+      "training": {
+        "strict_stop": false,
+        "mixed_start": false
+      }
+    },
+    {
+      "stage_id": 2,
+      "name": "Stage2_Variability",
+      "episodes": 10000,
+      "learning_rate": 0.0001,
+      "curve_generation": {
+        "width_range": [
+          2,
+          6
+        ],
+        "curvature_range": [
+          0.3,
+          0.9
+        ],
+        "min_intensity": 0.5,
+        "max_intensity": 1.0,
+        "width_variation": "wide_to_narrow",
+        "intensity_variation": "dim_to_bright",
+        "noise_prob": 0.2,
+        "noise_range": [
+          0.0,
+          0.1
+        ],
+        "invert_prob": 0.5,
+        "branches": false,
+        "allow_self_cross": false
+      },
+      "training": {
+        "strict_stop": false,
+        "mixed_start": true
+      }
+    },
+    {
+      "stage_id": 3,
+      "name": "Stage3_Robustness_Complex",
+      "episodes": 15000,
+      "learning_rate": 5e-05,
+      "curve_generation": {
+        "width_range": [
+          1,
+          4
+        ],
+        "curvature_range": [
+          0.9,
+          1.5
+        ],
+        "min_intensity": 0.2,
+        "max_intensity": 0.8,
+        "background_intensity_range": [
+          0.0,
+          0.2
+        ],
+        "allow_self_cross": true,
+        "self_cross_prob": 0.5,
+        "noise_prob": 0.8,
+        "noise_range": [
+          0.1,
+          0.3
+        ],
+        "invert_prob": 0.5,
+        "branches": false
+      },
+      "training": {
+        "strict_stop": false,
+        "tissue": true,
+        "mixed_start": true
+      }
+    },
+    {
+      "stage_id": 4,
+      "name": "Stage4_Master_Generalization",
+      "episodes": 30000,
+      "learning_rate": 2e-05,
+      "curve_generation": {
+        "width_range": [
+          1,
+          8
+        ],
+        "width_variation": "custom",
+        "curvature_range": [
+          0.0,
+          1.6
+        ],
+        "allow_self_cross": true,
+        "self_cross_prob": 0.3,
+        "min_intensity": 0.15,
+        "max_intensity": 1.0,
+        "intensity_variation": "custom",
+        "background_intensity_range": [
+          0.0,
+          0.4
+        ],
+        "noise_prob": 0.8,
+        "noise_range": [
+          0.0,
+          0.4
+        ],
+        "invert_prob": 0.5,
+        "branches": false
+      },
+      "training": {
+        "strict_stop": false,
+        "tissue": true,
+        "mixed_start": true
+      }
+    }
+  ]
+}
+============================================================
+
+Loading checkpoint: runs/20260116_030245/weights/model_Bin4_Mixed_Random_FINAL.pth

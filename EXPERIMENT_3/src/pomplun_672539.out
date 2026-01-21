@@ -1,0 +1,76 @@
+===== JOB INFO =====
+JobID:   672539
+Node:    chimera21
+Tasks:   4
+GPUs:    
+Account: cs_funda.durupinarbabur
+====================
+
+===== NVIDIA-SMI =====
+Sat Jan 17 19:02:13 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    On  |   00000000:1B:00.0 Off |                    0 |
+| N/A   23C    P0             76W /  700W |       0MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+Current directory: /var/spool/slurm/d
+Script directory: /var/spool/slurm/d/job672539
+Project directory: /var/spool/slurm/d
+Running training from: /var/spool/slurm/d
+ERROR: train_deeper_model.py not found at src/train_deeper_model.py
+Current directory contents:
+total 256
+drwxr-xr-x 10 slurm root                  4096 Jan 17 19:02 .
+drwxr-xr-x  3 slurm root                  4096 Mar  6  2025 ..
+srwxrwxrwx  1 root  root                     0 Jan 15 18:33 chimera21_671943.0
+srwxrwxrwx  1 root  root                     0 Jan 15 18:33 chimera21_671943.4294967292
+srwxrwxrwx  1 root  root                     0 Jan 16 06:06 chimera21_672397.4294967291
+srwxrwxrwx  1 root  root                     0 Jan 16 06:06 chimera21_672397.4294967292
+srwxrwxrwx  1 root  root                     0 Jan 16 10:57 chimera21_672409.0
+srwxrwxrwx  1 root  root                     0 Jan 16 10:57 chimera21_672409.4294967291
+srwxrwxrwx  1 root  root                     0 Jan 16 10:57 chimera21_672409.4294967292
+srwxrwxrwx  1 root  root                     0 Jan 17 09:45 chimera21_672480.4294967291
+srwxrwxrwx  1 root  root                     0 Jan 17 09:45 chimera21_672480.4294967292
+srwxrwxrwx  1 root  root                     0 Jan 17 10:58 chimera21_672481.4294967291
+srwxrwxrwx  1 root  root                     0 Jan 17 10:58 chimera21_672481.4294967292
+srwxrwxrwx  1 root  root                     0 Jan 17 11:04 chimera21_672482.4294967291
+srwxrwxrwx  1 root  root                     0 Jan 17 11:04 chimera21_672482.4294967292
+srwxrwxrwx  1 root  root                     0 Jan 17 15:52 chimera21_672509.4294967291
+srwxrwxrwx  1 root  root                     0 Jan 17 15:52 chimera21_672509.4294967292
+srwxrwxrwx  1 root  root                     0 Jan 17 19:02 chimera21_672539.4294967291
+srwxrwxrwx  1 root  root                     0 Jan 17 19:02 chimera21_672539.4294967292
+drwxr-xr-x  2 root  root                  4096 Dec 16 14:32 conf-cache
+-rw-------  1 root  root                   306 Jan 17 18:56 cred_state
+-rw-------  1 root  root                    36 Apr 11  2025 cred_state.old
+-rw-r--r--  1 root  root                 15918 Jan 15 18:33 hwloc_topo_671943.0.xml
+-rw-r--r--  1 root  root                 21001 Jan 16 06:06 hwloc_topo_672397.4294967291.xml
+-rw-r--r--  1 root  root                  8693 Jan 16 10:57 hwloc_topo_672409.0.xml
+-rw-r--r--  1 root  root                  8701 Jan 16 10:57 hwloc_topo_672409.4294967291.xml
+-rw-r--r--  1 root  root                  8587 Jan 17 09:45 hwloc_topo_672480.4294967291.xml
+-rw-r--r--  1 root  root                  8701 Jan 17 10:58 hwloc_topo_672481.4294967291.xml
+-rw-r--r--  1 root  root                  8695 Jan 17 11:04 hwloc_topo_672482.4294967291.xml
+-rw-r--r--  1 root  root                 26657 Jan 17 15:52 hwloc_topo_672509.4294967291.xml
+-rw-r--r--  1 root  root                  8550 Jan 17 19:02 hwloc_topo_672539.4294967291.xml
+-rw-r--r--  1 slurm root                 68762 Oct 28 10:41 hwloc_topo_whole.xml
+drwxr-x---  2 root  nurit.haspel          4096 Jan 16 06:06 job672397
+drwxr-x---  2 root  funda.durupinarbabur  4096 Jan 16 10:57 job672409
+drwxr-x---  2 root  p.bendiksen001        4096 Jan 17 09:45 job672480
+drwxr-x---  2 root  p.bendiksen001        4096 Jan 17 10:58 job672481
+drwxr-x---  2 root  p.bendiksen001        4096 Jan 17 11:04 job672482
+drwxr-x---  2 root  nurit.haspel          4096 Jan 17 15:52 job672509
+drwxr-x---  2 root  mahsa.geshvadi001     4096 Jan 17 19:02 job672539

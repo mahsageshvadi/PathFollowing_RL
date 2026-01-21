@@ -1,0 +1,203 @@
+===== JOB INFO =====
+JobID:   681842
+Node:    chimera21
+Tasks:   4
+GPUs:    
+Account: cs_funda.durupinarbabur
+====================
+
+===== NVIDIA-SMI =====
+Wed Jan 21 03:32:45 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    On  |   00000000:43:00.0 Off |                    0 |
+| N/A   34C    P0            131W /  700W |       0MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+Current directory: /var/spool/slurm/d
+Running training from: /var/spool/slurm/d
+✅ GPU detected: NVIDIA H200
+✓ Loaded curve configuration from: config/curve_config.json
+
+============================================================
+FULL CONFIGURATION LOADED FROM: config/curve_config.json
+============================================================
+{
+  "image": {
+    "height": 128,
+    "width": 128
+  },
+  "bezier": {
+    "margin": 20,
+    "min_distance": 45.0,
+    "control_point_spread": 0.4
+  },
+  "training_stages": [
+    {
+      "stage_id": 1,
+      "name": "Stage1_Straight_Basics",
+      "episodes": 6000,
+      "learning_rate": 0.0001,
+      "curve_generation": {
+        "width_range": [
+          3,
+          5
+        ],
+        "curvature_range": [
+          0.0,
+          0.3
+        ],
+        "min_intensity": 0.8,
+        "max_intensity": 1.0,
+        "branches": false
+      },
+      "training": {
+        "strict_stop": false
+      }
+    },
+    {
+      "stage_id": 2,
+      "name": "Stage2_Curves_No_Branches",
+      "episodes": 8000,
+      "learning_rate": 0.0001,
+      "curve_generation": {
+        "width_range": [
+          2,
+          6
+        ],
+        "curvature_range": [
+          0.3,
+          1.2
+        ],
+        "min_intensity": 0.6,
+        "max_intensity": 1.0,
+        "branches": false
+      },
+      "training": {
+        "strict_stop": false,
+        "mixed_start": true
+      }
+    },
+    {
+      "stage_id": 3,
+      "name": "Stage3_Simple_Y_Junctions",
+      "episodes": 15000,
+      "learning_rate": 5e-05,
+      "curve_generation": {
+        "width_range": [
+          3,
+          5
+        ],
+        "curvature_range": [
+          0.2,
+          0.8
+        ],
+        "min_intensity": 0.5,
+        "max_intensity": 1.0,
+        "branches": true,
+        "num_branches_range": [
+          1,
+          1
+        ],
+        "start_range": [
+          0.3,
+          0.6
+        ],
+        "thickness_factor": 1.0,
+        "noise_prob": 0.1,
+        "allow_self_cross": false
+      },
+      "training": {
+        "strict_stop": true,
+        "mixed_start": true
+      }
+    },
+    {
+      "stage_id": 4,
+      "name": "Stage4_Complex_Intersections",
+      "episodes": 20000,
+      "learning_rate": 5e-05,
+      "curve_generation": {
+        "width_range": [
+          2,
+          6
+        ],
+        "curvature_range": [
+          0.0,
+          1.5
+        ],
+        "branches": true,
+        "num_branches_range": [
+          1,
+          2
+        ],
+        "start_range": [
+          0.2,
+          0.8
+        ],
+        "allow_self_cross": true,
+        "self_cross_prob": 0.5,
+        "min_intensity": 0.4,
+        "max_intensity": 1.0,
+        "noise_prob": 0.5
+      },
+      "training": {
+        "strict_stop": true,
+        "mixed_start": true
+      }
+    },
+    {
+      "stage_id": 5,
+      "name": "Stage5_Robust_Bifurcation",
+      "episodes": 40000,
+      "learning_rate": 2e-05,
+      "curve_generation": {
+        "width_range": [
+          1,
+          8
+        ],
+        "width_variation": "custom",
+        "curvature_range": [
+          0.0,
+          1.6
+        ],
+        "branches": true,
+        "allow_self_cross": true,
+        "self_cross_prob": 0.5,
+        "min_intensity": 0.2,
+        "max_intensity": 1.0,
+        "background_intensity_range": [
+          0.0,
+          0.3
+        ],
+        "gap_prob": 0.6,
+        "noise_prob": 0.8,
+        "invert_prob": 0.5
+      },
+      "training": {
+        "strict_stop": true,
+        "tissue": true,
+        "mixed_start": true
+      }
+    }
+  ]
+}
+============================================================
+
+=== Starting Training with 5 Stages ===
+
+⚡ STARTING Stage1_Straight_Basics (Eps: 6000, LR: 0.0001)

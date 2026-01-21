@@ -1,0 +1,41 @@
+{
+    "target_stage_id": 4,
+    "target_stage_name": "Stage4_Master_Generalization",
+    "model_path": "runs/20260121_013130/weights/model_Stage4_Master_Generalization_FINAL.pth",
+    "total_episodes": 100,
+    "success_count": 92,
+    "success_rate_percent": 92.0,
+    "failure_count": 8,
+    "failure_rate_percent": 8.0,
+    "average_reward": 144.76699829101562,
+    "config_used": {
+        "width_range": [
+            1.5,
+            8
+        ],
+        "width_variation": "custom",
+        "curvature_range": [
+            0.0,
+            1.6
+        ],
+        "allow_self_cross": true,
+        "self_cross_prob": 0.3,
+        "min_intensity": 0.3,
+        "max_intensity": 1.0,
+        "intensity_variation": "custom",
+        "background_intensity_range": [
+            0.0,
+            0.4
+        ],
+        "noise_prob": 0.8,
+        "noise_range": [
+            0.0,
+            0.4
+        ],
+        "invert_prob": 0.5,
+        "branches": false,
+        "strict_stop": false,
+        "tissue": true,
+        "mixed_start": true
+    }
+}

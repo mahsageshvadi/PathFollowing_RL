@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_5/src/train_deeper_model.py", line 840, in <module>
+    run_unified_training(args.run_dir, args.base_seed, args.clean_previous, args.resume_from, args.curve_config)
+  File "/home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_5/src/train_deeper_model.py", line 760, in run_unified_training
+    obs_dict = env.reset(episode_number=global_ep)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_5/src/train_deeper_model.py", line 414, in reset
+    img, mask, pts_all = curve_maker.sample_curve(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CurveMakerFlexible.sample_curve() got an unexpected keyword argument 'gap_prob'

@@ -1,0 +1,174 @@
+{
+  "timestamp": "2026-01-15T18:35:03.567758",
+  "device": "cuda",
+  "n_actions": 8,
+  "base_seed": 50,
+  "curve_generation": "on_the_fly",
+  "curve_config_path": "curve_config.json",
+  "image_height": 128,
+  "image_width": 128,
+  "stages": [
+    {
+      "name": "Bin1_Straight",
+      "episodes": 5000,
+      "lr": 0.0001,
+      "config": {
+        "stage_id": 1,
+        "width": [
+          3,
+          5
+        ],
+        "noise": 0.0,
+        "tissue": false,
+        "strict_stop": true,
+        "mixed_start": false,
+        "invert": 0.5,
+        "min_intensity": 0.6,
+        "max_intensity": null,
+        "branches": false,
+        "curvature_factor": 0.1,
+        "allow_self_cross": false,
+        "self_cross_prob": 0.0,
+        "width_variation": "none",
+        "start_width": null,
+        "end_width": null,
+        "intensity_variation": "none",
+        "start_intensity": null,
+        "end_intensity": null,
+        "background_intensity": null,
+        "curvature_range": [
+          0.0,
+          0.2
+        ],
+        "noise_range": null,
+        "background_intensity_range": null,
+        "min_intensity_range": null,
+        "max_intensity_range": null,
+        "training_noise_range": null
+      }
+    },
+    {
+      "name": "Bin2_Wavy",
+      "episodes": 5000,
+      "lr": 0.0001,
+      "config": {
+        "stage_id": 2,
+        "width": [
+          3,
+          5
+        ],
+        "noise": 0.0,
+        "tissue": false,
+        "strict_stop": true,
+        "mixed_start": false,
+        "invert": 0.5,
+        "min_intensity": 0.6,
+        "max_intensity": null,
+        "branches": false,
+        "curvature_factor": 0.6,
+        "allow_self_cross": false,
+        "self_cross_prob": 0.0,
+        "width_variation": "none",
+        "start_width": null,
+        "end_width": null,
+        "intensity_variation": "none",
+        "start_intensity": null,
+        "end_intensity": null,
+        "background_intensity": null,
+        "curvature_range": [
+          0.4,
+          0.8
+        ],
+        "noise_range": null,
+        "background_intensity_range": null,
+        "min_intensity_range": null,
+        "max_intensity_range": null,
+        "training_noise_range": null
+      }
+    },
+    {
+      "name": "Bin3_Complex_Loops",
+      "episodes": 5000,
+      "lr": 5e-05,
+      "config": {
+        "stage_id": 3,
+        "width": [
+          2,
+          4
+        ],
+        "noise": 0.0,
+        "tissue": false,
+        "strict_stop": true,
+        "mixed_start": false,
+        "invert": 0.5,
+        "min_intensity": 0.6,
+        "max_intensity": null,
+        "branches": false,
+        "curvature_factor": 1.5,
+        "allow_self_cross": true,
+        "self_cross_prob": 0.8,
+        "width_variation": "none",
+        "start_width": null,
+        "end_width": null,
+        "intensity_variation": "none",
+        "start_intensity": null,
+        "end_intensity": null,
+        "background_intensity": null,
+        "curvature_range": [
+          1.2,
+          2.0
+        ],
+        "noise_range": null,
+        "background_intensity_range": null,
+        "min_intensity_range": null,
+        "max_intensity_range": null,
+        "training_noise_range": null
+      }
+    },
+    {
+      "name": "Bin4_Mixed_Random",
+      "episodes": 10000,
+      "lr": 5e-05,
+      "config": {
+        "stage_id": 4,
+        "width": [
+          2,
+          6
+        ],
+        "noise": 0.0,
+        "tissue": false,
+        "strict_stop": true,
+        "mixed_start": false,
+        "invert": 0.5,
+        "min_intensity": 0.6,
+        "max_intensity": null,
+        "branches": false,
+        "curvature_factor": 1.0,
+        "allow_self_cross": true,
+        "self_cross_prob": 0.3,
+        "width_variation": "none",
+        "start_width": null,
+        "end_width": null,
+        "intensity_variation": "none",
+        "start_intensity": null,
+        "end_intensity": null,
+        "background_intensity": null,
+        "curvature_range": [
+          0.0,
+          1.8
+        ],
+        "noise_range": [
+          0.0,
+          0.5
+        ],
+        "background_intensity_range": null,
+        "min_intensity_range": null,
+        "max_intensity_range": null,
+        "training_noise_range": null
+      }
+    }
+  ],
+  "training_start_time": "2026-01-15T18:35:03.567790",
+  "training_end_time": "2026-01-15T22:19:36.936049",
+  "training_duration_seconds": 13473.368259
+}

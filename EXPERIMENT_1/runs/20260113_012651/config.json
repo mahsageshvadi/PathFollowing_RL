@@ -1,0 +1,159 @@
+{
+  "timestamp": "2026-01-13T01:26:51.473390",
+  "device": "cuda",
+  "n_actions": 8,
+  "base_seed": 50,
+  "curve_generation": "on_the_fly",
+  "curve_config_path": "curve_config.json",
+  "image_height": 256,
+  "image_width": 256,
+  "stages": [
+    {
+      "name": "Stage1",
+      "episodes": 15000,
+      "lr": 0.0001,
+      "config": {
+        "stage_id": 1,
+        "width": [
+          1,
+          8
+        ],
+        "noise": 0.0,
+        "tissue": false,
+        "strict_stop": false,
+        "mixed_start": false,
+        "invert": 0.5,
+        "min_intensity": 0.3,
+        "max_intensity": 1.0,
+        "branches": false,
+        "curvature_factor": 1.0,
+        "allow_self_cross": false,
+        "self_cross_prob": 0.0,
+        "width_variation": "none",
+        "start_width": null,
+        "end_width": null,
+        "intensity_variation": "none",
+        "start_intensity": null,
+        "end_intensity": null,
+        "background_intensity": null,
+        "curvature_range": [
+          0.1,
+          5.0
+        ],
+        "noise_range": [
+          0.0,
+          0.1
+        ],
+        "background_intensity_range": [
+          0.0,
+          0.1
+        ],
+        "min_intensity_range": null,
+        "max_intensity_range": null,
+        "training_noise_range": [
+          0.0,
+          0.1
+        ]
+      }
+    },
+    {
+      "name": "Stage2",
+      "episodes": 30000,
+      "lr": 0.0001,
+      "config": {
+        "stage_id": 2,
+        "width": [
+          0.15,
+          8
+        ],
+        "noise": 0.0,
+        "tissue": false,
+        "strict_stop": true,
+        "mixed_start": false,
+        "invert": 0.5,
+        "min_intensity": 0.1,
+        "max_intensity": 0.7,
+        "branches": false,
+        "curvature_factor": 1.0,
+        "allow_self_cross": false,
+        "self_cross_prob": 0.0,
+        "width_variation": "none",
+        "start_width": null,
+        "end_width": null,
+        "intensity_variation": "none",
+        "start_intensity": null,
+        "end_intensity": null,
+        "background_intensity": null,
+        "curvature_range": [
+          0.1,
+          5.0
+        ],
+        "noise_range": [
+          0.0,
+          0.4
+        ],
+        "background_intensity_range": [
+          0.0,
+          0.3
+        ],
+        "min_intensity_range": null,
+        "max_intensity_range": null,
+        "training_noise_range": [
+          0.0,
+          0.2
+        ]
+      }
+    },
+    {
+      "name": "Stage3",
+      "episodes": 30000,
+      "lr": 0.0001,
+      "config": {
+        "stage_id": 3,
+        "width": [
+          0.15,
+          8
+        ],
+        "noise": 0.0,
+        "tissue": false,
+        "strict_stop": true,
+        "mixed_start": false,
+        "invert": 0.5,
+        "min_intensity": 0.05,
+        "max_intensity": 0.7,
+        "branches": false,
+        "curvature_factor": 1.0,
+        "allow_self_cross": false,
+        "self_cross_prob": 0.0,
+        "width_variation": "none",
+        "start_width": null,
+        "end_width": null,
+        "intensity_variation": "none",
+        "start_intensity": null,
+        "end_intensity": null,
+        "background_intensity": null,
+        "curvature_range": [
+          0.1,
+          5.0
+        ],
+        "noise_range": [
+          0.0,
+          0.2
+        ],
+        "background_intensity_range": [
+          0.0,
+          0.5
+        ],
+        "min_intensity_range": null,
+        "max_intensity_range": null,
+        "training_noise_range": [
+          0.0,
+          0.2
+        ]
+      }
+    }
+  ],
+  "training_start_time": "2026-01-13T01:26:51.473431",
+  "training_end_time": "2026-01-13T17:13:20.396375",
+  "training_duration_seconds": 56788.922944
+}

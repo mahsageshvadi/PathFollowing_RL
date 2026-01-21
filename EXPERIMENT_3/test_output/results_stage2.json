@@ -1,0 +1,29 @@
+{
+    "target_stage_id": 2,
+    "target_stage_name": "Bin2_Straight",
+    "model_path": "runs/20260116_030245/weights/model_Bin1_Straight_FINAL.pth",
+    "total_episodes": 100,
+    "success_count": 67,
+    "success_rate_percent": 67.0,
+    "failure_count": 33,
+    "failure_rate_percent": 33.0,
+    "average_reward": 205.37440490722656,
+    "config_used": {
+        "width_range": [
+            0.1,
+            5
+        ],
+        "curvature_factor": 0.1,
+        "min_intensity": 6.0,
+        "max_intensity": 1.0,
+        "intensity_variation": "none",
+        "curvature_range": [
+            0.0,
+            0.2
+        ],
+        "noise_prob": 0.0,
+        "branches": false,
+        "allow_self_cross": false,
+        "strict_stop": false
+    }
+}

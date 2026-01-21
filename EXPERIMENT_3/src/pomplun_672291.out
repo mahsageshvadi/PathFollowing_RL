@@ -1,0 +1,857 @@
+===== JOB INFO =====
+JobID:   672291
+Node:    chimera21
+Tasks:   4
+GPUs:    
+Account: cs_funda.durupinarbabur
+====================
+
+===== NVIDIA-SMI =====
+Thu Jan 15 22:19:39 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    On  |   00000000:52:00.0 Off |                    0 |
+| N/A   35C    P0            120W /  700W |       0MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+✅ GPU detected: NVIDIA H200
+   CUDA Version: 12.1
+✓ Loaded curve configuration from: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/config/curve_config.json
+✓ Copied curve configuration to: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/curve_config.json
+✓ Loaded 4 training stages from config
+=== STARTING UNIFIED RL TRAINING ===
+Number of Stages: 4
+Device: cuda | Actions: 8 (Inc. STOP)
+Base Seed: 50 (for reproducibility)
+Curve Generation: On-The-Fly
+Run Directory: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943
+Checkpoints: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints
+Weights: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights
+Logs: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/logs/training.log
+Training Start Time: 2026-01-15 22:19:43
+
+🛡️  Anti-Forgetting Mechanisms Enabled:
+   - Mixed Curriculum: 15% chance to sample from previous stages
+   - Periodic Evaluation: Every 500 episodes on previous stages
+   - This prevents catastrophic forgetting during curriculum learning
+
+=============================================
+STARTING Bin1_Straight
+Episodes: 10000 | LR: 0.0001
+Global Episode Offset: 0
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Bin1_Straight] Ep 100 | AvgRew: 0.02 | Succ: 0.00 | Dev: 4.69 | ZigZag: 1.27 | Eff: 0.32 | Loop: 0.16
+[Bin1_Straight] Ep 200 | AvgRew: -0.23 | Succ: 0.00 | Dev: 4.67 | ZigZag: 1.35 | Eff: 0.37 | Loop: 0.19
+[Bin1_Straight] Ep 300 | AvgRew: 2.13 | Succ: 0.00 | Dev: 4.50 | ZigZag: 1.30 | Eff: 0.37 | Loop: 0.18
+[Bin1_Straight] Ep 400 | AvgRew: 5.62 | Succ: 0.00 | Dev: 4.70 | ZigZag: 1.26 | Eff: 0.38 | Loop: 0.15
+[Bin1_Straight] Ep 500 | AvgRew: 10.21 | Succ: 0.00 | Dev: 4.80 | ZigZag: 1.21 | Eff: 0.40 | Loop: 0.15
+[Bin1_Straight] Ep 600 | AvgRew: 6.79 | Succ: 0.00 | Dev: 4.62 | ZigZag: 1.21 | Eff: 0.45 | Loop: 0.15
+[Bin1_Straight] Ep 700 | AvgRew: 15.98 | Succ: 0.00 | Dev: 4.69 | ZigZag: 1.21 | Eff: 0.43 | Loop: 0.16
+[Bin1_Straight] Ep 800 | AvgRew: 24.49 | Succ: 0.00 | Dev: 4.60 | ZigZag: 1.13 | Eff: 0.53 | Loop: 0.15
+[Bin1_Straight] Ep 900 | AvgRew: 6.65 | Succ: 0.00 | Dev: 4.65 | ZigZag: 1.03 | Eff: 0.38 | Loop: 0.10
+[Bin1_Straight] Ep 1000 | AvgRew: 27.94 | Succ: 0.00 | Dev: 4.83 | ZigZag: 0.91 | Eff: 0.41 | Loop: 0.09
+[Bin1_Straight] Ep 1100 | AvgRew: 18.40 | Succ: 0.00 | Dev: 4.64 | ZigZag: 0.99 | Eff: 0.44 | Loop: 0.12
+[Bin1_Straight] Ep 1200 | AvgRew: 28.74 | Succ: 0.00 | Dev: 4.74 | ZigZag: 0.89 | Eff: 0.43 | Loop: 0.10
+[Bin1_Straight] Ep 1300 | AvgRew: 38.76 | Succ: 0.00 | Dev: 4.68 | ZigZag: 0.94 | Eff: 0.46 | Loop: 0.13
+[Bin1_Straight] Ep 1400 | AvgRew: 54.82 | Succ: 0.00 | Dev: 4.64 | ZigZag: 0.84 | Eff: 0.62 | Loop: 0.13
+[Bin1_Straight] Ep 1500 | AvgRew: 40.12 | Succ: 0.00 | Dev: 4.47 | ZigZag: 0.92 | Eff: 0.69 | Loop: 0.19
+[Bin1_Straight] Ep 1600 | AvgRew: 53.22 | Succ: 0.00 | Dev: 4.40 | ZigZag: 0.89 | Eff: 0.81 | Loop: 0.17
+[Bin1_Straight] Ep 1700 | AvgRew: 37.42 | Succ: 0.00 | Dev: 4.38 | ZigZag: 0.87 | Eff: 0.71 | Loop: 0.16
+[Bin1_Straight] Ep 1800 | AvgRew: 43.97 | Succ: 0.00 | Dev: 4.18 | ZigZag: 0.91 | Eff: 0.79 | Loop: 0.14
+[Bin1_Straight] Ep 1900 | AvgRew: 65.69 | Succ: 0.00 | Dev: 4.18 | ZigZag: 0.89 | Eff: 0.91 | Loop: 0.16
+[Bin1_Straight] Ep 2000 | AvgRew: 66.75 | Succ: 0.00 | Dev: 4.37 | ZigZag: 0.76 | Eff: 0.84 | Loop: 0.12
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin1_Straight_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin1_Straight_ep2000.pth
+[Bin1_Straight] Ep 2100 | AvgRew: 64.91 | Succ: 0.00 | Dev: 4.55 | ZigZag: 0.72 | Eff: 0.75 | Loop: 0.10
+[Bin1_Straight] Ep 2200 | AvgRew: 82.35 | Succ: 0.00 | Dev: 4.37 | ZigZag: 0.74 | Eff: 0.88 | Loop: 0.11
+[Bin1_Straight] Ep 2300 | AvgRew: 89.06 | Succ: 0.00 | Dev: 3.91 | ZigZag: 0.86 | Eff: 0.93 | Loop: 0.10
+[Bin1_Straight] Ep 2400 | AvgRew: 76.48 | Succ: 0.00 | Dev: 4.10 | ZigZag: 0.84 | Eff: 0.75 | Loop: 0.10
+[Bin1_Straight] Ep 2500 | AvgRew: 69.15 | Succ: 0.00 | Dev: 4.13 | ZigZag: 0.86 | Eff: 0.76 | Loop: 0.10
+[Bin1_Straight] Ep 2600 | AvgRew: 56.35 | Succ: 0.00 | Dev: 4.22 | ZigZag: 0.93 | Eff: 0.89 | Loop: 0.12
+[Bin1_Straight] Ep 2700 | AvgRew: 77.15 | Succ: 0.00 | Dev: 4.13 | ZigZag: 0.90 | Eff: 0.85 | Loop: 0.11
+[Bin1_Straight] Ep 2800 | AvgRew: 69.99 | Succ: 0.00 | Dev: 4.08 | ZigZag: 0.88 | Eff: 0.75 | Loop: 0.09
+[Bin1_Straight] Ep 2900 | AvgRew: 72.34 | Succ: 0.00 | Dev: 4.17 | ZigZag: 0.78 | Eff: 0.77 | Loop: 0.08
+[Bin1_Straight] Ep 3000 | AvgRew: 73.02 | Succ: 0.00 | Dev: 4.29 | ZigZag: 0.77 | Eff: 0.88 | Loop: 0.10
+[Bin1_Straight] Ep 3100 | AvgRew: 64.87 | Succ: 0.00 | Dev: 4.36 | ZigZag: 0.72 | Eff: 0.77 | Loop: 0.07
+[Bin1_Straight] Ep 3200 | AvgRew: 97.61 | Succ: 0.00 | Dev: 4.35 | ZigZag: 0.70 | Eff: 0.84 | Loop: 0.08
+[Bin1_Straight] Ep 3300 | AvgRew: 102.77 | Succ: 0.00 | Dev: 4.21 | ZigZag: 0.72 | Eff: 0.82 | Loop: 0.08
+[Bin1_Straight] Ep 3400 | AvgRew: 123.28 | Succ: 0.00 | Dev: 4.05 | ZigZag: 0.65 | Eff: 0.84 | Loop: 0.06
+[Bin1_Straight] Ep 3500 | AvgRew: 117.87 | Succ: 0.00 | Dev: 4.18 | ZigZag: 0.66 | Eff: 0.74 | Loop: 0.04
+[Bin1_Straight] Ep 3600 | AvgRew: 112.84 | Succ: 0.00 | Dev: 3.87 | ZigZag: 0.68 | Eff: 0.79 | Loop: 0.03
+[Bin1_Straight] Ep 3700 | AvgRew: 108.31 | Succ: 0.00 | Dev: 4.27 | ZigZag: 0.68 | Eff: 0.92 | Loop: 0.05
+[Bin1_Straight] Ep 3800 | AvgRew: 88.52 | Succ: 0.00 | Dev: 4.28 | ZigZag: 0.70 | Eff: 0.79 | Loop: 0.06
+[Bin1_Straight] Ep 3900 | AvgRew: 117.17 | Succ: 0.00 | Dev: 4.08 | ZigZag: 0.72 | Eff: 0.84 | Loop: 0.07
+[Bin1_Straight] Ep 4000 | AvgRew: 90.65 | Succ: 0.00 | Dev: 4.44 | ZigZag: 0.70 | Eff: 0.74 | Loop: 0.06
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin1_Straight_ep4000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin1_Straight_ep4000.pth
+[Bin1_Straight] Ep 4100 | AvgRew: 95.14 | Succ: 0.00 | Dev: 3.87 | ZigZag: 0.77 | Eff: 0.87 | Loop: 0.06
+[Bin1_Straight] Ep 4200 | AvgRew: 106.51 | Succ: 0.00 | Dev: 4.09 | ZigZag: 0.73 | Eff: 0.84 | Loop: 0.06
+[Bin1_Straight] Ep 4300 | AvgRew: 111.28 | Succ: 0.00 | Dev: 4.18 | ZigZag: 0.75 | Eff: 0.94 | Loop: 0.07
+[Bin1_Straight] Ep 4400 | AvgRew: 109.21 | Succ: 0.00 | Dev: 3.87 | ZigZag: 0.83 | Eff: 1.16 | Loop: 0.10
+[Bin1_Straight] Ep 4500 | AvgRew: 104.42 | Succ: 0.00 | Dev: 4.04 | ZigZag: 0.75 | Eff: 0.91 | Loop: 0.07
+[Bin1_Straight] Ep 4600 | AvgRew: 117.82 | Succ: 0.00 | Dev: 3.80 | ZigZag: 0.66 | Eff: 0.96 | Loop: 0.06
+[Bin1_Straight] Ep 4700 | AvgRew: 129.81 | Succ: 0.00 | Dev: 3.70 | ZigZag: 0.75 | Eff: 1.00 | Loop: 0.06
+[Bin1_Straight] Ep 4800 | AvgRew: 98.96 | Succ: 0.00 | Dev: 3.83 | ZigZag: 0.72 | Eff: 0.88 | Loop: 0.06
+[Bin1_Straight] Ep 4900 | AvgRew: 162.74 | Succ: 0.00 | Dev: 3.38 | ZigZag: 0.79 | Eff: 1.14 | Loop: 0.09
+[Bin1_Straight] Ep 5000 | AvgRew: 143.11 | Succ: 0.00 | Dev: 3.63 | ZigZag: 0.75 | Eff: 1.11 | Loop: 0.06
+[Bin1_Straight] Ep 5100 | AvgRew: 152.15 | Succ: 0.00 | Dev: 3.56 | ZigZag: 0.82 | Eff: 1.02 | Loop: 0.06
+[Bin1_Straight] Ep 5200 | AvgRew: 130.64 | Succ: 0.00 | Dev: 3.69 | ZigZag: 0.84 | Eff: 1.07 | Loop: 0.08
+[Bin1_Straight] Ep 5300 | AvgRew: 174.45 | Succ: 0.00 | Dev: 3.35 | ZigZag: 0.80 | Eff: 1.15 | Loop: 0.05
+[Bin1_Straight] Ep 5400 | AvgRew: 173.64 | Succ: 0.00 | Dev: 3.41 | ZigZag: 0.77 | Eff: 1.10 | Loop: 0.05
+[Bin1_Straight] Ep 5500 | AvgRew: 201.52 | Succ: 0.00 | Dev: 3.11 | ZigZag: 0.76 | Eff: 1.17 | Loop: 0.03
+[Bin1_Straight] Ep 5600 | AvgRew: 162.37 | Succ: 0.00 | Dev: 3.31 | ZigZag: 0.78 | Eff: 1.08 | Loop: 0.06
+[Bin1_Straight] Ep 5700 | AvgRew: 169.83 | Succ: 0.00 | Dev: 3.52 | ZigZag: 0.77 | Eff: 1.16 | Loop: 0.06
+[Bin1_Straight] Ep 5800 | AvgRew: 168.06 | Succ: 0.00 | Dev: 3.45 | ZigZag: 0.83 | Eff: 1.06 | Loop: 0.05
+[Bin1_Straight] Ep 5900 | AvgRew: 168.33 | Succ: 0.00 | Dev: 3.81 | ZigZag: 0.72 | Eff: 1.12 | Loop: 0.05
+[Bin1_Straight] Ep 6000 | AvgRew: 139.61 | Succ: 0.00 | Dev: 3.90 | ZigZag: 0.79 | Eff: 0.99 | Loop: 0.05
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin1_Straight_ep6000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin1_Straight_ep6000.pth
+[Bin1_Straight] Ep 6100 | AvgRew: 166.30 | Succ: 0.00 | Dev: 3.40 | ZigZag: 0.82 | Eff: 1.05 | Loop: 0.06
+[Bin1_Straight] Ep 6200 | AvgRew: 147.94 | Succ: 0.00 | Dev: 3.46 | ZigZag: 0.81 | Eff: 0.91 | Loop: 0.04
+[Bin1_Straight] Ep 6300 | AvgRew: 151.15 | Succ: 0.00 | Dev: 3.36 | ZigZag: 0.87 | Eff: 1.11 | Loop: 0.05
+[Bin1_Straight] Ep 6400 | AvgRew: 164.70 | Succ: 0.00 | Dev: 3.38 | ZigZag: 0.84 | Eff: 1.14 | Loop: 0.04
+[Bin1_Straight] Ep 6500 | AvgRew: 202.83 | Succ: 0.00 | Dev: 2.91 | ZigZag: 0.90 | Eff: 1.32 | Loop: 0.06
+[Bin1_Straight] Ep 6600 | AvgRew: 185.07 | Succ: 0.00 | Dev: 3.38 | ZigZag: 0.82 | Eff: 1.08 | Loop: 0.04
+[Bin1_Straight] Ep 6700 | AvgRew: 203.66 | Succ: 0.00 | Dev: 3.31 | ZigZag: 0.80 | Eff: 1.11 | Loop: 0.04
+[Bin1_Straight] Ep 6800 | AvgRew: 183.47 | Succ: 0.00 | Dev: 3.39 | ZigZag: 0.86 | Eff: 1.14 | Loop: 0.04
+[Bin1_Straight] Ep 6900 | AvgRew: 203.32 | Succ: 0.00 | Dev: 3.22 | ZigZag: 0.90 | Eff: 1.29 | Loop: 0.05
+[Bin1_Straight] Ep 7000 | AvgRew: 189.22 | Succ: 0.00 | Dev: 3.45 | ZigZag: 0.91 | Eff: 1.29 | Loop: 0.06
+[Bin1_Straight] Ep 7100 | AvgRew: 183.67 | Succ: 0.00 | Dev: 3.03 | ZigZag: 0.94 | Eff: 1.18 | Loop: 0.05
+[Bin1_Straight] Ep 7200 | AvgRew: 159.79 | Succ: 0.00 | Dev: 3.49 | ZigZag: 0.87 | Eff: 1.07 | Loop: 0.02
+[Bin1_Straight] Ep 7300 | AvgRew: 207.40 | Succ: 0.00 | Dev: 3.06 | ZigZag: 0.91 | Eff: 1.49 | Loop: 0.03
+[Bin1_Straight] Ep 7400 | AvgRew: 228.44 | Succ: 0.00 | Dev: 2.88 | ZigZag: 1.02 | Eff: 1.57 | Loop: 0.04
+[Bin1_Straight] Ep 7500 | AvgRew: 259.09 | Succ: 0.00 | Dev: 2.36 | ZigZag: 1.08 | Eff: 1.67 | Loop: 0.03
+[Bin1_Straight] Ep 7600 | AvgRew: 245.08 | Succ: 0.00 | Dev: 2.36 | ZigZag: 1.04 | Eff: 1.77 | Loop: 0.04
+[Bin1_Straight] Ep 7700 | AvgRew: 283.26 | Succ: 0.00 | Dev: 2.29 | ZigZag: 0.95 | Eff: 1.54 | Loop: 0.03
+[Bin1_Straight] Ep 7800 | AvgRew: 267.55 | Succ: 0.00 | Dev: 2.33 | ZigZag: 1.04 | Eff: 1.61 | Loop: 0.04
+[Bin1_Straight] Ep 7900 | AvgRew: 264.79 | Succ: 0.00 | Dev: 2.46 | ZigZag: 0.92 | Eff: 1.79 | Loop: 0.06
+[Bin1_Straight] Ep 8000 | AvgRew: 262.93 | Succ: 0.00 | Dev: 2.32 | ZigZag: 1.02 | Eff: 1.64 | Loop: 0.04
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin1_Straight_ep8000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin1_Straight_ep8000.pth
+[Bin1_Straight] Ep 8100 | AvgRew: 253.53 | Succ: 0.00 | Dev: 2.69 | ZigZag: 1.03 | Eff: 1.69 | Loop: 0.03
+[Bin1_Straight] Ep 8200 | AvgRew: 258.42 | Succ: 0.00 | Dev: 2.73 | ZigZag: 1.00 | Eff: 1.68 | Loop: 0.03
+[Bin1_Straight] Ep 8300 | AvgRew: 282.61 | Succ: 0.00 | Dev: 2.37 | ZigZag: 0.90 | Eff: 1.57 | Loop: 0.03
+[Bin1_Straight] Ep 8400 | AvgRew: 293.31 | Succ: 0.00 | Dev: 2.11 | ZigZag: 0.98 | Eff: 1.73 | Loop: 0.03
+[Bin1_Straight] Ep 8500 | AvgRew: 313.10 | Succ: 0.00 | Dev: 2.12 | ZigZag: 0.93 | Eff: 1.71 | Loop: 0.02
+[Bin1_Straight] Ep 8600 | AvgRew: 296.17 | Succ: 0.00 | Dev: 2.27 | ZigZag: 0.91 | Eff: 1.82 | Loop: 0.03
+[Bin1_Straight] Ep 8700 | AvgRew: 325.56 | Succ: 0.00 | Dev: 2.06 | ZigZag: 0.95 | Eff: 1.80 | Loop: 0.03
+[Bin1_Straight] Ep 8800 | AvgRew: 291.26 | Succ: 0.00 | Dev: 2.22 | ZigZag: 1.02 | Eff: 1.66 | Loop: 0.04
+[Bin1_Straight] Ep 8900 | AvgRew: 333.89 | Succ: 0.00 | Dev: 1.63 | ZigZag: 1.10 | Eff: 1.67 | Loop: 0.03
+[Bin1_Straight] Ep 9000 | AvgRew: 296.91 | Succ: 0.00 | Dev: 1.91 | ZigZag: 1.08 | Eff: 1.70 | Loop: 0.03
+[Bin1_Straight] Ep 9100 | AvgRew: 325.62 | Succ: 0.00 | Dev: 1.67 | ZigZag: 1.03 | Eff: 1.59 | Loop: 0.03
+[Bin1_Straight] Ep 9200 | AvgRew: 328.23 | Succ: 0.00 | Dev: 1.78 | ZigZag: 1.00 | Eff: 1.80 | Loop: 0.03
+[Bin1_Straight] Ep 9300 | AvgRew: 339.37 | Succ: 0.00 | Dev: 1.87 | ZigZag: 0.93 | Eff: 1.84 | Loop: 0.05
+[Bin1_Straight] Ep 9400 | AvgRew: 327.13 | Succ: 0.00 | Dev: 1.73 | ZigZag: 1.00 | Eff: 1.80 | Loop: 0.05
+[Bin1_Straight] Ep 9500 | AvgRew: 334.41 | Succ: 0.00 | Dev: 1.79 | ZigZag: 0.96 | Eff: 1.79 | Loop: 0.06
+[Bin1_Straight] Ep 9600 | AvgRew: 346.36 | Succ: 0.00 | Dev: 1.74 | ZigZag: 0.96 | Eff: 1.71 | Loop: 0.04
+[Bin1_Straight] Ep 9700 | AvgRew: 352.64 | Succ: 0.00 | Dev: 1.65 | ZigZag: 0.91 | Eff: 1.69 | Loop: 0.05
+[Bin1_Straight] Ep 9800 | AvgRew: 334.52 | Succ: 0.00 | Dev: 1.67 | ZigZag: 1.01 | Eff: 1.91 | Loop: 0.05
+[Bin1_Straight] Ep 9900 | AvgRew: 359.35 | Succ: 0.00 | Dev: 1.67 | ZigZag: 0.97 | Eff: 1.84 | Loop: 0.04
+[Bin1_Straight] Ep 10000 | AvgRew: 340.63 | Succ: 0.00 | Dev: 1.81 | ZigZag: 0.97 | Eff: 1.89 | Loop: 0.06
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin1_Straight_ep10000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin1_Straight_ep10000.pth
+Finished Bin1_Straight. Saved model to /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights/model_Bin1_Straight_FINAL.pth
+✅ Added Bin1_Straight to previous stages pool (total: 1 stages)
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights/actor_Bin1_Straight_FINAL.pth
+
+=============================================
+STARTING Bin2_Wavy
+Episodes: 10000 | LR: 0.0001
+Global Episode Offset: 20000
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Bin2_Wavy] Ep 100 | AvgRew: 314.48 | Succ: 0.00 | Dev: 1.64 | ZigZag: 0.98 | Eff: 1.55 | Loop: 0.06 [Prev: 1]
+[Bin2_Wavy] Ep 200 | AvgRew: 315.67 | Succ: 0.00 | Dev: 1.54 | ZigZag: 1.03 | Eff: 1.71 | Loop: 0.06 [Prev: 1]
+[Bin2_Wavy] Ep 300 | AvgRew: 328.61 | Succ: 0.00 | Dev: 1.53 | ZigZag: 0.98 | Eff: 1.72 | Loop: 0.06 [Prev: 1]
+[Bin2_Wavy] Ep 400 | AvgRew: 327.49 | Succ: 0.00 | Dev: 1.54 | ZigZag: 1.00 | Eff: 1.59 | Loop: 0.05 [Prev: 1]
+[Bin2_Wavy] Ep 500 | AvgRew: 316.31 | Succ: 0.00 | Dev: 1.64 | ZigZag: 0.99 | Eff: 1.60 | Loop: 0.05 [Prev: 1]
+[Bin2_Wavy] Ep 600 | AvgRew: 326.86 | Succ: 0.00 | Dev: 1.53 | ZigZag: 0.99 | Eff: 1.83 | Loop: 0.07 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 700 | AvgRew: 341.19 | Succ: 0.00 | Dev: 1.42 | ZigZag: 0.97 | Eff: 1.71 | Loop: 0.06 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 800 | AvgRew: 339.45 | Succ: 0.00 | Dev: 1.66 | ZigZag: 0.95 | Eff: 1.74 | Loop: 0.05 [Prev: 1]
+[Bin2_Wavy] Ep 900 | AvgRew: 329.73 | Succ: 0.00 | Dev: 1.67 | ZigZag: 0.91 | Eff: 1.58 | Loop: 0.04 [Prev: 1]
+[Bin2_Wavy] Ep 1000 | AvgRew: 330.49 | Succ: 0.00 | Dev: 1.69 | ZigZag: 0.93 | Eff: 1.68 | Loop: 0.07 [Prev: 1]
+[Bin2_Wavy] Ep 1100 | AvgRew: 296.85 | Succ: 0.00 | Dev: 1.94 | ZigZag: 0.91 | Eff: 1.62 | Loop: 0.07 [Prev: 1]
+[Bin2_Wavy] Ep 1200 | AvgRew: 320.41 | Succ: 0.00 | Dev: 1.90 | ZigZag: 0.92 | Eff: 1.84 | Loop: 0.09 [Prev: 1]
+[Bin2_Wavy] Ep 1300 | AvgRew: 331.00 | Succ: 0.00 | Dev: 1.82 | ZigZag: 0.87 | Eff: 1.70 | Loop: 0.06 [Prev: 1]
+[Bin2_Wavy] Ep 1400 | AvgRew: 363.97 | Succ: 0.00 | Dev: 1.49 | ZigZag: 0.99 | Eff: 1.81 | Loop: 0.09 [Prev: 1]
+[Bin2_Wavy] Ep 1500 | AvgRew: 360.85 | Succ: 0.00 | Dev: 1.61 | ZigZag: 0.99 | Eff: 2.00 | Loop: 0.10 [Prev: 1]
+[Bin2_Wavy] Ep 1600 | AvgRew: 367.74 | Succ: 0.00 | Dev: 1.65 | ZigZag: 0.94 | Eff: 1.80 | Loop: 0.09 [Prev: 1]
+[Bin2_Wavy] Ep 1700 | AvgRew: 386.76 | Succ: 0.00 | Dev: 1.42 | ZigZag: 1.05 | Eff: 1.96 | Loop: 0.12 [Prev: 1]
+[Bin2_Wavy] Ep 1800 | AvgRew: 375.20 | Succ: 0.00 | Dev: 1.39 | ZigZag: 1.03 | Eff: 1.72 | Loop: 0.11 [Prev: 1]
+[Bin2_Wavy] Ep 1900 | AvgRew: 381.56 | Succ: 0.00 | Dev: 1.40 | ZigZag: 1.06 | Eff: 1.86 | Loop: 0.14 [Prev: 1]
+[Bin2_Wavy] Ep 2000 | AvgRew: 400.35 | Succ: 0.00 | Dev: 1.47 | ZigZag: 1.04 | Eff: 1.69 | Loop: 0.14 [Prev: 1]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin2_Wavy_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin2_Wavy_ep2000.pth
+[Bin2_Wavy] Ep 2100 | AvgRew: 462.18 | Succ: 0.00 | Dev: 1.25 | ZigZag: 1.20 | Eff: 2.00 | Loop: 0.20 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 2200 | AvgRew: 475.06 | Succ: 0.00 | Dev: 1.35 | ZigZag: 1.19 | Eff: 2.02 | Loop: 0.20 [Prev: 1]
+[Bin2_Wavy] Ep 2300 | AvgRew: 454.89 | Succ: 0.00 | Dev: 1.33 | ZigZag: 1.14 | Eff: 1.82 | Loop: 0.19 [Prev: 1]
+[Bin2_Wavy] Ep 2400 | AvgRew: 421.25 | Succ: 0.00 | Dev: 1.39 | ZigZag: 1.20 | Eff: 2.06 | Loop: 0.20 [Prev: 1]
+[Bin2_Wavy] Ep 2500 | AvgRew: 434.67 | Succ: 0.00 | Dev: 1.47 | ZigZag: 1.30 | Eff: 2.08 | Loop: 0.27 [Prev: 1]
+[Bin2_Wavy] Ep 2600 | AvgRew: 428.92 | Succ: 0.00 | Dev: 1.54 | ZigZag: 1.08 | Eff: 1.85 | Loop: 0.17 [Prev: 1]
+[Bin2_Wavy] Ep 2700 | AvgRew: 437.56 | Succ: 0.00 | Dev: 1.42 | ZigZag: 1.17 | Eff: 1.92 | Loop: 0.20 [Prev: 1]
+[Bin2_Wavy] Ep 2800 | AvgRew: 446.97 | Succ: 0.00 | Dev: 1.53 | ZigZag: 1.21 | Eff: 2.08 | Loop: 0.22 [Prev: 1]
+[Bin2_Wavy] Ep 2900 | AvgRew: 459.87 | Succ: 0.00 | Dev: 1.39 | ZigZag: 1.28 | Eff: 1.93 | Loop: 0.24 [Prev: 1]
+[Bin2_Wavy] Ep 3000 | AvgRew: 474.72 | Succ: 0.00 | Dev: 1.45 | ZigZag: 1.27 | Eff: 1.97 | Loop: 0.23 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 3100 | AvgRew: 446.01 | Succ: 0.00 | Dev: 1.47 | ZigZag: 1.27 | Eff: 1.97 | Loop: 0.22 [Prev: 1]
+[Bin2_Wavy] Ep 3200 | AvgRew: 461.50 | Succ: 0.00 | Dev: 1.61 | ZigZag: 1.20 | Eff: 2.07 | Loop: 0.21 [Prev: 1]
+[Bin2_Wavy] Ep 3300 | AvgRew: 456.15 | Succ: 0.00 | Dev: 1.43 | ZigZag: 1.15 | Eff: 1.95 | Loop: 0.20 [Prev: 1]
+[Bin2_Wavy] Ep 3400 | AvgRew: 476.66 | Succ: 0.00 | Dev: 1.63 | ZigZag: 1.30 | Eff: 2.20 | Loop: 0.27 [Prev: 1]
+[Bin2_Wavy] Ep 3500 | AvgRew: 454.93 | Succ: 0.00 | Dev: 1.42 | ZigZag: 1.19 | Eff: 1.96 | Loop: 0.22 [Prev: 1]
+[Bin2_Wavy] Ep 3600 | AvgRew: 471.20 | Succ: 0.00 | Dev: 1.43 | ZigZag: 1.15 | Eff: 1.92 | Loop: 0.22 [Prev: 1]
+[Bin2_Wavy] Ep 3700 | AvgRew: 462.77 | Succ: 0.00 | Dev: 1.43 | ZigZag: 1.19 | Eff: 1.99 | Loop: 0.21 [Prev: 1]
+[Bin2_Wavy] Ep 3800 | AvgRew: 502.51 | Succ: 0.00 | Dev: 1.43 | ZigZag: 1.23 | Eff: 2.06 | Loop: 0.27 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 3900 | AvgRew: 485.99 | Succ: 0.00 | Dev: 1.43 | ZigZag: 1.26 | Eff: 2.08 | Loop: 0.27 [Prev: 1]
+[Bin2_Wavy] Ep 4000 | AvgRew: 495.10 | Succ: 0.00 | Dev: 1.40 | ZigZag: 1.13 | Eff: 1.88 | Loop: 0.23 [Prev: 1]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin2_Wavy_ep4000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin2_Wavy_ep4000.pth
+[Bin2_Wavy] Ep 4100 | AvgRew: 486.34 | Succ: 0.00 | Dev: 1.43 | ZigZag: 1.07 | Eff: 1.88 | Loop: 0.22 [Prev: 1]
+[Bin2_Wavy] Ep 4200 | AvgRew: 495.65 | Succ: 0.00 | Dev: 1.38 | ZigZag: 1.17 | Eff: 1.98 | Loop: 0.24 [Prev: 1]
+[Bin2_Wavy] Ep 4300 | AvgRew: 524.68 | Succ: 0.00 | Dev: 1.29 | ZigZag: 1.29 | Eff: 2.06 | Loop: 0.27 [Prev: 1]
+[Bin2_Wavy] Ep 4400 | AvgRew: 512.28 | Succ: 0.00 | Dev: 1.38 | ZigZag: 1.22 | Eff: 2.05 | Loop: 0.27 [Prev: 1]
+[Bin2_Wavy] Ep 4500 | AvgRew: 479.92 | Succ: 0.00 | Dev: 1.55 | ZigZag: 1.21 | Eff: 2.01 | Loop: 0.26 [Prev: 1]
+[Bin2_Wavy] Ep 4600 | AvgRew: 499.44 | Succ: 0.00 | Dev: 1.49 | ZigZag: 1.18 | Eff: 2.07 | Loop: 0.29 [Prev: 1]
+[Bin2_Wavy] Ep 4700 | AvgRew: 474.33 | Succ: 0.00 | Dev: 1.50 | ZigZag: 1.12 | Eff: 1.89 | Loop: 0.24 [Prev: 1]
+[Bin2_Wavy] Ep 4800 | AvgRew: 513.16 | Succ: 0.00 | Dev: 1.42 | ZigZag: 1.15 | Eff: 2.00 | Loop: 0.26 [Prev: 1]
+[Bin2_Wavy] Ep 4900 | AvgRew: 525.79 | Succ: 0.00 | Dev: 1.27 | ZigZag: 1.10 | Eff: 1.85 | Loop: 0.22 [Prev: 1]
+[Bin2_Wavy] Ep 5000 | AvgRew: 551.61 | Succ: 0.00 | Dev: 1.33 | ZigZag: 1.15 | Eff: 1.97 | Loop: 0.25 [Prev: 1]
+[Bin2_Wavy] Ep 5100 | AvgRew: 545.06 | Succ: 0.00 | Dev: 1.30 | ZigZag: 1.25 | Eff: 2.03 | Loop: 0.28 [Prev: 1]
+[Bin2_Wavy] Ep 5200 | AvgRew: 501.83 | Succ: 0.00 | Dev: 1.43 | ZigZag: 1.13 | Eff: 1.89 | Loop: 0.23 [Prev: 1]
+[Bin2_Wavy] Ep 5300 | AvgRew: 503.27 | Succ: 0.00 | Dev: 1.47 | ZigZag: 1.19 | Eff: 1.98 | Loop: 0.29 [Prev: 1]
+[Bin2_Wavy] Ep 5400 | AvgRew: 525.02 | Succ: 0.00 | Dev: 1.41 | ZigZag: 1.10 | Eff: 2.01 | Loop: 0.26 [Prev: 1]
+[Bin2_Wavy] Ep 5500 | AvgRew: 567.63 | Succ: 0.00 | Dev: 1.26 | ZigZag: 1.20 | Eff: 2.09 | Loop: 0.28 [Prev: 1]
+[Bin2_Wavy] Ep 5600 | AvgRew: 525.78 | Succ: 0.00 | Dev: 1.21 | ZigZag: 1.08 | Eff: 1.81 | Loop: 0.22 [Prev: 1]
+[Bin2_Wavy] Ep 5700 | AvgRew: 534.98 | Succ: 0.00 | Dev: 1.19 | ZigZag: 1.29 | Eff: 2.03 | Loop: 0.30 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 5800 | AvgRew: 518.60 | Succ: 0.00 | Dev: 1.22 | ZigZag: 1.26 | Eff: 2.00 | Loop: 0.30 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 5900 | AvgRew: 566.50 | Succ: 0.00 | Dev: 1.20 | ZigZag: 1.28 | Eff: 2.13 | Loop: 0.33 [Prev: 1]
+[Bin2_Wavy] Ep 6000 | AvgRew: 536.93 | Succ: 0.00 | Dev: 1.15 | ZigZag: 1.30 | Eff: 2.05 | Loop: 0.29 [Prev: 1]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin2_Wavy_ep6000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin2_Wavy_ep6000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 6100 | AvgRew: 528.67 | Succ: 0.00 | Dev: 1.27 | ZigZag: 1.24 | Eff: 2.02 | Loop: 0.32 [Prev: 1]
+[Bin2_Wavy] Ep 6200 | AvgRew: 544.24 | Succ: 0.00 | Dev: 1.34 | ZigZag: 1.34 | Eff: 2.15 | Loop: 0.33 [Prev: 1]
+[Bin2_Wavy] Ep 6300 | AvgRew: 554.32 | Succ: 0.00 | Dev: 1.34 | ZigZag: 1.24 | Eff: 2.05 | Loop: 0.30 [Prev: 1]
+[Bin2_Wavy] Ep 6400 | AvgRew: 560.37 | Succ: 0.00 | Dev: 1.23 | ZigZag: 1.16 | Eff: 1.90 | Loop: 0.29 [Prev: 1]
+[Bin2_Wavy] Ep 6500 | AvgRew: 592.12 | Succ: 0.00 | Dev: 1.27 | ZigZag: 1.18 | Eff: 2.03 | Loop: 0.33 [Prev: 1]
+[Bin2_Wavy] Ep 6600 | AvgRew: 599.41 | Succ: 0.00 | Dev: 1.35 | ZigZag: 1.23 | Eff: 2.05 | Loop: 0.31 [Prev: 1]
+[Bin2_Wavy] Ep 6700 | AvgRew: 559.19 | Succ: 0.00 | Dev: 1.24 | ZigZag: 1.19 | Eff: 1.97 | Loop: 0.31 [Prev: 1]
+[Bin2_Wavy] Ep 6800 | AvgRew: 563.48 | Succ: 0.00 | Dev: 1.24 | ZigZag: 1.18 | Eff: 2.01 | Loop: 0.30 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 6900 | AvgRew: 560.08 | Succ: 0.00 | Dev: 1.40 | ZigZag: 1.23 | Eff: 1.99 | Loop: 0.30 [Prev: 1]
+[Bin2_Wavy] Ep 7000 | AvgRew: 580.55 | Succ: 0.00 | Dev: 1.26 | ZigZag: 1.31 | Eff: 2.21 | Loop: 0.36 [Prev: 1]
+[Bin2_Wavy] Ep 7100 | AvgRew: 543.43 | Succ: 0.00 | Dev: 1.21 | ZigZag: 1.14 | Eff: 1.91 | Loop: 0.29 [Prev: 1]
+[Bin2_Wavy] Ep 7200 | AvgRew: 601.64 | Succ: 0.00 | Dev: 1.07 | ZigZag: 1.26 | Eff: 2.05 | Loop: 0.32 [Prev: 1]
+[Bin2_Wavy] Ep 7300 | AvgRew: 579.68 | Succ: 0.00 | Dev: 1.13 | ZigZag: 1.20 | Eff: 2.06 | Loop: 0.31 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 7400 | AvgRew: 581.32 | Succ: 0.00 | Dev: 1.06 | ZigZag: 1.25 | Eff: 2.04 | Loop: 0.30 [Prev: 1]
+[Bin2_Wavy] Ep 7500 | AvgRew: 574.29 | Succ: 0.00 | Dev: 1.19 | ZigZag: 1.12 | Eff: 1.92 | Loop: 0.29 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 7600 | AvgRew: 549.25 | Succ: 0.00 | Dev: 1.25 | ZigZag: 1.15 | Eff: 1.98 | Loop: 0.30 [Prev: 1]
+[Bin2_Wavy] Ep 7700 | AvgRew: 553.79 | Succ: 0.00 | Dev: 1.56 | ZigZag: 1.13 | Eff: 1.96 | Loop: 0.29 [Prev: 1]
+[Bin2_Wavy] Ep 7800 | AvgRew: 584.67 | Succ: 0.00 | Dev: 1.24 | ZigZag: 1.22 | Eff: 2.07 | Loop: 0.32 [Prev: 1]
+[Bin2_Wavy] Ep 7900 | AvgRew: 584.22 | Succ: 0.00 | Dev: 1.23 | ZigZag: 1.19 | Eff: 2.02 | Loop: 0.32 [Prev: 1]
+[Bin2_Wavy] Ep 8000 | AvgRew: 537.23 | Succ: 0.00 | Dev: 1.29 | ZigZag: 1.20 | Eff: 2.04 | Loop: 0.30 [Prev: 1]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin2_Wavy_ep8000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin2_Wavy_ep8000.pth
+[Bin2_Wavy] Ep 8100 | AvgRew: 557.47 | Succ: 0.00 | Dev: 1.27 | ZigZag: 1.15 | Eff: 2.06 | Loop: 0.30 [Prev: 1]
+[Bin2_Wavy] Ep 8200 | AvgRew: 579.15 | Succ: 0.00 | Dev: 1.05 | ZigZag: 1.11 | Eff: 1.90 | Loop: 0.29 [Prev: 1]
+[Bin2_Wavy] Ep 8300 | AvgRew: 586.74 | Succ: 0.00 | Dev: 1.15 | ZigZag: 1.20 | Eff: 2.10 | Loop: 0.32 [Prev: 1]
+[Bin2_Wavy] Ep 8400 | AvgRew: 570.71 | Succ: 0.00 | Dev: 1.16 | ZigZag: 1.19 | Eff: 2.00 | Loop: 0.31 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 8500 | AvgRew: 568.47 | Succ: 0.00 | Dev: 1.28 | ZigZag: 1.10 | Eff: 2.07 | Loop: 0.29 [Prev: 1]
+[Bin2_Wavy] Ep 8600 | AvgRew: 601.85 | Succ: 0.00 | Dev: 1.20 | ZigZag: 1.18 | Eff: 2.09 | Loop: 0.33 [Prev: 1]
+[Bin2_Wavy] Ep 8700 | AvgRew: 563.32 | Succ: 0.00 | Dev: 1.20 | ZigZag: 1.27 | Eff: 1.96 | Loop: 0.32 [Prev: 1]
+[Bin2_Wavy] Ep 8800 | AvgRew: 642.68 | Succ: 0.00 | Dev: 1.18 | ZigZag: 1.18 | Eff: 2.12 | Loop: 0.34 [Prev: 1]
+[Bin2_Wavy] Ep 8900 | AvgRew: 559.66 | Succ: 0.00 | Dev: 1.43 | ZigZag: 1.20 | Eff: 2.05 | Loop: 0.35 [Prev: 1]
+[Bin2_Wavy] Ep 9000 | AvgRew: 592.45 | Succ: 0.00 | Dev: 1.18 | ZigZag: 1.06 | Eff: 1.85 | Loop: 0.29 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 9100 | AvgRew: 582.77 | Succ: 0.00 | Dev: 1.09 | ZigZag: 1.08 | Eff: 1.88 | Loop: 0.30 [Prev: 1]
+[Bin2_Wavy] Ep 9200 | AvgRew: 610.22 | Succ: 0.00 | Dev: 1.42 | ZigZag: 1.21 | Eff: 2.16 | Loop: 0.37 [Prev: 1]
+[Bin2_Wavy] Ep 9300 | AvgRew: 579.11 | Succ: 0.00 | Dev: 1.27 | ZigZag: 1.12 | Eff: 1.99 | Loop: 0.35 [Prev: 1]
+[Bin2_Wavy] Ep 9400 | AvgRew: 537.80 | Succ: 0.00 | Dev: 1.23 | ZigZag: 1.02 | Eff: 1.81 | Loop: 0.30 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 9500 | AvgRew: 584.59 | Succ: 0.00 | Dev: 1.02 | ZigZag: 1.01 | Eff: 1.88 | Loop: 0.31 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin2_Wavy] Ep 9600 | AvgRew: 584.09 | Succ: 0.00 | Dev: 1.00 | ZigZag: 1.14 | Eff: 1.99 | Loop: 0.35 [Prev: 1]
+[Bin2_Wavy] Ep 9700 | AvgRew: 622.43 | Succ: 0.00 | Dev: 1.05 | ZigZag: 1.13 | Eff: 2.01 | Loop: 0.36 [Prev: 1]
+[Bin2_Wavy] Ep 9800 | AvgRew: 636.61 | Succ: 0.00 | Dev: 1.05 | ZigZag: 1.07 | Eff: 1.99 | Loop: 0.34 [Prev: 1]
+[Bin2_Wavy] Ep 9900 | AvgRew: 589.74 | Succ: 0.00 | Dev: 1.34 | ZigZag: 1.01 | Eff: 1.95 | Loop: 0.33 [Prev: 1]
+[Bin2_Wavy] Ep 10000 | AvgRew: 594.89 | Succ: 0.00 | Dev: 1.28 | ZigZag: 1.07 | Eff: 2.05 | Loop: 0.36 [Prev: 1]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin2_Wavy_ep10000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin2_Wavy_ep10000.pth
+Finished Bin2_Wavy. Saved model to /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights/model_Bin2_Wavy_FINAL.pth
+✅ Added Bin2_Wavy to previous stages pool (total: 2 stages)
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights/actor_Bin2_Wavy_FINAL.pth
+
+=============================================
+STARTING Bin3_Complex_Loops
+Episodes: 10000 | LR: 5e-05
+Global Episode Offset: 40000
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Bin3_Complex_Loops] Ep 100 | AvgRew: 233.78 | Succ: 0.00 | Dev: 1.45 | ZigZag: 1.21 | Eff: 1.34 | Loop: 0.45 [Prev: 2]
+[Bin3_Complex_Loops] Ep 200 | AvgRew: 266.65 | Succ: 0.00 | Dev: 1.47 | ZigZag: 1.11 | Eff: 1.35 | Loop: 0.39 [Prev: 2]
+[Bin3_Complex_Loops] Ep 300 | AvgRew: 275.53 | Succ: 0.00 | Dev: 1.40 | ZigZag: 1.05 | Eff: 1.37 | Loop: 0.37 [Prev: 2]
+[Bin3_Complex_Loops] Ep 400 | AvgRew: 336.02 | Succ: 0.00 | Dev: 1.47 | ZigZag: 0.92 | Eff: 1.30 | Loop: 0.27 [Prev: 2]
+[Bin3_Complex_Loops] Ep 500 | AvgRew: 326.06 | Succ: 0.00 | Dev: 1.48 | ZigZag: 0.99 | Eff: 1.37 | Loop: 0.33 [Prev: 2]
+[Bin3_Complex_Loops] Ep 600 | AvgRew: 319.42 | Succ: 0.00 | Dev: 1.46 | ZigZag: 0.85 | Eff: 1.27 | Loop: 0.23 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 700 | AvgRew: 315.32 | Succ: 0.00 | Dev: 1.45 | ZigZag: 0.90 | Eff: 1.38 | Loop: 0.27 [Prev: 2]
+[Bin3_Complex_Loops] Ep 800 | AvgRew: 356.59 | Succ: 0.00 | Dev: 1.39 | ZigZag: 0.90 | Eff: 1.35 | Loop: 0.26 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 900 | AvgRew: 362.22 | Succ: 0.00 | Dev: 1.34 | ZigZag: 0.84 | Eff: 1.32 | Loop: 0.24 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1000 | AvgRew: 381.00 | Succ: 0.00 | Dev: 1.37 | ZigZag: 0.82 | Eff: 1.41 | Loop: 0.24 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1100 | AvgRew: 385.43 | Succ: 0.00 | Dev: 1.30 | ZigZag: 0.73 | Eff: 1.27 | Loop: 0.19 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1200 | AvgRew: 347.26 | Succ: 0.00 | Dev: 1.40 | ZigZag: 0.80 | Eff: 1.33 | Loop: 0.22 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1300 | AvgRew: 391.21 | Succ: 0.00 | Dev: 1.26 | ZigZag: 0.71 | Eff: 1.34 | Loop: 0.17 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 1400 | AvgRew: 384.96 | Succ: 0.00 | Dev: 1.37 | ZigZag: 0.67 | Eff: 1.26 | Loop: 0.16 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1500 | AvgRew: 419.87 | Succ: 0.00 | Dev: 1.27 | ZigZag: 0.71 | Eff: 1.35 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1600 | AvgRew: 383.92 | Succ: 0.00 | Dev: 1.32 | ZigZag: 0.69 | Eff: 1.26 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1700 | AvgRew: 420.84 | Succ: 0.00 | Dev: 1.19 | ZigZag: 0.68 | Eff: 1.30 | Loop: 0.16 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1800 | AvgRew: 429.70 | Succ: 0.00 | Dev: 1.38 | ZigZag: 0.72 | Eff: 1.51 | Loop: 0.21 [Prev: 2]
+[Bin3_Complex_Loops] Ep 1900 | AvgRew: 409.88 | Succ: 0.00 | Dev: 1.24 | ZigZag: 0.70 | Eff: 1.27 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 2000 | AvgRew: 424.13 | Succ: 0.00 | Dev: 1.35 | ZigZag: 0.67 | Eff: 1.40 | Loop: 0.16 [Prev: 2]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin3_Complex_Loops_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin3_Complex_Loops_ep2000.pth
+[Bin3_Complex_Loops] Ep 2100 | AvgRew: 418.02 | Succ: 0.00 | Dev: 1.31 | ZigZag: 0.70 | Eff: 1.40 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 2200 | AvgRew: 379.99 | Succ: 0.00 | Dev: 1.39 | ZigZag: 0.71 | Eff: 1.32 | Loop: 0.18 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 2300 | AvgRew: 428.92 | Succ: 0.00 | Dev: 1.29 | ZigZag: 0.67 | Eff: 1.31 | Loop: 0.15 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 2400 | AvgRew: 432.64 | Succ: 0.00 | Dev: 1.23 | ZigZag: 0.63 | Eff: 1.32 | Loop: 0.13 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin3_Complex_Loops] Ep 2500 | AvgRew: 426.84 | Succ: 0.00 | Dev: 1.24 | ZigZag: 0.64 | Eff: 1.32 | Loop: 0.14 [Prev: 2]
+[Bin3_Complex_Loops] Ep 2600 | AvgRew: 416.31 | Succ: 0.00 | Dev: 1.27 | ZigZag: 0.70 | Eff: 1.33 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 2700 | AvgRew: 443.53 | Succ: 0.00 | Dev: 1.22 | ZigZag: 0.76 | Eff: 1.39 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 2800 | AvgRew: 475.77 | Succ: 0.00 | Dev: 1.12 | ZigZag: 0.79 | Eff: 1.39 | Loop: 0.22 [Prev: 2]
+[Bin3_Complex_Loops] Ep 2900 | AvgRew: 420.35 | Succ: 0.00 | Dev: 1.18 | ZigZag: 0.74 | Eff: 1.28 | Loop: 0.20 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin3_Complex_Loops] Ep 3000 | AvgRew: 474.15 | Succ: 0.00 | Dev: 1.13 | ZigZag: 0.71 | Eff: 1.40 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 3100 | AvgRew: 443.18 | Succ: 0.00 | Dev: 1.07 | ZigZag: 0.74 | Eff: 1.35 | Loop: 0.20 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 3200 | AvgRew: 433.71 | Succ: 0.00 | Dev: 1.19 | ZigZag: 0.72 | Eff: 1.31 | Loop: 0.19 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 3300 | AvgRew: 411.14 | Succ: 0.00 | Dev: 1.19 | ZigZag: 0.79 | Eff: 1.35 | Loop: 0.23 [Prev: 2]
+[Bin3_Complex_Loops] Ep 3400 | AvgRew: 424.59 | Succ: 0.00 | Dev: 1.14 | ZigZag: 0.74 | Eff: 1.36 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 3500 | AvgRew: 459.79 | Succ: 0.00 | Dev: 1.08 | ZigZag: 0.69 | Eff: 1.34 | Loop: 0.16 [Prev: 2]
+[Bin3_Complex_Loops] Ep 3600 | AvgRew: 451.97 | Succ: 0.00 | Dev: 1.17 | ZigZag: 0.66 | Eff: 1.31 | Loop: 0.14 [Prev: 2]
+[Bin3_Complex_Loops] Ep 3700 | AvgRew: 475.60 | Succ: 0.00 | Dev: 1.14 | ZigZag: 0.67 | Eff: 1.38 | Loop: 0.15 [Prev: 2]
+[Bin3_Complex_Loops] Ep 3800 | AvgRew: 501.26 | Succ: 0.00 | Dev: 1.12 | ZigZag: 0.77 | Eff: 1.46 | Loop: 0.23 [Prev: 2]
+[Bin3_Complex_Loops] Ep 3900 | AvgRew: 481.85 | Succ: 0.00 | Dev: 1.09 | ZigZag: 0.75 | Eff: 1.39 | Loop: 0.21 [Prev: 2]
+[Bin3_Complex_Loops] Ep 4000 | AvgRew: 494.92 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.69 | Eff: 1.33 | Loop: 0.16 [Prev: 2]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin3_Complex_Loops_ep4000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin3_Complex_Loops_ep4000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin3_Complex_Loops] Ep 4100 | AvgRew: 438.08 | Succ: 0.00 | Dev: 1.18 | ZigZag: 0.72 | Eff: 1.33 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 4200 | AvgRew: 441.62 | Succ: 0.00 | Dev: 1.22 | ZigZag: 0.60 | Eff: 1.30 | Loop: 0.14 [Prev: 2]
+[Bin3_Complex_Loops] Ep 4300 | AvgRew: 472.85 | Succ: 0.00 | Dev: 1.08 | ZigZag: 0.66 | Eff: 1.33 | Loop: 0.17 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 4400 | AvgRew: 468.70 | Succ: 0.00 | Dev: 1.04 | ZigZag: 0.64 | Eff: 1.29 | Loop: 0.14 [Prev: 2]
+[Bin3_Complex_Loops] Ep 4500 | AvgRew: 495.88 | Succ: 0.00 | Dev: 1.04 | ZigZag: 0.68 | Eff: 1.48 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 4600 | AvgRew: 482.46 | Succ: 0.00 | Dev: 1.08 | ZigZag: 0.60 | Eff: 1.33 | Loop: 0.13 [Prev: 2]
+[Bin3_Complex_Loops] Ep 4700 | AvgRew: 480.38 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.68 | Eff: 1.31 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 4800 | AvgRew: 478.12 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.67 | Eff: 1.40 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 4900 | AvgRew: 506.45 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.68 | Eff: 1.39 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5000 | AvgRew: 495.26 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.67 | Eff: 1.28 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5100 | AvgRew: 505.40 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.65 | Eff: 1.34 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5200 | AvgRew: 462.57 | Succ: 0.00 | Dev: 1.16 | ZigZag: 0.73 | Eff: 1.46 | Loop: 0.21 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5300 | AvgRew: 507.06 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.72 | Eff: 1.39 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5400 | AvgRew: 486.96 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.73 | Eff: 1.40 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5500 | AvgRew: 502.75 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.80 | Eff: 1.41 | Loop: 0.23 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5600 | AvgRew: 493.77 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.74 | Eff: 1.46 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5700 | AvgRew: 551.22 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.72 | Eff: 1.46 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 5800 | AvgRew: 496.41 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.73 | Eff: 1.40 | Loop: 0.19 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin3_Complex_Loops] Ep 5900 | AvgRew: 518.90 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.74 | Eff: 1.47 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 6000 | AvgRew: 498.25 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.69 | Eff: 1.42 | Loop: 0.19 [Prev: 2]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin3_Complex_Loops_ep6000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin3_Complex_Loops_ep6000.pth
+[Bin3_Complex_Loops] Ep 6100 | AvgRew: 479.28 | Succ: 0.00 | Dev: 1.07 | ZigZag: 0.68 | Eff: 1.36 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 6200 | AvgRew: 519.00 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.67 | Eff: 1.36 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 6300 | AvgRew: 491.37 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.63 | Eff: 1.36 | Loop: 0.16 [Prev: 2]
+[Bin3_Complex_Loops] Ep 6400 | AvgRew: 494.11 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.65 | Eff: 1.30 | Loop: 0.16 [Prev: 2]
+[Bin3_Complex_Loops] Ep 6500 | AvgRew: 483.14 | Succ: 0.00 | Dev: 1.05 | ZigZag: 0.67 | Eff: 1.36 | Loop: 0.18 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin3_Complex_Loops] Ep 6600 | AvgRew: 513.82 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.70 | Eff: 1.40 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 6700 | AvgRew: 530.30 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.77 | Eff: 1.50 | Loop: 0.22 [Prev: 2]
+[Bin3_Complex_Loops] Ep 6800 | AvgRew: 524.24 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.75 | Eff: 1.47 | Loop: 0.22 [Prev: 2]
+[Bin3_Complex_Loops] Ep 6900 | AvgRew: 502.90 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.72 | Eff: 1.31 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7000 | AvgRew: 485.65 | Succ: 0.00 | Dev: 1.02 | ZigZag: 0.72 | Eff: 1.31 | Loop: 0.19 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7100 | AvgRew: 499.51 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.70 | Eff: 1.35 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7200 | AvgRew: 532.67 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.71 | Eff: 1.38 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7300 | AvgRew: 539.30 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.71 | Eff: 1.44 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7400 | AvgRew: 517.83 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.70 | Eff: 1.34 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7500 | AvgRew: 519.10 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.74 | Eff: 1.35 | Loop: 0.21 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7600 | AvgRew: 545.83 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.71 | Eff: 1.38 | Loop: 0.19 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7700 | AvgRew: 511.22 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.75 | Eff: 1.40 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7800 | AvgRew: 506.50 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.73 | Eff: 1.40 | Loop: 0.19 [Prev: 2]
+[Bin3_Complex_Loops] Ep 7900 | AvgRew: 510.87 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.78 | Eff: 1.42 | Loop: 0.23 [Prev: 2]
+[Bin3_Complex_Loops] Ep 8000 | AvgRew: 538.10 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.66 | Eff: 1.30 | Loop: 0.16 [Prev: 2]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin3_Complex_Loops_ep8000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin3_Complex_Loops_ep8000.pth
+[Bin3_Complex_Loops] Ep 8100 | AvgRew: 515.78 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.68 | Eff: 1.41 | Loop: 0.16 [Prev: 2]
+[Bin3_Complex_Loops] Ep 8200 | AvgRew: 515.07 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.68 | Eff: 1.36 | Loop: 0.16 [Prev: 2]
+[Bin3_Complex_Loops] Ep 8300 | AvgRew: 512.87 | Succ: 0.00 | Dev: 1.09 | ZigZag: 0.67 | Eff: 1.42 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 8400 | AvgRew: 517.52 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.64 | Eff: 1.41 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 8500 | AvgRew: 492.51 | Succ: 0.00 | Dev: 1.10 | ZigZag: 0.59 | Eff: 1.34 | Loop: 0.15 [Prev: 2]
+[Bin3_Complex_Loops] Ep 8600 | AvgRew: 537.88 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.60 | Eff: 1.33 | Loop: 0.15 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 8700 | AvgRew: 500.95 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.62 | Eff: 1.36 | Loop: 0.15 [Prev: 2]
+[Bin3_Complex_Loops] Ep 8800 | AvgRew: 540.24 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.69 | Eff: 1.47 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 8900 | AvgRew: 513.35 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.69 | Eff: 1.39 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 9000 | AvgRew: 518.97 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.71 | Eff: 1.46 | Loop: 0.19 [Prev: 2]
+[Bin3_Complex_Loops] Ep 9100 | AvgRew: 497.33 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.70 | Eff: 1.44 | Loop: 0.20 [Prev: 2]
+[Bin3_Complex_Loops] Ep 9200 | AvgRew: 531.37 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.70 | Eff: 1.39 | Loop: 0.19 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 9300 | AvgRew: 508.70 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.65 | Eff: 1.40 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 9400 | AvgRew: 520.17 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.66 | Eff: 1.36 | Loop: 0.18 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 9500 | AvgRew: 475.94 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.67 | Eff: 1.33 | Loop: 0.18 [Prev: 2]
+[Bin3_Complex_Loops] Ep 9600 | AvgRew: 514.16 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.64 | Eff: 1.36 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 9700 | AvgRew: 515.59 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.67 | Eff: 1.33 | Loop: 0.17 [Prev: 2]
+[Bin3_Complex_Loops] Ep 9800 | AvgRew: 538.89 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.73 | Eff: 1.49 | Loop: 0.21 [Prev: 2]
+[Bin3_Complex_Loops] Ep 9900 | AvgRew: 539.61 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.69 | Eff: 1.38 | Loop: 0.19 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin3_Complex_Loops] Ep 10000 | AvgRew: 560.18 | Succ: 0.00 | Dev: 0.83 | ZigZag: 0.72 | Eff: 1.40 | Loop: 0.20 [Prev: 2]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin3_Complex_Loops_ep10000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin3_Complex_Loops_ep10000.pth
+Finished Bin3_Complex_Loops. Saved model to /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights/model_Bin3_Complex_Loops_FINAL.pth
+✅ Added Bin3_Complex_Loops to previous stages pool (total: 3 stages)
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights/actor_Bin3_Complex_Loops_FINAL.pth
+
+=============================================
+STARTING Bin4_Mixed_Random
+Episodes: 30000 | LR: 5e-05
+Global Episode Offset: 60000
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 100 | AvgRew: 596.91 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.75 | Eff: 1.56 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 200 | AvgRew: 603.42 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.81 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 300 | AvgRew: 590.60 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.80 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 400 | AvgRew: 606.14 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.78 | Eff: 1.69 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 500 | AvgRew: 638.58 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.78 | Eff: 1.69 | Loop: 0.26 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 600 | AvgRew: 591.02 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.79 | Eff: 1.70 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 700 | AvgRew: 624.69 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.79 | Eff: 1.69 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 800 | AvgRew: 601.17 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.73 | Eff: 1.56 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 900 | AvgRew: 604.28 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.74 | Eff: 1.61 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1000 | AvgRew: 607.68 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.74 | Eff: 1.66 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1100 | AvgRew: 635.50 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.79 | Eff: 1.77 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1200 | AvgRew: 619.02 | Succ: 0.00 | Dev: 1.04 | ZigZag: 0.73 | Eff: 1.67 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1300 | AvgRew: 632.46 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.81 | Eff: 1.84 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1400 | AvgRew: 624.81 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.82 | Eff: 1.74 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1500 | AvgRew: 598.81 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.82 | Eff: 1.68 | Loop: 0.32 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1600 | AvgRew: 646.45 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.80 | Eff: 1.77 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1700 | AvgRew: 628.11 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.79 | Eff: 1.76 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 1800 | AvgRew: 634.89 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.78 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 1900 | AvgRew: 642.85 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.78 | Eff: 1.78 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 2000 | AvgRew: 627.82 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.77 | Eff: 1.67 | Loop: 0.26 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep2000.pth
+[Bin4_Mixed_Random] Ep 2100 | AvgRew: 582.34 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.82 | Eff: 1.69 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 2200 | AvgRew: 617.93 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.78 | Eff: 1.68 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 2300 | AvgRew: 577.48 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.82 | Eff: 1.72 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 2400 | AvgRew: 616.42 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.73 | Eff: 1.69 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 2500 | AvgRew: 637.86 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.85 | Eff: 1.84 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 2600 | AvgRew: 609.88 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.88 | Eff: 1.86 | Loop: 0.35 [Prev: 3]
+[Bin4_Mixed_Random] Ep 2700 | AvgRew: 640.01 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.80 | Eff: 1.73 | Loop: 0.29 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 2800 | AvgRew: 589.69 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.80 | Eff: 1.68 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 2900 | AvgRew: 603.03 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.78 | Eff: 1.70 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 3000 | AvgRew: 617.85 | Succ: 0.00 | Dev: 0.81 | ZigZag: 0.76 | Eff: 1.55 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 3100 | AvgRew: 602.82 | Succ: 0.00 | Dev: 0.81 | ZigZag: 0.85 | Eff: 1.75 | Loop: 0.30 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 3200 | AvgRew: 587.33 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.80 | Eff: 1.59 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 3300 | AvgRew: 617.57 | Succ: 0.00 | Dev: 0.81 | ZigZag: 0.84 | Eff: 1.63 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 3400 | AvgRew: 618.36 | Succ: 0.00 | Dev: 0.83 | ZigZag: 0.86 | Eff: 1.70 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 3500 | AvgRew: 624.21 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.90 | Eff: 1.80 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 3600 | AvgRew: 589.19 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.79 | Eff: 1.64 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 3700 | AvgRew: 597.82 | Succ: 0.00 | Dev: 0.84 | ZigZag: 0.78 | Eff: 1.61 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 3800 | AvgRew: 630.85 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.86 | Eff: 1.84 | Loop: 0.29 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 3900 | AvgRew: 636.57 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.86 | Eff: 1.81 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 4000 | AvgRew: 623.70 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.87 | Eff: 1.74 | Loop: 0.29 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep4000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep4000.pth
+[Bin4_Mixed_Random] Ep 4100 | AvgRew: 603.33 | Succ: 0.00 | Dev: 0.84 | ZigZag: 0.84 | Eff: 1.68 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 4200 | AvgRew: 625.32 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.83 | Eff: 1.82 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 4300 | AvgRew: 610.16 | Succ: 0.00 | Dev: 0.83 | ZigZag: 0.82 | Eff: 1.63 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 4400 | AvgRew: 599.99 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.84 | Eff: 1.72 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 4500 | AvgRew: 599.32 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.86 | Eff: 1.71 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 4600 | AvgRew: 599.79 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.83 | Eff: 1.63 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 4700 | AvgRew: 585.27 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.80 | Eff: 1.65 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 4800 | AvgRew: 599.10 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.82 | Eff: 1.68 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 4900 | AvgRew: 638.44 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.81 | Eff: 1.70 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 5000 | AvgRew: 582.10 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.82 | Eff: 1.66 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 5100 | AvgRew: 585.66 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.82 | Eff: 1.68 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 5200 | AvgRew: 627.15 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.93 | Eff: 1.79 | Loop: 0.32 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 5300 | AvgRew: 612.69 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.87 | Eff: 1.78 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 5400 | AvgRew: 610.66 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.94 | Eff: 1.87 | Loop: 0.35 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 5500 | AvgRew: 603.34 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.84 | Eff: 1.74 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 5600 | AvgRew: 640.76 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.90 | Eff: 1.80 | Loop: 0.29 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 5700 | AvgRew: 629.83 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.91 | Eff: 1.72 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 5800 | AvgRew: 593.16 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.83 | Eff: 1.66 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 5900 | AvgRew: 587.52 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.84 | Eff: 1.76 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 6000 | AvgRew: 598.51 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.95 | Eff: 1.92 | Loop: 0.32 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep6000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep6000.pth
+[Bin4_Mixed_Random] Ep 6100 | AvgRew: 598.61 | Succ: 0.00 | Dev: 1.04 | ZigZag: 0.87 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 6200 | AvgRew: 604.84 | Succ: 0.00 | Dev: 0.83 | ZigZag: 0.80 | Eff: 1.64 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 6300 | AvgRew: 591.44 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.90 | Eff: 1.72 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 6400 | AvgRew: 607.00 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.89 | Eff: 1.73 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 6500 | AvgRew: 624.23 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.92 | Eff: 1.71 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 6600 | AvgRew: 592.60 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.84 | Eff: 1.56 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 6700 | AvgRew: 627.82 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.92 | Eff: 1.74 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 6800 | AvgRew: 596.13 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.92 | Eff: 1.75 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 6900 | AvgRew: 578.95 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.87 | Eff: 1.62 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7000 | AvgRew: 581.83 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.87 | Eff: 1.63 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7100 | AvgRew: 620.43 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.86 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7200 | AvgRew: 624.09 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.85 | Eff: 1.77 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7300 | AvgRew: 608.32 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.85 | Eff: 1.66 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7400 | AvgRew: 629.62 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.88 | Eff: 1.72 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7500 | AvgRew: 569.69 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.87 | Eff: 1.62 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 7600 | AvgRew: 659.34 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.90 | Eff: 1.79 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7700 | AvgRew: 642.39 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.93 | Eff: 1.80 | Loop: 0.32 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7800 | AvgRew: 598.22 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.89 | Eff: 1.67 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 7900 | AvgRew: 603.71 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.90 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 8000 | AvgRew: 604.82 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.97 | Eff: 1.78 | Loop: 0.29 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep8000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep8000.pth
+[Bin4_Mixed_Random] Ep 8100 | AvgRew: 572.44 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.85 | Eff: 1.60 | Loop: 0.25 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 8200 | AvgRew: 605.81 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.85 | Eff: 1.66 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 8300 | AvgRew: 629.88 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.90 | Eff: 1.72 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 8400 | AvgRew: 620.35 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.85 | Eff: 1.73 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 8500 | AvgRew: 622.82 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.89 | Eff: 1.72 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 8600 | AvgRew: 604.34 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.90 | Eff: 1.78 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 8700 | AvgRew: 644.34 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.92 | Eff: 1.82 | Loop: 0.32 [Prev: 3]
+[Bin4_Mixed_Random] Ep 8800 | AvgRew: 633.95 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.90 | Eff: 1.74 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 8900 | AvgRew: 575.88 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.80 | Eff: 1.60 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 9000 | AvgRew: 603.25 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.84 | Eff: 1.69 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 9100 | AvgRew: 632.85 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.91 | Eff: 1.84 | Loop: 0.32 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 9200 | AvgRew: 633.47 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.82 | Eff: 1.74 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 9300 | AvgRew: 588.08 | Succ: 0.00 | Dev: 1.02 | ZigZag: 0.76 | Eff: 1.58 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 9400 | AvgRew: 598.35 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.81 | Eff: 1.70 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 9500 | AvgRew: 608.18 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.75 | Eff: 1.59 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 9600 | AvgRew: 566.56 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.80 | Eff: 1.63 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 9700 | AvgRew: 579.36 | Succ: 0.00 | Dev: 1.02 | ZigZag: 0.70 | Eff: 1.61 | Loop: 0.21 [Prev: 3]
+[Bin4_Mixed_Random] Ep 9800 | AvgRew: 595.83 | Succ: 0.00 | Dev: 1.09 | ZigZag: 0.77 | Eff: 1.72 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 9900 | AvgRew: 588.66 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.76 | Eff: 1.64 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 10000 | AvgRew: 610.79 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.78 | Eff: 1.73 | Loop: 0.27 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep10000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep10000.pth
+[Bin4_Mixed_Random] Ep 10100 | AvgRew: 584.09 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.75 | Eff: 1.66 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 10200 | AvgRew: 636.75 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.77 | Eff: 1.72 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 10300 | AvgRew: 598.48 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.78 | Eff: 1.66 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 10400 | AvgRew: 615.10 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.79 | Eff: 1.73 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 10500 | AvgRew: 612.17 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.75 | Eff: 1.64 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 10600 | AvgRew: 580.90 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.75 | Eff: 1.55 | Loop: 0.26 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 10700 | AvgRew: 653.67 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.82 | Eff: 1.78 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 10800 | AvgRew: 630.18 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.82 | Eff: 1.76 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 10900 | AvgRew: 607.52 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.69 | Eff: 1.59 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 11000 | AvgRew: 616.90 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.78 | Eff: 1.77 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 11100 | AvgRew: 656.80 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.74 | Eff: 1.80 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 11200 | AvgRew: 608.00 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.75 | Eff: 1.66 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 11300 | AvgRew: 649.40 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.76 | Eff: 1.66 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 11400 | AvgRew: 615.39 | Succ: 0.00 | Dev: 0.83 | ZigZag: 0.83 | Eff: 1.75 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 11500 | AvgRew: 607.39 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.81 | Eff: 1.72 | Loop: 0.30 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 11600 | AvgRew: 646.88 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.85 | Eff: 1.83 | Loop: 0.32 [Prev: 3]
+[Bin4_Mixed_Random] Ep 11700 | AvgRew: 621.27 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.78 | Eff: 1.69 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 11800 | AvgRew: 610.29 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.78 | Eff: 1.72 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 11900 | AvgRew: 589.88 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.79 | Eff: 1.69 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 12000 | AvgRew: 611.06 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.83 | Eff: 1.67 | Loop: 0.29 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep12000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep12000.pth
+[Bin4_Mixed_Random] Ep 12100 | AvgRew: 588.41 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.85 | Eff: 1.72 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 12200 | AvgRew: 615.13 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.83 | Eff: 1.71 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 12300 | AvgRew: 641.02 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.84 | Eff: 1.73 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 12400 | AvgRew: 636.48 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.79 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 12500 | AvgRew: 614.12 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.84 | Eff: 1.75 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 12600 | AvgRew: 618.97 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.81 | Eff: 1.67 | Loop: 0.29 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 12700 | AvgRew: 639.29 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.86 | Eff: 1.78 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 12800 | AvgRew: 628.11 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.88 | Eff: 1.76 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 12900 | AvgRew: 638.71 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.85 | Eff: 1.76 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 13000 | AvgRew: 624.35 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.77 | Eff: 1.68 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 13100 | AvgRew: 613.78 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.79 | Eff: 1.70 | Loop: 0.26 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 13200 | AvgRew: 621.59 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.73 | Eff: 1.59 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 13300 | AvgRew: 644.61 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.81 | Eff: 1.73 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 13400 | AvgRew: 651.27 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.79 | Eff: 1.77 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 13500 | AvgRew: 647.56 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.85 | Eff: 1.76 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 13600 | AvgRew: 647.10 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.80 | Eff: 1.71 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 13700 | AvgRew: 585.47 | Succ: 0.00 | Dev: 0.80 | ZigZag: 0.79 | Eff: 1.60 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 13800 | AvgRew: 610.55 | Succ: 0.00 | Dev: 0.79 | ZigZag: 0.84 | Eff: 1.63 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 13900 | AvgRew: 637.09 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.79 | Eff: 1.63 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 14000 | AvgRew: 637.60 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.84 | Eff: 1.73 | Loop: 0.28 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep14000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep14000.pth
+[Bin4_Mixed_Random] Ep 14100 | AvgRew: 619.62 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.84 | Eff: 1.75 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 14200 | AvgRew: 617.05 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.81 | Eff: 1.60 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 14300 | AvgRew: 614.86 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.82 | Eff: 1.66 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 14400 | AvgRew: 608.82 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.84 | Eff: 1.71 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 14500 | AvgRew: 618.01 | Succ: 0.00 | Dev: 1.02 | ZigZag: 0.78 | Eff: 1.70 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 14600 | AvgRew: 619.98 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.84 | Eff: 1.76 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 14700 | AvgRew: 579.89 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.74 | Eff: 1.56 | Loop: 0.22 [Prev: 3]
+[Bin4_Mixed_Random] Ep 14800 | AvgRew: 607.53 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.82 | Eff: 1.72 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 14900 | AvgRew: 607.36 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.75 | Eff: 1.57 | Loop: 0.22 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15000 | AvgRew: 622.61 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.82 | Eff: 1.79 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15100 | AvgRew: 627.25 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.74 | Eff: 1.60 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15200 | AvgRew: 626.88 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.81 | Eff: 1.81 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15300 | AvgRew: 624.66 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.82 | Eff: 1.79 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15400 | AvgRew: 623.81 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.79 | Eff: 1.74 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15500 | AvgRew: 617.97 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.82 | Eff: 1.72 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15600 | AvgRew: 619.00 | Succ: 0.00 | Dev: 1.02 | ZigZag: 0.74 | Eff: 1.61 | Loop: 0.24 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 15700 | AvgRew: 599.40 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.75 | Eff: 1.61 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15800 | AvgRew: 631.56 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.78 | Eff: 1.67 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 15900 | AvgRew: 616.53 | Succ: 0.00 | Dev: 1.08 | ZigZag: 0.86 | Eff: 1.85 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 16000 | AvgRew: 630.97 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.78 | Eff: 1.71 | Loop: 0.27 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep16000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep16000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 16100 | AvgRew: 614.75 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.75 | Eff: 1.63 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 16200 | AvgRew: 618.86 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.85 | Eff: 1.76 | Loop: 0.30 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 16300 | AvgRew: 620.19 | Succ: 0.00 | Dev: 1.05 | ZigZag: 0.80 | Eff: 1.75 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 16400 | AvgRew: 620.38 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.77 | Eff: 1.65 | Loop: 0.26 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 16500 | AvgRew: 635.83 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.83 | Eff: 1.83 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 16600 | AvgRew: 591.26 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.76 | Eff: 1.64 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 16700 | AvgRew: 640.39 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.75 | Eff: 1.63 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 16800 | AvgRew: 592.89 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.77 | Eff: 1.69 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 16900 | AvgRew: 632.87 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.75 | Eff: 1.75 | Loop: 0.23 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 17000 | AvgRew: 625.69 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.78 | Eff: 1.75 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 17100 | AvgRew: 592.11 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.76 | Eff: 1.53 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 17200 | AvgRew: 610.33 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.78 | Eff: 1.61 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 17300 | AvgRew: 653.61 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.81 | Eff: 1.75 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 17400 | AvgRew: 608.54 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.83 | Eff: 1.69 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 17500 | AvgRew: 612.45 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.82 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 17600 | AvgRew: 625.16 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.82 | Eff: 1.68 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 17700 | AvgRew: 613.93 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.73 | Eff: 1.58 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 17800 | AvgRew: 605.88 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.74 | Eff: 1.55 | Loop: 0.24 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 17900 | AvgRew: 609.64 | Succ: 0.00 | Dev: 0.83 | ZigZag: 0.75 | Eff: 1.56 | Loop: 0.24 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 18000 | AvgRew: 627.19 | Succ: 0.00 | Dev: 0.81 | ZigZag: 0.79 | Eff: 1.76 | Loop: 0.28 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep18000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep18000.pth
+[Bin4_Mixed_Random] Ep 18100 | AvgRew: 587.59 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.79 | Eff: 1.61 | Loop: 0.25 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 18200 | AvgRew: 624.44 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.79 | Eff: 1.75 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 18300 | AvgRew: 628.84 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.82 | Eff: 1.74 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 18400 | AvgRew: 602.46 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.80 | Eff: 1.68 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 18500 | AvgRew: 598.13 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.77 | Eff: 1.68 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 18600 | AvgRew: 620.68 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.77 | Eff: 1.68 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 18700 | AvgRew: 663.41 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.81 | Eff: 1.77 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 18800 | AvgRew: 626.73 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.78 | Eff: 1.66 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 18900 | AvgRew: 630.52 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.76 | Eff: 1.64 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19000 | AvgRew: 613.54 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.75 | Eff: 1.57 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19100 | AvgRew: 621.87 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.77 | Eff: 1.66 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19200 | AvgRew: 632.64 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.77 | Eff: 1.64 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19300 | AvgRew: 617.78 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.74 | Eff: 1.63 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19400 | AvgRew: 633.39 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.77 | Eff: 1.74 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19500 | AvgRew: 618.21 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.75 | Eff: 1.63 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19600 | AvgRew: 619.38 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.75 | Eff: 1.66 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19700 | AvgRew: 631.79 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.78 | Eff: 1.71 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19800 | AvgRew: 658.51 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.79 | Eff: 1.77 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 19900 | AvgRew: 618.07 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.76 | Eff: 1.69 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 20000 | AvgRew: 618.07 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.82 | Eff: 1.73 | Loop: 0.31 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep20000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep20000.pth
+[Bin4_Mixed_Random] Ep 20100 | AvgRew: 588.02 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.78 | Eff: 1.63 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 20200 | AvgRew: 632.26 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.77 | Eff: 1.69 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 20300 | AvgRew: 623.83 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.75 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 20400 | AvgRew: 666.88 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.81 | Eff: 1.84 | Loop: 0.31 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 20500 | AvgRew: 625.61 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.84 | Eff: 1.81 | Loop: 0.32 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 20600 | AvgRew: 645.50 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.73 | Eff: 1.69 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 20700 | AvgRew: 636.12 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.74 | Eff: 1.63 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 20800 | AvgRew: 629.55 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.78 | Eff: 1.76 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 20900 | AvgRew: 612.76 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.71 | Eff: 1.53 | Loop: 0.23 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 21000 | AvgRew: 624.29 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.76 | Eff: 1.67 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 21100 | AvgRew: 610.52 | Succ: 0.00 | Dev: 0.81 | ZigZag: 0.72 | Eff: 1.64 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 21200 | AvgRew: 610.77 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.75 | Eff: 1.74 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 21300 | AvgRew: 614.71 | Succ: 0.00 | Dev: 0.84 | ZigZag: 0.76 | Eff: 1.85 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 21400 | AvgRew: 648.48 | Succ: 0.00 | Dev: 0.82 | ZigZag: 0.75 | Eff: 1.68 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 21500 | AvgRew: 610.74 | Succ: 0.00 | Dev: 0.83 | ZigZag: 0.75 | Eff: 1.60 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 21600 | AvgRew: 626.86 | Succ: 0.00 | Dev: 0.77 | ZigZag: 0.74 | Eff: 1.60 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 21700 | AvgRew: 664.23 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.82 | Eff: 1.89 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 21800 | AvgRew: 619.95 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.78 | Eff: 1.66 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 21900 | AvgRew: 644.04 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.74 | Eff: 1.73 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 22000 | AvgRew: 634.99 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.74 | Eff: 1.68 | Loop: 0.25 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep22000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep22000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 22100 | AvgRew: 668.14 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.80 | Eff: 1.83 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 22200 | AvgRew: 636.64 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.73 | Eff: 1.65 | Loop: 0.24 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 22300 | AvgRew: 617.90 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.77 | Eff: 1.66 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 22400 | AvgRew: 645.83 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.74 | Eff: 1.73 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 22500 | AvgRew: 589.81 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.76 | Eff: 1.67 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 22600 | AvgRew: 610.85 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.71 | Eff: 1.60 | Loop: 0.24 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 22700 | AvgRew: 626.17 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.72 | Eff: 1.57 | Loop: 0.22 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 22800 | AvgRew: 624.63 | Succ: 0.00 | Dev: 1.04 | ZigZag: 0.79 | Eff: 1.74 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 22900 | AvgRew: 635.62 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.78 | Eff: 1.76 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23000 | AvgRew: 612.52 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.77 | Eff: 1.69 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23100 | AvgRew: 623.16 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.78 | Eff: 1.77 | Loop: 0.28 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 23200 | AvgRew: 661.07 | Succ: 0.00 | Dev: 1.12 | ZigZag: 0.76 | Eff: 1.90 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23300 | AvgRew: 635.96 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.75 | Eff: 1.69 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23400 | AvgRew: 634.52 | Succ: 0.00 | Dev: 1.04 | ZigZag: 0.77 | Eff: 1.70 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23500 | AvgRew: 646.17 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.76 | Eff: 1.66 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23600 | AvgRew: 616.95 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.79 | Eff: 1.71 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23700 | AvgRew: 602.97 | Succ: 0.00 | Dev: 0.84 | ZigZag: 0.77 | Eff: 1.63 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23800 | AvgRew: 618.59 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.78 | Eff: 1.61 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 23900 | AvgRew: 662.60 | Succ: 0.00 | Dev: 0.82 | ZigZag: 0.75 | Eff: 1.71 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 24000 | AvgRew: 618.45 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.78 | Eff: 1.73 | Loop: 0.27 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep24000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep24000.pth
+[Bin4_Mixed_Random] Ep 24100 | AvgRew: 613.65 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.80 | Eff: 1.71 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 24200 | AvgRew: 597.18 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.79 | Eff: 1.67 | Loop: 0.29 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 24300 | AvgRew: 587.11 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.79 | Eff: 1.74 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 24400 | AvgRew: 643.91 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.79 | Eff: 1.74 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 24500 | AvgRew: 652.94 | Succ: 0.00 | Dev: 0.85 | ZigZag: 0.76 | Eff: 1.70 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 24600 | AvgRew: 653.26 | Succ: 0.00 | Dev: 0.83 | ZigZag: 0.78 | Eff: 1.74 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 24700 | AvgRew: 634.44 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.77 | Eff: 1.72 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 24800 | AvgRew: 602.70 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.74 | Eff: 1.60 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 24900 | AvgRew: 640.56 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.73 | Eff: 1.68 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25000 | AvgRew: 613.24 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.76 | Eff: 1.64 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25100 | AvgRew: 675.82 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.84 | Eff: 1.89 | Loop: 0.32 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25200 | AvgRew: 659.34 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.73 | Eff: 1.64 | Loop: 0.24 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 25300 | AvgRew: 617.16 | Succ: 0.00 | Dev: 0.82 | ZigZag: 0.73 | Eff: 1.62 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25400 | AvgRew: 646.12 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.75 | Eff: 1.67 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25500 | AvgRew: 631.15 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.78 | Eff: 1.72 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25600 | AvgRew: 652.88 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.70 | Eff: 1.61 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25700 | AvgRew: 587.45 | Succ: 0.00 | Dev: 0.84 | ZigZag: 0.73 | Eff: 1.60 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25800 | AvgRew: 655.65 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.77 | Eff: 1.73 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 25900 | AvgRew: 610.08 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.76 | Eff: 1.67 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26000 | AvgRew: 633.68 | Succ: 0.00 | Dev: 0.99 | ZigZag: 0.73 | Eff: 1.70 | Loop: 0.26 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep26000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep26000.pth
+[Bin4_Mixed_Random] Ep 26100 | AvgRew: 643.07 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.78 | Eff: 1.72 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26200 | AvgRew: 624.13 | Succ: 0.00 | Dev: 1.10 | ZigZag: 0.81 | Eff: 1.78 | Loop: 0.31 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26300 | AvgRew: 609.55 | Succ: 0.00 | Dev: 1.06 | ZigZag: 0.73 | Eff: 1.61 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26400 | AvgRew: 632.16 | Succ: 0.00 | Dev: 1.03 | ZigZag: 0.76 | Eff: 1.80 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26500 | AvgRew: 635.82 | Succ: 0.00 | Dev: 1.01 | ZigZag: 0.74 | Eff: 1.65 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26600 | AvgRew: 630.73 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.77 | Eff: 1.71 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26700 | AvgRew: 649.27 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.77 | Eff: 1.83 | Loop: 0.30 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26800 | AvgRew: 622.74 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.78 | Eff: 1.74 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 26900 | AvgRew: 641.55 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.79 | Eff: 1.77 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27000 | AvgRew: 652.51 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.74 | Eff: 1.73 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27100 | AvgRew: 639.01 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.73 | Eff: 1.65 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27200 | AvgRew: 621.01 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.73 | Eff: 1.63 | Loop: 0.25 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 27300 | AvgRew: 633.79 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.70 | Eff: 1.64 | Loop: 0.23 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27400 | AvgRew: 631.10 | Succ: 0.00 | Dev: 0.91 | ZigZag: 0.73 | Eff: 1.63 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27500 | AvgRew: 616.22 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.74 | Eff: 1.68 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27600 | AvgRew: 622.74 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.73 | Eff: 1.69 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27700 | AvgRew: 626.07 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.76 | Eff: 1.68 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27800 | AvgRew: 659.24 | Succ: 0.00 | Dev: 1.05 | ZigZag: 0.75 | Eff: 1.76 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 27900 | AvgRew: 648.22 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.74 | Eff: 1.67 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 28000 | AvgRew: 606.19 | Succ: 0.00 | Dev: 0.90 | ZigZag: 0.75 | Eff: 1.64 | Loop: 0.27 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep28000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep28000.pth
+[Bin4_Mixed_Random] Ep 28100 | AvgRew: 645.48 | Succ: 0.00 | Dev: 0.94 | ZigZag: 0.75 | Eff: 1.64 | Loop: 0.25 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 28200 | AvgRew: 615.53 | Succ: 0.00 | Dev: 1.00 | ZigZag: 0.75 | Eff: 1.70 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin3_Complex_Loops'
+[Bin4_Mixed_Random] Ep 28300 | AvgRew: 682.50 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.74 | Eff: 1.67 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 28400 | AvgRew: 627.62 | Succ: 0.00 | Dev: 0.88 | ZigZag: 0.79 | Eff: 1.80 | Loop: 0.29 [Prev: 3]
+[Bin4_Mixed_Random] Ep 28500 | AvgRew: 628.32 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.79 | Eff: 1.68 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 28600 | AvgRew: 634.26 | Succ: 0.00 | Dev: 0.97 | ZigZag: 0.79 | Eff: 1.75 | Loop: 0.27 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin1_Straight'
+[Bin4_Mixed_Random] Ep 28700 | AvgRew: 651.96 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.76 | Eff: 1.69 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 28800 | AvgRew: 626.61 | Succ: 0.00 | Dev: 0.98 | ZigZag: 0.78 | Eff: 1.69 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 28900 | AvgRew: 617.74 | Succ: 0.00 | Dev: 0.89 | ZigZag: 0.79 | Eff: 1.69 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29000 | AvgRew: 610.39 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.77 | Eff: 1.59 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29100 | AvgRew: 647.25 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.81 | Eff: 1.75 | Loop: 0.28 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29200 | AvgRew: 615.39 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.78 | Eff: 1.67 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29300 | AvgRew: 624.89 | Succ: 0.00 | Dev: 0.92 | ZigZag: 0.72 | Eff: 1.62 | Loop: 0.22 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29400 | AvgRew: 635.08 | Succ: 0.00 | Dev: 0.96 | ZigZag: 0.78 | Eff: 1.69 | Loop: 0.26 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29500 | AvgRew: 630.65 | Succ: 0.00 | Dev: 0.87 | ZigZag: 0.75 | Eff: 1.64 | Loop: 0.24 [Prev: 3]
+   🔄 Anti-forgetting: Training on previous stage 'Bin2_Wavy'
+[Bin4_Mixed_Random] Ep 29600 | AvgRew: 597.70 | Succ: 0.00 | Dev: 0.84 | ZigZag: 0.74 | Eff: 1.58 | Loop: 0.22 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29700 | AvgRew: 601.55 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.77 | Eff: 1.77 | Loop: 0.25 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29800 | AvgRew: 647.75 | Succ: 0.00 | Dev: 0.86 | ZigZag: 0.82 | Eff: 1.74 | Loop: 0.27 [Prev: 3]
+[Bin4_Mixed_Random] Ep 29900 | AvgRew: 631.38 | Succ: 0.00 | Dev: 0.93 | ZigZag: 0.79 | Eff: 1.70 | Loop: 0.24 [Prev: 3]
+[Bin4_Mixed_Random] Ep 30000 | AvgRew: 649.36 | Succ: 0.00 | Dev: 0.95 | ZigZag: 0.81 | Eff: 1.85 | Loop: 0.28 [Prev: 3]
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/ckpt_Bin4_Mixed_Random_ep30000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints/actor_Bin4_Mixed_Random_ep30000.pth
+Finished Bin4_Mixed_Random. Saved model to /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights/model_Bin4_Mixed_Random_FINAL.pth
+✅ Added Bin4_Mixed_Random to previous stages pool (total: 4 stages)
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights/actor_Bin4_Mixed_Random_FINAL.pth
+
+=== TRAINING COMPLETE ===
+Training Start Time: 2026-01-15 22:19:43
+Training End Time: 2026-01-16 07:30:51
+Total Training Time: 9h 11m 7s (33067.0 seconds)
+All results saved to: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943
+  - Checkpoints: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints
+  - Final weights: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights
+  - Training log: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/logs/training.log
+  - Configuration: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/config.json
+  - Metrics: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/metrics.json
+🧹 Cleaning up checkpoints directory: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints
+
+=== TRAINING COMPLETE ===
+Training Start Time: 2026-01-15 22:19:43
+Training End Time: 2026-01-16 07:30:51
+Total Training Time: 9h 11m 7s (33067.0 seconds)
+All results saved to: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943
+  - Checkpoints: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/checkpoints
+  - Final weights: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/weights
+  - Training log: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/logs/training.log
+  - Configuration: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/config.json
+  - Metrics: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_3/runs/20260115_221943/metrics.json

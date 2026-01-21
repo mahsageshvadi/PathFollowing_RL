@@ -1,0 +1,1677 @@
+
+=============================================
+STARTING Stage1
+Episodes: 15000 | LR: 0.0001
+Global Episode Offset: 0
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Stage1] Ep 100 | Avg Rew: -4.49 | Success: 0.00
+[Stage1] Ep 200 | Avg Rew: -4.09 | Success: 0.00
+[Stage1] Ep 300 | Avg Rew: 1.35 | Success: 0.02
+[Stage1] Ep 400 | Avg Rew: -0.57 | Success: 0.01
+[Stage1] Ep 500 | Avg Rew: 6.56 | Success: 0.02
+[Stage1] Ep 600 | Avg Rew: 1.51 | Success: 0.01
+[Stage1] Ep 700 | Avg Rew: 6.86 | Success: 0.02
+[Stage1] Ep 800 | Avg Rew: 17.38 | Success: 0.05
+[Stage1] Ep 900 | Avg Rew: 15.80 | Success: 0.04
+[Stage1] Ep 1000 | Avg Rew: 16.98 | Success: 0.05
+[Stage1] Ep 1100 | Avg Rew: 17.32 | Success: 0.05
+[Stage1] Ep 1200 | Avg Rew: 20.70 | Success: 0.03
+[Stage1] Ep 1300 | Avg Rew: 23.17 | Success: 0.03
+[Stage1] Ep 1400 | Avg Rew: 18.32 | Success: 0.04
+[Stage1] Ep 1500 | Avg Rew: 28.89 | Success: 0.01
+[Stage1] Ep 1600 | Avg Rew: 30.37 | Success: 0.05
+[Stage1] Ep 1700 | Avg Rew: 26.07 | Success: 0.03
+[Stage1] Ep 1800 | Avg Rew: 24.31 | Success: 0.05
+[Stage1] Ep 1900 | Avg Rew: 40.52 | Success: 0.03
+[Stage1] Ep 2000 | Avg Rew: 27.27 | Success: 0.02
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage1_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage1_ep2000.pth
+[Stage1] Ep 2100 | Avg Rew: 35.89 | Success: 0.04
+[Stage1] Ep 2200 | Avg Rew: 39.62 | Success: 0.07
+[Stage1] Ep 2300 | Avg Rew: 32.13 | Success: 0.03
+[Stage1] Ep 2400 | Avg Rew: 40.37 | Success: 0.03
+[Stage1] Ep 2500 | Avg Rew: 38.87 | Success: 0.02
+[Stage1] Ep 2600 | Avg Rew: 26.51 | Success: 0.02
+[Stage1] Ep 2700 | Avg Rew: 37.54 | Success: 0.01
+[Stage1] Ep 2800 | Avg Rew: 40.46 | Success: 0.02
+[Stage1] Ep 2900 | Avg Rew: 45.60 | Success: 0.06
+[Stage1] Ep 3000 | Avg Rew: 34.24 | Success: 0.06
+[Stage1] Ep 3100 | Avg Rew: 30.40 | Success: 0.04
+[Stage1] Ep 3200 | Avg Rew: 31.28 | Success: 0.03
+[Stage1] Ep 3300 | Avg Rew: 51.14 | Success: 0.06
+[Stage1] Ep 3400 | Avg Rew: 42.40 | Success: 0.04
+[Stage1] Ep 3500 | Avg Rew: 31.08 | Success: 0.03
+[Stage1] Ep 3600 | Avg Rew: 51.31 | Success: 0.04
+[Stage1] Ep 3700 | Avg Rew: 43.27 | Success: 0.06
+[Stage1] Ep 3800 | Avg Rew: 46.56 | Success: 0.08
+[Stage1] Ep 3900 | Avg Rew: 54.39 | Success: 0.06
+[Stage1] Ep 4000 | Avg Rew: 30.99 | Success: 0.06
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage1_ep4000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage1_ep4000.pth
+[Stage1] Ep 4100 | Avg Rew: 56.43 | Success: 0.08
+[Stage1] Ep 4200 | Avg Rew: 49.11 | Success: 0.02
+[Stage1] Ep 4300 | Avg Rew: 52.53 | Success: 0.05
+[Stage1] Ep 4400 | Avg Rew: 39.89 | Success: 0.05
+[Stage1] Ep 4500 | Avg Rew: 39.85 | Success: 0.00
+[Stage1] Ep 4600 | Avg Rew: 42.13 | Success: 0.04
+[Stage1] Ep 4700 | Avg Rew: 63.57 | Success: 0.04
+[Stage1] Ep 4800 | Avg Rew: 56.79 | Success: 0.07
+[Stage1] Ep 4900 | Avg Rew: 68.26 | Success: 0.06
+[Stage1] Ep 5000 | Avg Rew: 55.72 | Success: 0.05
+[Stage1] Ep 5100 | Avg Rew: 67.34 | Success: 0.08
+[Stage1] Ep 5200 | Avg Rew: 67.76 | Success: 0.04
+[Stage1] Ep 5300 | Avg Rew: 67.09 | Success: 0.05
+[Stage1] Ep 5400 | Avg Rew: 57.46 | Success: 0.07
+[Stage1] Ep 5500 | Avg Rew: 74.72 | Success: 0.12
+[Stage1] Ep 5600 | Avg Rew: 52.60 | Success: 0.03
+[Stage1] Ep 5700 | Avg Rew: 57.95 | Success: 0.07
+[Stage1] Ep 5800 | Avg Rew: 72.21 | Success: 0.09
+[Stage1] Ep 5900 | Avg Rew: 55.02 | Success: 0.08
+[Stage1] Ep 6000 | Avg Rew: 90.01 | Success: 0.12
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage1_ep6000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage1_ep6000.pth
+[Stage1] Ep 6100 | Avg Rew: 71.67 | Success: 0.06
+[Stage1] Ep 6200 | Avg Rew: 53.90 | Success: 0.03
+[Stage1] Ep 6300 | Avg Rew: 48.43 | Success: 0.03
+[Stage1] Ep 6400 | Avg Rew: 57.16 | Success: 0.06
+[Stage1] Ep 6500 | Avg Rew: 75.91 | Success: 0.08
+[Stage1] Ep 6600 | Avg Rew: 68.37 | Success: 0.05
+[Stage1] Ep 6700 | Avg Rew: 62.62 | Success: 0.07
+[Stage1] Ep 6800 | Avg Rew: 78.87 | Success: 0.11
+[Stage1] Ep 6900 | Avg Rew: 79.68 | Success: 0.05
+[Stage1] Ep 7000 | Avg Rew: 77.37 | Success: 0.06
+[Stage1] Ep 7100 | Avg Rew: 74.71 | Success: 0.08
+[Stage1] Ep 7200 | Avg Rew: 78.07 | Success: 0.10
+[Stage1] Ep 7300 | Avg Rew: 78.25 | Success: 0.04
+[Stage1] Ep 7400 | Avg Rew: 85.98 | Success: 0.09
+[Stage1] Ep 7500 | Avg Rew: 81.91 | Success: 0.10
+[Stage1] Ep 7600 | Avg Rew: 107.42 | Success: 0.12
+[Stage1] Ep 7700 | Avg Rew: 92.62 | Success: 0.04
+[Stage1] Ep 7800 | Avg Rew: 82.14 | Success: 0.08
+[Stage1] Ep 7900 | Avg Rew: 93.08 | Success: 0.11
+[Stage1] Ep 8000 | Avg Rew: 97.68 | Success: 0.06
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage1_ep8000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage1_ep8000.pth
+[Stage1] Ep 8100 | Avg Rew: 95.32 | Success: 0.02
+[Stage1] Ep 8200 | Avg Rew: 80.69 | Success: 0.10
+[Stage1] Ep 8300 | Avg Rew: 121.16 | Success: 0.14
+[Stage1] Ep 8400 | Avg Rew: 141.15 | Success: 0.13
+[Stage1] Ep 8500 | Avg Rew: 87.77 | Success: 0.08
+[Stage1] Ep 8600 | Avg Rew: 95.05 | Success: 0.16
+[Stage1] Ep 8700 | Avg Rew: 117.11 | Success: 0.12
+[Stage1] Ep 8800 | Avg Rew: 102.10 | Success: 0.09
+[Stage1] Ep 8900 | Avg Rew: 116.89 | Success: 0.12
+[Stage1] Ep 9000 | Avg Rew: 96.18 | Success: 0.11
+[Stage1] Ep 9100 | Avg Rew: 97.92 | Success: 0.07
+[Stage1] Ep 9200 | Avg Rew: 99.49 | Success: 0.12
+[Stage1] Ep 9300 | Avg Rew: 93.76 | Success: 0.13
+[Stage1] Ep 9400 | Avg Rew: 112.89 | Success: 0.08
+[Stage1] Ep 9500 | Avg Rew: 95.84 | Success: 0.08
+[Stage1] Ep 9600 | Avg Rew: 97.57 | Success: 0.14
+[Stage1] Ep 9700 | Avg Rew: 118.15 | Success: 0.08
+[Stage1] Ep 9800 | Avg Rew: 90.75 | Success: 0.05
+[Stage1] Ep 9900 | Avg Rew: 109.81 | Success: 0.06
+[Stage1] Ep 10000 | Avg Rew: 104.71 | Success: 0.10
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage1_ep10000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage1_ep10000.pth
+[Stage1] Ep 10100 | Avg Rew: 94.08 | Success: 0.05
+[Stage1] Ep 10200 | Avg Rew: 90.26 | Success: 0.05
+[Stage1] Ep 10300 | Avg Rew: 91.12 | Success: 0.05
+[Stage1] Ep 10400 | Avg Rew: 114.49 | Success: 0.07
+[Stage1] Ep 10500 | Avg Rew: 128.15 | Success: 0.09
+[Stage1] Ep 10600 | Avg Rew: 123.02 | Success: 0.11
+[Stage1] Ep 10700 | Avg Rew: 114.64 | Success: 0.19
+[Stage1] Ep 10800 | Avg Rew: 136.87 | Success: 0.17
+[Stage1] Ep 10900 | Avg Rew: 130.10 | Success: 0.23
+[Stage1] Ep 11000 | Avg Rew: 139.80 | Success: 0.16
+[Stage1] Ep 11100 | Avg Rew: 129.99 | Success: 0.16
+[Stage1] Ep 11200 | Avg Rew: 138.26 | Success: 0.16
+[Stage1] Ep 11300 | Avg Rew: 135.10 | Success: 0.20
+[Stage1] Ep 11400 | Avg Rew: 138.65 | Success: 0.22
+[Stage1] Ep 11500 | Avg Rew: 161.68 | Success: 0.20
+[Stage1] Ep 11600 | Avg Rew: 143.90 | Success: 0.09
+[Stage1] Ep 11700 | Avg Rew: 172.45 | Success: 0.21
+[Stage1] Ep 11800 | Avg Rew: 154.42 | Success: 0.20
+[Stage1] Ep 11900 | Avg Rew: 145.07 | Success: 0.20
+[Stage1] Ep 12000 | Avg Rew: 160.64 | Success: 0.24
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage1_ep12000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage1_ep12000.pth
+[Stage1] Ep 12100 | Avg Rew: 147.29 | Success: 0.25
+[Stage1] Ep 12200 | Avg Rew: 154.01 | Success: 0.27
+[Stage1] Ep 12300 | Avg Rew: 184.05 | Success: 0.27
+[Stage1] Ep 12400 | Avg Rew: 183.17 | Success: 0.24
+[Stage1] Ep 12500 | Avg Rew: 155.44 | Success: 0.22
+[Stage1] Ep 12600 | Avg Rew: 197.04 | Success: 0.29
+[Stage1] Ep 12700 | Avg Rew: 194.29 | Success: 0.31
+[Stage1] Ep 12800 | Avg Rew: 196.28 | Success: 0.37
+[Stage1] Ep 12900 | Avg Rew: 206.15 | Success: 0.35
+[Stage1] Ep 13000 | Avg Rew: 216.42 | Success: 0.20
+[Stage1] Ep 13100 | Avg Rew: 196.56 | Success: 0.32
+[Stage1] Ep 13200 | Avg Rew: 162.05 | Success: 0.26
+[Stage1] Ep 13300 | Avg Rew: 160.95 | Success: 0.28
+[Stage1] Ep 13400 | Avg Rew: 172.58 | Success: 0.22
+[Stage1] Ep 13500 | Avg Rew: 193.89 | Success: 0.20
+[Stage1] Ep 13600 | Avg Rew: 193.32 | Success: 0.24
+[Stage1] Ep 13700 | Avg Rew: 196.88 | Success: 0.23
+[Stage1] Ep 13800 | Avg Rew: 186.77 | Success: 0.27
+[Stage1] Ep 13900 | Avg Rew: 189.96 | Success: 0.35
+[Stage1] Ep 14000 | Avg Rew: 209.52 | Success: 0.37
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage1_ep14000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage1_ep14000.pth
+[Stage1] Ep 14100 | Avg Rew: 201.53 | Success: 0.25
+[Stage1] Ep 14200 | Avg Rew: 199.71 | Success: 0.26
+[Stage1] Ep 14300 | Avg Rew: 203.69 | Success: 0.28
+[Stage1] Ep 14400 | Avg Rew: 204.89 | Success: 0.27
+[Stage1] Ep 14500 | Avg Rew: 247.40 | Success: 0.38
+[Stage1] Ep 14600 | Avg Rew: 226.53 | Success: 0.33
+[Stage1] Ep 14700 | Avg Rew: 225.77 | Success: 0.31
+[Stage1] Ep 14800 | Avg Rew: 208.96 | Success: 0.28
+[Stage1] Ep 14900 | Avg Rew: 215.56 | Success: 0.33
+[Stage1] Ep 15000 | Avg Rew: 217.94 | Success: 0.30
+Finished Stage1. Saved model to /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/weights/model_Stage1_FINAL.pth
+✅ Added Stage1 to previous stages pool (total: 1 stages)
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/weights/actor_Stage1_FINAL.pth
+
+=============================================
+STARTING Stage2
+Episodes: 30000 | LR: 0.0001
+Global Episode Offset: 30000
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Stage2] Ep 100 | Avg Rew: 231.06 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 200 | Avg Rew: 237.10 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 300 | Avg Rew: 237.19 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 400 | Avg Rew: 223.63 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 500 | Avg Rew: 226.84 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=236.11
+
+[Stage2] Ep 600 | Avg Rew: 237.69 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 700 | Avg Rew: 213.98 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 800 | Avg Rew: 206.08 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 900 | Avg Rew: 237.71 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 1000 | Avg Rew: 281.92 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=283.02
+
+[Stage2] Ep 1100 | Avg Rew: 247.75 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 1200 | Avg Rew: 240.55 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 1300 | Avg Rew: 233.18 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 1400 | Avg Rew: 237.02 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 1500 | Avg Rew: 263.66 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=282.72
+
+[Stage2] Ep 1600 | Avg Rew: 238.84 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 1700 | Avg Rew: 248.64 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 1800 | Avg Rew: 252.66 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 1900 | Avg Rew: 265.43 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 2000 | Avg Rew: 282.71 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=286.37
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep2000.pth
+[Stage2] Ep 2100 | Avg Rew: 277.53 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 2200 | Avg Rew: 260.43 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 2300 | Avg Rew: 243.14 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 2400 | Avg Rew: 278.35 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 2500 | Avg Rew: 298.13 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=285.50
+
+[Stage2] Ep 2600 | Avg Rew: 249.70 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 2700 | Avg Rew: 285.10 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 2800 | Avg Rew: 256.41 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 2900 | Avg Rew: 275.63 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 3000 | Avg Rew: 261.62 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=257.32
+
+[Stage2] Ep 3100 | Avg Rew: 289.89 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 3200 | Avg Rew: 271.74 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 3300 | Avg Rew: 255.27 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 3400 | Avg Rew: 293.53 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 3500 | Avg Rew: 243.50 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=308.80
+
+[Stage2] Ep 3600 | Avg Rew: 287.38 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 3700 | Avg Rew: 284.29 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 3800 | Avg Rew: 278.04 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 3900 | Avg Rew: 274.41 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 4000 | Avg Rew: 237.28 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=288.74
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep4000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep4000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 4100 | Avg Rew: 244.29 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 4200 | Avg Rew: 218.74 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 4300 | Avg Rew: 267.35 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 4400 | Avg Rew: 291.27 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 4500 | Avg Rew: 276.37 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=350.18
+
+[Stage2] Ep 4600 | Avg Rew: 293.05 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 4700 | Avg Rew: 308.86 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 4800 | Avg Rew: 291.32 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 4900 | Avg Rew: 297.33 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 5000 | Avg Rew: 280.12 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=329.53
+
+[Stage2] Ep 5100 | Avg Rew: 276.33 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 5200 | Avg Rew: 287.38 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 5300 | Avg Rew: 294.69 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 5400 | Avg Rew: 280.96 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 5500 | Avg Rew: 290.45 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=308.24
+
+[Stage2] Ep 5600 | Avg Rew: 275.34 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 5700 | Avg Rew: 261.71 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 5800 | Avg Rew: 258.91 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 5900 | Avg Rew: 294.14 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 6000 | Avg Rew: 305.50 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=336.91
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep6000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep6000.pth
+[Stage2] Ep 6100 | Avg Rew: 303.53 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 6200 | Avg Rew: 310.25 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 6300 | Avg Rew: 315.02 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 6400 | Avg Rew: 301.24 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 6500 | Avg Rew: 311.59 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.20, Return=244.73
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 6600 | Avg Rew: 318.20 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 6700 | Avg Rew: 283.61 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 6800 | Avg Rew: 275.59 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 6900 | Avg Rew: 285.78 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 7000 | Avg Rew: 317.58 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=303.92
+
+[Stage2] Ep 7100 | Avg Rew: 322.50 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 7200 | Avg Rew: 330.49 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 7300 | Avg Rew: 312.02 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 7400 | Avg Rew: 323.08 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 7500 | Avg Rew: 316.46 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=311.31
+
+[Stage2] Ep 7600 | Avg Rew: 303.74 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 7700 | Avg Rew: 306.99 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 7800 | Avg Rew: 295.79 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 7900 | Avg Rew: 328.00 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 8000 | Avg Rew: 337.89 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=351.95
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep8000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep8000.pth
+[Stage2] Ep 8100 | Avg Rew: 298.36 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 8200 | Avg Rew: 334.14 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 8300 | Avg Rew: 303.38 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 8400 | Avg Rew: 324.95 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 8500 | Avg Rew: 310.87 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=302.31
+
+[Stage2] Ep 8600 | Avg Rew: 311.55 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 8700 | Avg Rew: 318.29 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 8800 | Avg Rew: 289.43 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 8900 | Avg Rew: 322.33 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 9000 | Avg Rew: 341.13 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=347.47
+
+[Stage2] Ep 9100 | Avg Rew: 339.14 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 9200 | Avg Rew: 320.64 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 9300 | Avg Rew: 307.52 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 9400 | Avg Rew: 332.36 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 9500 | Avg Rew: 326.22 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=338.45
+
+[Stage2] Ep 9600 | Avg Rew: 320.53 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 9700 | Avg Rew: 337.51 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 9800 | Avg Rew: 341.31 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 9900 | Avg Rew: 334.90 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 10000 | Avg Rew: 356.54 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=332.44
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep10000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep10000.pth
+[Stage2] Ep 10100 | Avg Rew: 292.30 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 10200 | Avg Rew: 336.56 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 10300 | Avg Rew: 337.48 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 10400 | Avg Rew: 329.94 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 10500 | Avg Rew: 311.88 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.20, Return=329.39
+
+[Stage2] Ep 10600 | Avg Rew: 317.37 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 10700 | Avg Rew: 355.00 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 10800 | Avg Rew: 312.92 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 10900 | Avg Rew: 315.44 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 11000 | Avg Rew: 352.77 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=285.85
+
+[Stage2] Ep 11100 | Avg Rew: 328.53 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 11200 | Avg Rew: 329.05 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 11300 | Avg Rew: 378.68 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 11400 | Avg Rew: 334.10 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 11500 | Avg Rew: 302.50 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.20, Return=333.02
+
+[Stage2] Ep 11600 | Avg Rew: 342.89 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 11700 | Avg Rew: 341.58 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 11800 | Avg Rew: 323.66 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 11900 | Avg Rew: 306.62 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 12000 | Avg Rew: 311.30 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=290.14
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep12000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep12000.pth
+[Stage2] Ep 12100 | Avg Rew: 330.43 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 12200 | Avg Rew: 363.75 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 12300 | Avg Rew: 350.49 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 12400 | Avg Rew: 341.83 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 12500 | Avg Rew: 333.56 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=321.65
+
+[Stage2] Ep 12600 | Avg Rew: 341.75 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 12700 | Avg Rew: 338.38 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 12800 | Avg Rew: 357.40 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 12900 | Avg Rew: 323.13 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 13000 | Avg Rew: 326.36 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=301.95
+
+[Stage2] Ep 13100 | Avg Rew: 301.65 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 13200 | Avg Rew: 364.61 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 13300 | Avg Rew: 329.94 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 13400 | Avg Rew: 334.23 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 13500 | Avg Rew: 357.68 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=312.36
+
+[Stage2] Ep 13600 | Avg Rew: 344.21 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 13700 | Avg Rew: 324.94 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 13800 | Avg Rew: 331.04 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 13900 | Avg Rew: 311.14 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 14000 | Avg Rew: 342.98 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=308.04
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep14000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep14000.pth
+[Stage2] Ep 14100 | Avg Rew: 324.12 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 14200 | Avg Rew: 334.17 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 14300 | Avg Rew: 331.38 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 14400 | Avg Rew: 311.25 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 14500 | Avg Rew: 327.88 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=236.78
+
+[Stage2] Ep 14600 | Avg Rew: 326.64 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 14700 | Avg Rew: 329.80 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 14800 | Avg Rew: 319.13 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 14900 | Avg Rew: 336.98 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 15000 | Avg Rew: 346.30 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=320.50
+
+[Stage2] Ep 15100 | Avg Rew: 341.56 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 15200 | Avg Rew: 331.72 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 15300 | Avg Rew: 335.41 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 15400 | Avg Rew: 333.56 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 15500 | Avg Rew: 294.11 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=335.82
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 15600 | Avg Rew: 357.59 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 15700 | Avg Rew: 380.78 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 15800 | Avg Rew: 363.00 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 15900 | Avg Rew: 339.77 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 16000 | Avg Rew: 354.81 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=322.97
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep16000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep16000.pth
+[Stage2] Ep 16100 | Avg Rew: 326.80 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 16200 | Avg Rew: 378.03 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 16300 | Avg Rew: 350.52 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 16400 | Avg Rew: 334.28 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 16500 | Avg Rew: 337.19 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=363.77
+
+[Stage2] Ep 16600 | Avg Rew: 376.77 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 16700 | Avg Rew: 344.86 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 16800 | Avg Rew: 338.12 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 16900 | Avg Rew: 365.24 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 17000 | Avg Rew: 334.03 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=323.43
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 17100 | Avg Rew: 344.52 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 17200 | Avg Rew: 386.56 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 17300 | Avg Rew: 356.12 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 17400 | Avg Rew: 349.04 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 17500 | Avg Rew: 360.72 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=372.00
+
+[Stage2] Ep 17600 | Avg Rew: 343.40 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 17700 | Avg Rew: 328.51 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 17800 | Avg Rew: 315.16 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 17900 | Avg Rew: 342.79 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 18000 | Avg Rew: 351.15 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=303.29
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep18000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep18000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 18100 | Avg Rew: 355.70 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 18200 | Avg Rew: 350.41 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 18300 | Avg Rew: 326.35 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 18400 | Avg Rew: 360.15 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 18500 | Avg Rew: 357.27 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=348.33
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 18600 | Avg Rew: 358.11 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 18700 | Avg Rew: 344.42 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 18800 | Avg Rew: 344.49 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 18900 | Avg Rew: 277.65 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 19000 | Avg Rew: 345.24 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=358.17
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 19100 | Avg Rew: 338.34 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 19200 | Avg Rew: 343.63 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 19300 | Avg Rew: 331.51 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 19400 | Avg Rew: 346.46 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 19500 | Avg Rew: 351.93 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=348.02
+
+[Stage2] Ep 19600 | Avg Rew: 372.30 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 19700 | Avg Rew: 330.96 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 19800 | Avg Rew: 357.15 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 19900 | Avg Rew: 353.92 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 20000 | Avg Rew: 356.02 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=290.60
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep20000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep20000.pth
+[Stage2] Ep 20100 | Avg Rew: 378.52 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 20200 | Avg Rew: 378.93 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 20300 | Avg Rew: 324.66 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 20400 | Avg Rew: 387.11 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 20500 | Avg Rew: 402.31 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.20, Return=335.94
+
+[Stage2] Ep 20600 | Avg Rew: 376.05 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 20700 | Avg Rew: 364.34 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 20800 | Avg Rew: 352.49 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 20900 | Avg Rew: 332.79 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 21000 | Avg Rew: 373.68 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=324.12
+
+[Stage2] Ep 21100 | Avg Rew: 361.84 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 21200 | Avg Rew: 346.11 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 21300 | Avg Rew: 346.37 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 21400 | Avg Rew: 374.05 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 21500 | Avg Rew: 372.26 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=330.18
+
+[Stage2] Ep 21600 | Avg Rew: 340.72 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 21700 | Avg Rew: 336.83 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 21800 | Avg Rew: 337.34 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 21900 | Avg Rew: 350.67 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 22000 | Avg Rew: 371.16 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=327.84
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep22000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep22000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 22100 | Avg Rew: 374.52 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 22200 | Avg Rew: 365.81 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 22300 | Avg Rew: 341.24 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 22400 | Avg Rew: 363.04 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 22500 | Avg Rew: 375.13 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=302.14
+
+[Stage2] Ep 22600 | Avg Rew: 383.08 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 22700 | Avg Rew: 375.19 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 22800 | Avg Rew: 359.89 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 22900 | Avg Rew: 354.71 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 23000 | Avg Rew: 359.37 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=325.28
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 23100 | Avg Rew: 375.11 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 23200 | Avg Rew: 361.11 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 23300 | Avg Rew: 354.36 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 23400 | Avg Rew: 325.93 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 23500 | Avg Rew: 374.09 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=339.78
+
+[Stage2] Ep 23600 | Avg Rew: 353.25 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 23700 | Avg Rew: 334.01 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 23800 | Avg Rew: 366.89 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 23900 | Avg Rew: 375.70 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 24000 | Avg Rew: 332.06 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=320.31
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep24000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep24000.pth
+[Stage2] Ep 24100 | Avg Rew: 360.73 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 24200 | Avg Rew: 327.30 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 24300 | Avg Rew: 369.07 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 24400 | Avg Rew: 351.73 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 24500 | Avg Rew: 372.10 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.20, Return=326.41
+
+[Stage2] Ep 24600 | Avg Rew: 330.31 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 24700 | Avg Rew: 357.30 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 24800 | Avg Rew: 358.92 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 24900 | Avg Rew: 380.34 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 25000 | Avg Rew: 362.45 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=325.83
+
+[Stage2] Ep 25100 | Avg Rew: 351.98 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 25200 | Avg Rew: 363.74 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 25300 | Avg Rew: 404.33 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 25400 | Avg Rew: 322.20 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 25500 | Avg Rew: 351.07 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=333.51
+
+[Stage2] Ep 25600 | Avg Rew: 371.55 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 25700 | Avg Rew: 353.89 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 25800 | Avg Rew: 377.73 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 25900 | Avg Rew: 389.88 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 26000 | Avg Rew: 344.83 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=337.41
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep26000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep26000.pth
+[Stage2] Ep 26100 | Avg Rew: 366.03 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 26200 | Avg Rew: 364.27 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 26300 | Avg Rew: 332.04 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 26400 | Avg Rew: 407.01 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 26500 | Avg Rew: 374.87 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=269.37
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 26600 | Avg Rew: 355.09 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 26700 | Avg Rew: 369.71 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 26800 | Avg Rew: 360.17 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 26900 | Avg Rew: 394.42 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 27000 | Avg Rew: 351.25 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=315.42
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 27100 | Avg Rew: 384.39 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 27200 | Avg Rew: 373.25 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 27300 | Avg Rew: 354.73 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 27400 | Avg Rew: 360.83 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 27500 | Avg Rew: 377.26 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=316.33
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 27600 | Avg Rew: 349.34 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 27700 | Avg Rew: 386.14 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 27800 | Avg Rew: 366.38 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 27900 | Avg Rew: 360.42 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 28000 | Avg Rew: 351.78 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=335.62
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep28000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep28000.pth
+[Stage2] Ep 28100 | Avg Rew: 384.58 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 28200 | Avg Rew: 355.43 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 28300 | Avg Rew: 372.79 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 28400 | Avg Rew: 333.58 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 28500 | Avg Rew: 353.05 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=290.94
+
+[Stage2] Ep 28600 | Avg Rew: 377.41 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 28700 | Avg Rew: 365.89 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 28800 | Avg Rew: 355.56 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 28900 | Avg Rew: 363.69 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 29000 | Avg Rew: 393.49 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=327.24
+
+[Stage2] Ep 29100 | Avg Rew: 366.86 | Success: 0.00 [Prev: 1]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage2] Ep 29200 | Avg Rew: 379.87 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 29300 | Avg Rew: 402.57 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 29400 | Avg Rew: 382.40 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 29500 | Avg Rew: 399.00 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=327.24
+
+[Stage2] Ep 29600 | Avg Rew: 399.45 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 29700 | Avg Rew: 377.80 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 29800 | Avg Rew: 379.67 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 29900 | Avg Rew: 391.83 | Success: 0.00 [Prev: 1]
+[Stage2] Ep 30000 | Avg Rew: 367.29 | Success: 0.00 [Prev: 1]
+
+🔍 Evaluating on 1 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=358.96
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage2_ep30000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage2_ep30000.pth
+Finished Stage2. Saved model to /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/weights/model_Stage2_FINAL.pth
+✅ Added Stage2 to previous stages pool (total: 2 stages)
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/weights/actor_Stage2_FINAL.pth
+
+=============================================
+STARTING Stage3
+Episodes: 30000 | LR: 0.0001
+Global Episode Offset: 90000
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Stage3] Ep 100 | Avg Rew: 352.02 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 200 | Avg Rew: 362.25 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 300 | Avg Rew: 386.75 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 400 | Avg Rew: 367.59 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 500 | Avg Rew: 345.52 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=369.59
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=408.62
+
+[Stage3] Ep 600 | Avg Rew: 359.35 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 700 | Avg Rew: 390.43 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 800 | Avg Rew: 345.97 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 900 | Avg Rew: 353.24 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 1000 | Avg Rew: 341.79 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=348.81
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=446.63
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 1100 | Avg Rew: 373.94 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 1200 | Avg Rew: 325.33 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 1300 | Avg Rew: 351.24 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 1400 | Avg Rew: 403.74 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 1500 | Avg Rew: 367.64 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.20, Return=323.80
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=401.39
+
+[Stage3] Ep 1600 | Avg Rew: 373.35 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 1700 | Avg Rew: 360.61 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 1800 | Avg Rew: 344.52 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 1900 | Avg Rew: 433.31 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 2000 | Avg Rew: 358.09 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=313.75
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=480.18
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep2000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep2000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 2100 | Avg Rew: 361.01 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 2200 | Avg Rew: 378.90 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 2300 | Avg Rew: 380.39 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 2400 | Avg Rew: 389.99 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 2500 | Avg Rew: 386.67 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=367.66
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=403.53
+
+[Stage3] Ep 2600 | Avg Rew: 341.60 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 2700 | Avg Rew: 362.95 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 2800 | Avg Rew: 373.03 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 2900 | Avg Rew: 377.88 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 3000 | Avg Rew: 378.42 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=344.15
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=476.49
+
+[Stage3] Ep 3100 | Avg Rew: 412.19 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 3200 | Avg Rew: 371.25 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 3300 | Avg Rew: 362.95 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 3400 | Avg Rew: 356.07 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 3500 | Avg Rew: 364.12 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=405.66
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=393.78
+
+[Stage3] Ep 3600 | Avg Rew: 386.49 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 3700 | Avg Rew: 358.24 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 3800 | Avg Rew: 376.05 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 3900 | Avg Rew: 368.55 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 4000 | Avg Rew: 419.23 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=351.21
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=425.95
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep4000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep4000.pth
+[Stage3] Ep 4100 | Avg Rew: 375.69 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 4200 | Avg Rew: 375.73 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 4300 | Avg Rew: 352.45 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 4400 | Avg Rew: 378.60 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 4500 | Avg Rew: 368.15 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=378.89
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=431.97
+
+[Stage3] Ep 4600 | Avg Rew: 364.38 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 4700 | Avg Rew: 363.88 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 4800 | Avg Rew: 377.58 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 4900 | Avg Rew: 408.99 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 5000 | Avg Rew: 389.90 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=352.93
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=377.12
+
+[Stage3] Ep 5100 | Avg Rew: 371.52 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 5200 | Avg Rew: 360.47 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 5300 | Avg Rew: 421.94 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 5400 | Avg Rew: 370.59 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 5500 | Avg Rew: 396.33 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=347.10
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=372.16
+
+[Stage3] Ep 5600 | Avg Rew: 447.88 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 5700 | Avg Rew: 390.60 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 5800 | Avg Rew: 387.79 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 5900 | Avg Rew: 395.46 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 6000 | Avg Rew: 375.42 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=357.14
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=455.66
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep6000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep6000.pth
+[Stage3] Ep 6100 | Avg Rew: 401.79 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 6200 | Avg Rew: 434.19 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 6300 | Avg Rew: 391.07 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 6400 | Avg Rew: 399.74 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 6500 | Avg Rew: 418.86 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=391.59
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=495.30
+
+[Stage3] Ep 6600 | Avg Rew: 357.56 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 6700 | Avg Rew: 379.96 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 6800 | Avg Rew: 402.07 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 6900 | Avg Rew: 406.35 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 7000 | Avg Rew: 392.37 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=363.69
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=481.50
+
+[Stage3] Ep 7100 | Avg Rew: 372.64 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 7200 | Avg Rew: 379.65 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 7300 | Avg Rew: 432.29 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 7400 | Avg Rew: 384.80 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 7500 | Avg Rew: 379.59 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=320.28
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=546.75
+
+[Stage3] Ep 7600 | Avg Rew: 348.13 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 7700 | Avg Rew: 395.23 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 7800 | Avg Rew: 385.05 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 7900 | Avg Rew: 372.59 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 8000 | Avg Rew: 393.98 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=381.85
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=478.72
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep8000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep8000.pth
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 8100 | Avg Rew: 361.97 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 8200 | Avg Rew: 371.38 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 8300 | Avg Rew: 389.02 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 8400 | Avg Rew: 381.14 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 8500 | Avg Rew: 372.42 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=388.81
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=395.91
+
+[Stage3] Ep 8600 | Avg Rew: 405.06 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 8700 | Avg Rew: 403.63 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 8800 | Avg Rew: 421.67 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 8900 | Avg Rew: 387.07 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 9000 | Avg Rew: 422.52 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=349.62
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=437.46
+
+[Stage3] Ep 9100 | Avg Rew: 378.42 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 9200 | Avg Rew: 386.42 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 9300 | Avg Rew: 373.92 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 9400 | Avg Rew: 387.98 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 9500 | Avg Rew: 370.63 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=353.14
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=441.42
+
+[Stage3] Ep 9600 | Avg Rew: 424.84 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 9700 | Avg Rew: 358.40 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 9800 | Avg Rew: 385.57 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 9900 | Avg Rew: 358.01 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 10000 | Avg Rew: 444.46 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=322.86
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=520.15
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep10000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep10000.pth
+[Stage3] Ep 10100 | Avg Rew: 360.02 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 10200 | Avg Rew: 387.22 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 10300 | Avg Rew: 376.49 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 10400 | Avg Rew: 363.42 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 10500 | Avg Rew: 416.44 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=332.62
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=399.42
+
+[Stage3] Ep 10600 | Avg Rew: 428.64 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 10700 | Avg Rew: 405.07 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 10800 | Avg Rew: 341.33 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 10900 | Avg Rew: 414.05 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 11000 | Avg Rew: 404.06 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=316.97
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=437.91
+
+[Stage3] Ep 11100 | Avg Rew: 354.85 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 11200 | Avg Rew: 406.46 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 11300 | Avg Rew: 391.33 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 11400 | Avg Rew: 401.70 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 11500 | Avg Rew: 372.37 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=369.68
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=494.37
+
+[Stage3] Ep 11600 | Avg Rew: 349.80 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 11700 | Avg Rew: 361.63 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 11800 | Avg Rew: 411.88 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 11900 | Avg Rew: 374.10 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 12000 | Avg Rew: 405.79 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=360.80
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=449.78
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep12000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep12000.pth
+[Stage3] Ep 12100 | Avg Rew: 407.06 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 12200 | Avg Rew: 394.27 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 12300 | Avg Rew: 400.21 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 12400 | Avg Rew: 349.00 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 12500 | Avg Rew: 406.39 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=379.82
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=526.02
+
+[Stage3] Ep 12600 | Avg Rew: 393.37 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 12700 | Avg Rew: 363.13 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 12800 | Avg Rew: 414.30 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 12900 | Avg Rew: 429.21 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 13000 | Avg Rew: 398.22 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=355.22
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=495.21
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 13100 | Avg Rew: 419.50 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 13200 | Avg Rew: 395.83 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 13300 | Avg Rew: 384.33 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 13400 | Avg Rew: 388.34 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 13500 | Avg Rew: 399.04 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=379.23
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=505.93
+
+[Stage3] Ep 13600 | Avg Rew: 377.87 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 13700 | Avg Rew: 356.34 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 13800 | Avg Rew: 383.63 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 13900 | Avg Rew: 327.96 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 14000 | Avg Rew: 360.58 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=341.18
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=376.87
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep14000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep14000.pth
+[Stage3] Ep 14100 | Avg Rew: 379.08 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 14200 | Avg Rew: 397.28 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 14300 | Avg Rew: 367.31 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 14400 | Avg Rew: 390.78 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 14500 | Avg Rew: 385.41 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=380.23
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=500.35
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 14600 | Avg Rew: 389.37 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 14700 | Avg Rew: 429.19 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 14800 | Avg Rew: 395.62 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 14900 | Avg Rew: 364.17 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 15000 | Avg Rew: 377.27 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=385.59
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=421.51
+
+[Stage3] Ep 15100 | Avg Rew: 407.77 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 15200 | Avg Rew: 409.31 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 15300 | Avg Rew: 418.69 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 15400 | Avg Rew: 400.10 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 15500 | Avg Rew: 400.82 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=340.80
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=429.87
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 15600 | Avg Rew: 449.29 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 15700 | Avg Rew: 397.77 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 15800 | Avg Rew: 419.87 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 15900 | Avg Rew: 440.60 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 16000 | Avg Rew: 407.02 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=366.06
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=457.05
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep16000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep16000.pth
+[Stage3] Ep 16100 | Avg Rew: 385.90 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 16200 | Avg Rew: 392.74 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 16300 | Avg Rew: 379.83 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 16400 | Avg Rew: 421.81 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 16500 | Avg Rew: 405.15 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=370.82
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=346.07
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 16600 | Avg Rew: 383.16 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 16700 | Avg Rew: 408.21 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 16800 | Avg Rew: 394.44 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 16900 | Avg Rew: 413.29 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 17000 | Avg Rew: 401.83 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=310.92
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=510.91
+
+[Stage3] Ep 17100 | Avg Rew: 413.40 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 17200 | Avg Rew: 372.87 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 17300 | Avg Rew: 413.68 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 17400 | Avg Rew: 376.21 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 17500 | Avg Rew: 392.47 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=379.38
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=395.52
+
+[Stage3] Ep 17600 | Avg Rew: 390.77 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 17700 | Avg Rew: 411.49 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 17800 | Avg Rew: 410.46 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 17900 | Avg Rew: 387.90 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 18000 | Avg Rew: 439.52 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=348.13
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=379.25
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep18000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep18000.pth
+[Stage3] Ep 18100 | Avg Rew: 386.56 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 18200 | Avg Rew: 375.51 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 18300 | Avg Rew: 378.18 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 18400 | Avg Rew: 392.59 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 18500 | Avg Rew: 443.93 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=334.05
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=301.24
+
+[Stage3] Ep 18600 | Avg Rew: 414.81 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 18700 | Avg Rew: 405.85 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 18800 | Avg Rew: 398.84 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 18900 | Avg Rew: 409.67 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 19000 | Avg Rew: 362.24 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=315.07
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=400.14
+
+[Stage3] Ep 19100 | Avg Rew: 351.64 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 19200 | Avg Rew: 369.92 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 19300 | Avg Rew: 407.61 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 19400 | Avg Rew: 401.49 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 19500 | Avg Rew: 397.19 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=401.98
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=518.50
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 19600 | Avg Rew: 380.44 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 19700 | Avg Rew: 390.26 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 19800 | Avg Rew: 389.49 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 19900 | Avg Rew: 386.29 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 20000 | Avg Rew: 391.07 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=382.21
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=483.68
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep20000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep20000.pth
+[Stage3] Ep 20100 | Avg Rew: 388.76 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 20200 | Avg Rew: 436.57 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 20300 | Avg Rew: 384.53 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 20400 | Avg Rew: 409.76 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 20500 | Avg Rew: 344.37 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=358.48
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=429.73
+
+[Stage3] Ep 20600 | Avg Rew: 373.84 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 20700 | Avg Rew: 429.46 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 20800 | Avg Rew: 468.82 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 20900 | Avg Rew: 406.32 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 21000 | Avg Rew: 405.19 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=388.21
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=426.13
+
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 21100 | Avg Rew: 411.94 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 21200 | Avg Rew: 374.59 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 21300 | Avg Rew: 388.21 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 21400 | Avg Rew: 379.52 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 21500 | Avg Rew: 345.73 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=306.67
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=389.83
+
+[Stage3] Ep 21600 | Avg Rew: 383.54 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 21700 | Avg Rew: 380.68 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 21800 | Avg Rew: 377.89 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 21900 | Avg Rew: 368.53 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 22000 | Avg Rew: 395.12 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=320.44
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=520.75
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep22000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep22000.pth
+[Stage3] Ep 22100 | Avg Rew: 388.39 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 22200 | Avg Rew: 423.83 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 22300 | Avg Rew: 380.59 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 22400 | Avg Rew: 443.24 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 22500 | Avg Rew: 386.20 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.80, Return=343.26
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=468.48
+
+[Stage3] Ep 22600 | Avg Rew: 426.04 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 22700 | Avg Rew: 390.10 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 22800 | Avg Rew: 410.36 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 22900 | Avg Rew: 381.79 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 23000 | Avg Rew: 389.42 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=388.56
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=387.33
+
+[Stage3] Ep 23100 | Avg Rew: 423.48 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 23200 | Avg Rew: 376.62 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 23300 | Avg Rew: 349.95 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 23400 | Avg Rew: 326.85 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 23500 | Avg Rew: 373.12 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=388.01
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=479.17
+
+[Stage3] Ep 23600 | Avg Rew: 416.83 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 23700 | Avg Rew: 394.71 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 23800 | Avg Rew: 416.07 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 23900 | Avg Rew: 391.34 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 24000 | Avg Rew: 370.90 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=368.31
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=504.22
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep24000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep24000.pth
+[Stage3] Ep 24100 | Avg Rew: 377.78 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 24200 | Avg Rew: 364.81 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 24300 | Avg Rew: 361.50 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 24400 | Avg Rew: 364.95 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 24500 | Avg Rew: 421.50 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.40, Return=416.74
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=461.21
+
+[Stage3] Ep 24600 | Avg Rew: 428.93 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 24700 | Avg Rew: 428.24 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 24800 | Avg Rew: 400.87 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 24900 | Avg Rew: 414.19 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 25000 | Avg Rew: 394.44 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=359.02
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=372.68
+
+[Stage3] Ep 25100 | Avg Rew: 390.72 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 25200 | Avg Rew: 393.52 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 25300 | Avg Rew: 400.01 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 25400 | Avg Rew: 390.31 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 25500 | Avg Rew: 431.96 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=341.02
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=475.64
+
+[Stage3] Ep 25600 | Avg Rew: 414.08 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 25700 | Avg Rew: 395.65 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 25800 | Avg Rew: 428.20 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 25900 | Avg Rew: 436.57 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 26000 | Avg Rew: 411.37 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=375.52
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=492.23
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep26000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep26000.pth
+[Stage3] Ep 26100 | Avg Rew: 405.54 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 26200 | Avg Rew: 411.25 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 26300 | Avg Rew: 410.60 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 26400 | Avg Rew: 403.82 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 26500 | Avg Rew: 423.61 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=359.75
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=479.40
+
+[Stage3] Ep 26600 | Avg Rew: 414.01 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 26700 | Avg Rew: 420.79 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 26800 | Avg Rew: 445.06 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 26900 | Avg Rew: 446.88 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 27000 | Avg Rew: 410.58 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=371.72
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=483.35
+
+[Stage3] Ep 27100 | Avg Rew: 431.79 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 27200 | Avg Rew: 402.46 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 27300 | Avg Rew: 359.48 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 27400 | Avg Rew: 412.80 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 27500 | Avg Rew: 410.06 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=395.43
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=466.45
+
+[Stage3] Ep 27600 | Avg Rew: 375.41 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage2'
+[Stage3] Ep 27700 | Avg Rew: 411.67 | Success: 0.00 [Prev: 2]
+   🔄 Anti-forgetting: Training on previous stage 'Stage1'
+[Stage3] Ep 27800 | Avg Rew: 377.64 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 27900 | Avg Rew: 426.15 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 28000 | Avg Rew: 404.80 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.50, Return=362.75
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=418.02
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep28000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep28000.pth
+[Stage3] Ep 28100 | Avg Rew: 425.46 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 28200 | Avg Rew: 423.84 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 28300 | Avg Rew: 425.51 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 28400 | Avg Rew: 404.75 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 28500 | Avg Rew: 368.05 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.70, Return=375.56
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=439.73
+
+[Stage3] Ep 28600 | Avg Rew: 428.75 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 28700 | Avg Rew: 359.39 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 28800 | Avg Rew: 406.43 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 28900 | Avg Rew: 388.65 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 29000 | Avg Rew: 396.31 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=365.71
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=492.47
+
+[Stage3] Ep 29100 | Avg Rew: 396.61 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 29200 | Avg Rew: 415.68 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 29300 | Avg Rew: 392.83 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 29400 | Avg Rew: 412.55 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 29500 | Avg Rew: 418.63 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.30, Return=407.34
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=453.52
+
+[Stage3] Ep 29600 | Avg Rew: 385.92 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 29700 | Avg Rew: 422.17 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 29800 | Avg Rew: 396.73 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 29900 | Avg Rew: 393.77 | Success: 0.00 [Prev: 2]
+[Stage3] Ep 30000 | Avg Rew: 428.03 | Success: 0.00 [Prev: 2]
+
+🔍 Evaluating on 2 previous stage(s) to check for forgetting...
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage1: Success=0.60, Return=353.30
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+   Stage2: Success=0.00, Return=515.65
+
+Checkpoint saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/ckpt_Stage3_ep30000.pth
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints/actor_Stage3_ep30000.pth
+Finished Stage3. Saved model to /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/weights/model_Stage3_FINAL.pth
+✅ Added Stage3 to previous stages pool (total: 3 stages)
+Actor-only weights saved: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/weights/actor_Stage3_FINAL.pth
+
+=== TRAINING COMPLETE ===
+Training Start Time: 2026-01-13 01:26:51
+Training End Time: 2026-01-13 17:13:20
+Total Training Time: 15h 46m 29s (56789.0 seconds)
+All results saved to: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651
+  - Checkpoints: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints
+  - Final weights: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/weights
+  - Training log: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/logs/training.log
+  - Configuration: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/config.json
+  - Metrics: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/metrics.json
+🧹 Cleaning up checkpoints directory: /home/mahsa.geshvadi001/New_Projects/DSA-RL-Tracker/EXPERIMENTS/Old_Generator/EXPERIMENT_1/runs/20260113_012651/checkpoints

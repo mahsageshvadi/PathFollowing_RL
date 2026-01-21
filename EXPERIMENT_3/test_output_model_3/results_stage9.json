@@ -1,0 +1,29 @@
+{
+    "target_stage_id": 9,
+    "target_stage_name": "Bin5_Straight",
+    "model_path": "runs/20260116_030245/weights/model_Bin3_Complex_Loops_FINAL.pth",
+    "total_episodes": 100,
+    "success_count": 82,
+    "success_rate_percent": 82.0,
+    "failure_count": 18,
+    "failure_rate_percent": 18.0,
+    "average_reward": 285.7709045410156,
+    "config_used": {
+        "width_range": [
+            3,
+            5
+        ],
+        "curvature_factor": 1.0,
+        "min_intensity": 0.6,
+        "max_intensity": 1.0,
+        "intensity_variation": "none",
+        "curvature_range": [
+            0.0,
+            1.8
+        ],
+        "noise_prob": 1.0,
+        "branches": false,
+        "allow_self_cross": false,
+        "strict_stop": false
+    }
+}

@@ -1,0 +1,10 @@
+
+=============================================
+STARTING Stage1_Foundation
+Episodes: 10000 | LR: 0.0001
+Global Episode Offset: 0
+=============================================
+[ENV] On-the-fly curve generation enabled (base_seed=50)
+[Stage1_Foundation] Ep 100 | AvgRew: -7.77 | Succ: 0.00 | Dev: 4.28 | ZigZag: 1.54 | Eff: 1.52 | Loop: 0.36
+[Stage1_Foundation] Ep 200 | AvgRew: -6.63 | Succ: 0.01 | Dev: 4.41 | ZigZag: 1.50 | Eff: 1.49 | Loop: 0.32
+[Stage1_Foundation] Ep 300 | AvgRew: 0.79 | Succ: 0.04 | Dev: 4.50 | ZigZag: 1.43 | Eff: 0.90 | Loop: 0.25
