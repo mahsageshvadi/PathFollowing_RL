@@ -192,7 +192,7 @@ def visualize_stage_samples(config_path, samples_per_stage=6, seed=42, save_dir=
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, default="config/curve_config.json", help="Path to curve_config.json")
+    parser.add_argument('--config', type=str, default="../config/curve_config.json", help="Path to curve_config.json")
     parser.add_argument('--samples', type=int, default=6)
     parser.add_argument('--seed', type=int, default=87)
     parser.add_argument('--save_dir', type=str, default=None, help="Save images to directory instead of showing")

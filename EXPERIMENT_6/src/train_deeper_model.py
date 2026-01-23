@@ -408,6 +408,7 @@ class CurveEnvUnified:
         self.stage_config = {"stage_id": stage_id}
         self.steps = 0
         self.vescl = VESCLPhysics() # Initialize Physics Engine
+        self.tissue_cfg = self.curve_config.get('tissue_noise', {})
 
 
     def set_stage(self, config: dict):
