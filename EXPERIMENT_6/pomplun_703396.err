@@ -1,0 +1,2 @@
+/var/spool/slurm/d/job703396/slurm_script: line 40: cd: /home/mahsa.geshvadi001/New_Projects/PathFollowing_RL/EXPERIMENTS/Old_Generator/EXPERIMENT_6/: No such file or directory
+python: can't open file '/var/spool/slurm/d/src/train_deeper_model.py': [Errno 2] No such file or directory

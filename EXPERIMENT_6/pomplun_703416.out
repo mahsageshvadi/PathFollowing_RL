@@ -1,0 +1,362 @@
+===== JOB INFO =====
+JobID:   703416
+Node:    chimera21
+Tasks:   4
+GPUs:    
+Account: cs_funda.durupinarbabur
+====================
+
+===== NVIDIA-SMI =====
+Fri Jan 23 02:31:55 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    On  |   00000000:C3:00.0 Off |                    0 |
+| N/A   26C    P0             75W /  700W |       0MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+Current directory: /var/spool/slurm/d
+Running training from: /var/spool/slurm/d
+✅ GPU detected: NVIDIA H200
+✓ Loaded curve configuration from: config/curve_config.json
+
+============================================================
+FULL CONFIGURATION LOADED FROM: config/curve_config.json
+============================================================
+{
+  "image": {
+    "height": 128,
+    "width": 128
+  },
+  "bezier": {
+    "n_samples": 1000,
+    "margin": 20,
+    "min_distance": 45.0,
+    "control_point_spread": 0.4,
+    "control_point_factor": 0.6
+  },
+  "tissue_noise": {
+    "sigma_range": [
+      2.0,
+      5.0
+    ],
+    "intensity_range": [
+      0.15,
+      0.35
+    ]
+  },
+  "training_stages": [
+    {
+      "stage_id": 1,
+      "name": "Stage1_VESCL_Foundations",
+      "episodes": 6000,
+      "learning_rate": 0.0001,
+      "curve_generation": {
+        "width_range": [
+          3,
+          5
+        ],
+        "curvature_range": [
+          0.0,
+          0.3
+        ],
+        "min_intensity": 0.8,
+        "max_intensity": 1.0,
+        "background_intensity": 0.0,
+        "noise_prob": 0.0,
+        "invert_prob": 0.0,
+        "branches": false,
+        "allow_self_cross": false
+      },
+      "training": {
+        "strict_stop": false,
+        "mixed_start": false
+      }
+    },
+    {
+      "stage_id": 2,
+      "name": "Stage2_Gradients_and_Inversion",
+      "episodes": 10000,
+      "learning_rate": 0.0001,
+      "curve_generation": {
+        "width_range": [
+          2,
+          6
+        ],
+        "curvature_range": [
+          0.3,
+          0.8
+        ],
+        "min_intensity": 0.4,
+        "max_intensity": 0.9,
+        "width_variation": "wide_to_narrow",
+        "intensity_variation": "bright_to_dim",
+        "noise_prob": 0.3,
+        "noise_range": [
+          0.0,
+          0.1
+        ],
+        "invert_prob": 0.5,
+        "branches": false,
+        "allow_self_cross": false
+      },
+      "training": {
+        "strict_stop": false,
+        "mixed_start": true
+      }
+    },
+    {
+      "stage_id": 3,
+      "name": "Stage3_Complex_Topology",
+      "episodes": 15000,
+      "learning_rate": 5e-05,
+      "curve_generation": {
+        "width_range": [
+          1,
+          4
+        ],
+        "curvature_range": [
+          0.8,
+          1.4
+        ],
+        "min_intensity": 0.3,
+        "max_intensity": 0.7,
+        "background_intensity_range": [
+          0.0,
+          0.2
+        ],
+        "allow_self_cross": true,
+        "self_cross_prob": 0.6,
+        "noise_prob": 0.7,
+        "noise_range": [
+          0.1,
+          0.25
+        ],
+        "invert_prob": 0.5
+      },
+      "training": {
+        "strict_stop": true,
+        "tissue": true,
+        "mixed_start": true
+      }
+    },
+    {
+      "stage_id": 4,
+      "name": "Stage4_VESCL_Mastery_Thin_Vessels",
+      "episodes": 30000,
+      "learning_rate": 2e-05,
+      "curve_generation": {
+        "width_range": [
+          1,
+          2
+        ],
+        "curvature_range": [
+          0.0,
+          1.6
+        ],
+        "min_intensity": 0.25,
+        "max_intensity": 0.8,
+        "background_intensity_range": [
+          0.1,
+          0.4
+        ],
+        "intensity_variation": "custom",
+        "noise_prob": 1.0,
+        "noise_range": [
+          0.15,
+          0.35
+        ],
+        "invert_prob": 0.5,
+        "allow_self_cross": true,
+        "self_cross_prob": 0.4
+      },
+      "training": {
+        "strict_stop": true,
+        "tissue": true,
+        "mixed_start": true
+      }
+    }
+  ]
+}
+============================================================
+
+=== Starting Training with 4 Stages ===
+
+⚡ STARTING Stage1_VESCL_Foundations (Eps: 6000, LR: 0.0001)
+[Stage1_VESCL_Foundations] Ep 100 | AvgRew: 71.03 
+[Stage1_VESCL_Foundations] Ep 200 | AvgRew: 110.87 
+[Stage1_VESCL_Foundations] Ep 300 | AvgRew: 109.62 
+[Stage1_VESCL_Foundations] Ep 400 | AvgRew: 241.72 
+[Stage1_VESCL_Foundations] Ep 500 | AvgRew: 282.53 
+[Stage1_VESCL_Foundations] Ep 600 | AvgRew: 309.57 
+[Stage1_VESCL_Foundations] Ep 700 | AvgRew: 366.53 
+[Stage1_VESCL_Foundations] Ep 800 | AvgRew: 325.13 
+[Stage1_VESCL_Foundations] Ep 900 | AvgRew: 325.66 
+[Stage1_VESCL_Foundations] Ep 1000 | AvgRew: 398.70 
+[Stage1_VESCL_Foundations] Ep 1100 | AvgRew: 242.18 
+[Stage1_VESCL_Foundations] Ep 1200 | AvgRew: 371.16 
+[Stage1_VESCL_Foundations] Ep 1300 | AvgRew: 390.50 
+[Stage1_VESCL_Foundations] Ep 1400 | AvgRew: 374.49 
+[Stage1_VESCL_Foundations] Ep 1500 | AvgRew: 357.04 
+[Stage1_VESCL_Foundations] Ep 1600 | AvgRew: 396.69 
+[Stage1_VESCL_Foundations] Ep 1700 | AvgRew: 392.17 
+[Stage1_VESCL_Foundations] Ep 1800 | AvgRew: 347.82 
+[Stage1_VESCL_Foundations] Ep 1900 | AvgRew: 333.03 
+[Stage1_VESCL_Foundations] Ep 2000 | AvgRew: 322.60 
+[Stage1_VESCL_Foundations] Ep 2100 | AvgRew: 371.77 
+[Stage1_VESCL_Foundations] Ep 2200 | AvgRew: 318.49 
+[Stage1_VESCL_Foundations] Ep 2300 | AvgRew: 301.77 
+[Stage1_VESCL_Foundations] Ep 2400 | AvgRew: 386.20 
+[Stage1_VESCL_Foundations] Ep 2500 | AvgRew: 331.99 
+[Stage1_VESCL_Foundations] Ep 2600 | AvgRew: 386.13 
+[Stage1_VESCL_Foundations] Ep 2700 | AvgRew: 362.68 
+[Stage1_VESCL_Foundations] Ep 2800 | AvgRew: 317.29 
+[Stage1_VESCL_Foundations] Ep 2900 | AvgRew: 337.06 
+[Stage1_VESCL_Foundations] Ep 3000 | AvgRew: 417.17 
+[Stage1_VESCL_Foundations] Ep 3100 | AvgRew: 305.85 
+[Stage1_VESCL_Foundations] Ep 3200 | AvgRew: 373.18 
+[Stage1_VESCL_Foundations] Ep 3300 | AvgRew: 389.90 
+[Stage1_VESCL_Foundations] Ep 3400 | AvgRew: 315.94 
+[Stage1_VESCL_Foundations] Ep 3500 | AvgRew: 418.52 
+[Stage1_VESCL_Foundations] Ep 3600 | AvgRew: 400.28 
+[Stage1_VESCL_Foundations] Ep 3700 | AvgRew: 399.13 
+[Stage1_VESCL_Foundations] Ep 3800 | AvgRew: 336.95 
+[Stage1_VESCL_Foundations] Ep 3900 | AvgRew: 431.52 
+[Stage1_VESCL_Foundations] Ep 4000 | AvgRew: 424.57 
+[Stage1_VESCL_Foundations] Ep 4100 | AvgRew: 445.97 
+[Stage1_VESCL_Foundations] Ep 4200 | AvgRew: 339.60 
+[Stage1_VESCL_Foundations] Ep 4300 | AvgRew: 383.84 
+[Stage1_VESCL_Foundations] Ep 4400 | AvgRew: 407.17 
+[Stage1_VESCL_Foundations] Ep 4500 | AvgRew: 405.49 
+[Stage1_VESCL_Foundations] Ep 4600 | AvgRew: 473.98 
+[Stage1_VESCL_Foundations] Ep 4700 | AvgRew: 473.72 
+[Stage1_VESCL_Foundations] Ep 4800 | AvgRew: 480.53 
+[Stage1_VESCL_Foundations] Ep 4900 | AvgRew: 469.70 
+[Stage1_VESCL_Foundations] Ep 5000 | AvgRew: 575.68 
+[Stage1_VESCL_Foundations] Ep 5100 | AvgRew: 506.42 
+[Stage1_VESCL_Foundations] Ep 5200 | AvgRew: 639.81 
+[Stage1_VESCL_Foundations] Ep 5300 | AvgRew: 652.00 
+[Stage1_VESCL_Foundations] Ep 5400 | AvgRew: 697.17 
+[Stage1_VESCL_Foundations] Ep 5500 | AvgRew: 743.76 
+[Stage1_VESCL_Foundations] Ep 5600 | AvgRew: 776.48 
+[Stage1_VESCL_Foundations] Ep 5700 | AvgRew: 826.31 
+[Stage1_VESCL_Foundations] Ep 5800 | AvgRew: 807.45 
+[Stage1_VESCL_Foundations] Ep 5900 | AvgRew: 824.33 
+[Stage1_VESCL_Foundations] Ep 6000 | AvgRew: 815.80 
+
+⚡ STARTING Stage2_Gradients_and_Inversion (Eps: 10000, LR: 0.0001)
+[Stage2_Gradients_and_Inversion] Ep 100 | AvgRew: 468.79 
+[Stage2_Gradients_and_Inversion] Ep 200 | AvgRew: 452.54 
+[Stage2_Gradients_and_Inversion] Ep 300 | AvgRew: 442.18 
+[Stage2_Gradients_and_Inversion] Ep 400 | AvgRew: 470.40 
+[Stage2_Gradients_and_Inversion] Ep 500 | AvgRew: 435.23 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 600 | AvgRew: 419.19 
+[Stage2_Gradients_and_Inversion] Ep 700 | AvgRew: 428.68 
+[Stage2_Gradients_and_Inversion] Ep 800 | AvgRew: 449.53 
+[Stage2_Gradients_and_Inversion] Ep 900 | AvgRew: 444.40 
+[Stage2_Gradients_and_Inversion] Ep 1000 | AvgRew: 485.06 
+[Stage2_Gradients_and_Inversion] Ep 1100 | AvgRew: 426.41 
+[Stage2_Gradients_and_Inversion] Ep 1200 | AvgRew: 451.31 
+[Stage2_Gradients_and_Inversion] Ep 1300 | AvgRew: 514.79 
+[Stage2_Gradients_and_Inversion] Ep 1400 | AvgRew: 570.31 
+[Stage2_Gradients_and_Inversion] Ep 1500 | AvgRew: 517.07 
+[Stage2_Gradients_and_Inversion] Ep 1600 | AvgRew: 443.37 
+[Stage2_Gradients_and_Inversion] Ep 1700 | AvgRew: 524.55 
+[Stage2_Gradients_and_Inversion] Ep 1800 | AvgRew: 500.62 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 1900 | AvgRew: 472.89 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 2000 | AvgRew: 511.05 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 2100 | AvgRew: 466.09 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 2200 | AvgRew: 531.26 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 2300 | AvgRew: 531.18 
+[Stage2_Gradients_and_Inversion] Ep 2400 | AvgRew: 484.46 
+[Stage2_Gradients_and_Inversion] Ep 2500 | AvgRew: 497.46 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 2600 | AvgRew: 427.88 
+[Stage2_Gradients_and_Inversion] Ep 2700 | AvgRew: 497.23 
+[Stage2_Gradients_and_Inversion] Ep 2800 | AvgRew: 531.89 
+[Stage2_Gradients_and_Inversion] Ep 2900 | AvgRew: 518.39 
+[Stage2_Gradients_and_Inversion] Ep 3000 | AvgRew: 541.65 
+[Stage2_Gradients_and_Inversion] Ep 3100 | AvgRew: 572.40 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 3200 | AvgRew: 547.45 
+[Stage2_Gradients_and_Inversion] Ep 3300 | AvgRew: 506.31 
+[Stage2_Gradients_and_Inversion] Ep 3400 | AvgRew: 570.85 
+[Stage2_Gradients_and_Inversion] Ep 3500 | AvgRew: 617.54 
+[Stage2_Gradients_and_Inversion] Ep 3600 | AvgRew: 535.85 
+[Stage2_Gradients_and_Inversion] Ep 3700 | AvgRew: 601.12 
+[Stage2_Gradients_and_Inversion] Ep 3800 | AvgRew: 590.28 
+[Stage2_Gradients_and_Inversion] Ep 3900 | AvgRew: 635.12 
+[Stage2_Gradients_and_Inversion] Ep 4000 | AvgRew: 639.83 
+[Stage2_Gradients_and_Inversion] Ep 4100 | AvgRew: 560.17 
+[Stage2_Gradients_and_Inversion] Ep 4200 | AvgRew: 580.93 
+[Stage2_Gradients_and_Inversion] Ep 4300 | AvgRew: 547.05 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 4400 | AvgRew: 532.80 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 4500 | AvgRew: 599.36 
+[Stage2_Gradients_and_Inversion] Ep 4600 | AvgRew: 553.59 
+[Stage2_Gradients_and_Inversion] Ep 4700 | AvgRew: 579.49 
+[Stage2_Gradients_and_Inversion] Ep 4800 | AvgRew: 590.50 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 4900 | AvgRew: 560.03 
+[Stage2_Gradients_and_Inversion] Ep 5000 | AvgRew: 572.10 
+[Stage2_Gradients_and_Inversion] Ep 5100 | AvgRew: 655.55 
+[Stage2_Gradients_and_Inversion] Ep 5200 | AvgRew: 699.19 
+[Stage2_Gradients_and_Inversion] Ep 5300 | AvgRew: 560.42 
+[Stage2_Gradients_and_Inversion] Ep 5400 | AvgRew: 580.50 
+[Stage2_Gradients_and_Inversion] Ep 5500 | AvgRew: 572.77 
+[Stage2_Gradients_and_Inversion] Ep 5600 | AvgRew: 510.03 
+[Stage2_Gradients_and_Inversion] Ep 5700 | AvgRew: 645.91 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 5800 | AvgRew: 621.87 
+[Stage2_Gradients_and_Inversion] Ep 5900 | AvgRew: 611.29 
+[Stage2_Gradients_and_Inversion] Ep 6000 | AvgRew: 596.48 
+[Stage2_Gradients_and_Inversion] Ep 6100 | AvgRew: 706.13 
+[Stage2_Gradients_and_Inversion] Ep 6200 | AvgRew: 662.84 
+[Stage2_Gradients_and_Inversion] Ep 6300 | AvgRew: 623.18 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 6400 | AvgRew: 672.25 
+[Stage2_Gradients_and_Inversion] Ep 6500 | AvgRew: 624.83 
+[Stage2_Gradients_and_Inversion] Ep 6600 | AvgRew: 601.35 
+[Stage2_Gradients_and_Inversion] Ep 6700 | AvgRew: 566.32 
+[Stage2_Gradients_and_Inversion] Ep 6800 | AvgRew: 636.84 
+[Stage2_Gradients_and_Inversion] Ep 6900 | AvgRew: 721.55 
+[Stage2_Gradients_and_Inversion] Ep 7000 | AvgRew: 729.66 
+[Stage2_Gradients_and_Inversion] Ep 7100 | AvgRew: 659.10 
+[Stage2_Gradients_and_Inversion] Ep 7200 | AvgRew: 687.60 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 7300 | AvgRew: 629.85 
+[Stage2_Gradients_and_Inversion] Ep 7400 | AvgRew: 648.43 
+[Stage2_Gradients_and_Inversion] Ep 7500 | AvgRew: 698.33 
+[Stage2_Gradients_and_Inversion] Ep 7600 | AvgRew: 647.06 
+[Stage2_Gradients_and_Inversion] Ep 7700 | AvgRew: 697.77 
+[Stage2_Gradients_and_Inversion] Ep 7800 | AvgRew: 649.92 
+[Stage2_Gradients_and_Inversion] Ep 7900 | AvgRew: 711.83 
+[Stage2_Gradients_and_Inversion] Ep 8000 | AvgRew: 725.67 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 8100 | AvgRew: 711.91 
+[Stage2_Gradients_and_Inversion] Ep 8200 | AvgRew: 789.15 
+[Stage2_Gradients_and_Inversion] Ep 8300 | AvgRew: 735.90 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 8400 | AvgRew: 734.99 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 8500 | AvgRew: 691.11 
+[Stage2_Gradients_and_Inversion] Ep 8600 | AvgRew: 747.87 
+[Stage2_Gradients_and_Inversion] Ep 8700 | AvgRew: 739.33 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 8800 | AvgRew: 826.09 
+[Stage2_Gradients_and_Inversion] Ep 8900 | AvgRew: 690.07 
+[Stage2_Gradients_and_Inversion] Ep 9000 | AvgRew: 743.79 
+[Stage2_Gradients_and_Inversion] Ep 9100 | AvgRew: 763.14 
+[Stage2_Gradients_and_Inversion] Ep 9200 | AvgRew: 738.42 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 9300 | AvgRew: 769.75 (PrevStage)
+[Stage2_Gradients_and_Inversion] Ep 9400 | AvgRew: 792.36 
+[Stage2_Gradients_and_Inversion] Ep 9500 | AvgRew: 805.70 
+[Stage2_Gradients_and_Inversion] Ep 9600 | AvgRew: 790.23 
+[Stage2_Gradients_and_Inversion] Ep 9700 | AvgRew: 793.16 
+[Stage2_Gradients_and_Inversion] Ep 9800 | AvgRew: 759.76 
+[Stage2_Gradients_and_Inversion] Ep 9900 | AvgRew: 794.47 
+[Stage2_Gradients_and_Inversion] Ep 10000 | AvgRew: 751.96 
+
+⚡ STARTING Stage3_Complex_Topology (Eps: 15000, LR: 5e-05)
