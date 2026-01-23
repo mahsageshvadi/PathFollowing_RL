@@ -37,7 +37,7 @@ cd "$PROJECT_DIR"
 echo "Current directory: $(pwd)"
 echo "Running training from: $PROJECT_DIR"
 
-cd ~/New_Projects/PathFollowing_RL/EXPERIMENTS/Old_Generator/EXPERIMENT_6/
+cd ~/New_Projects/PathFollowing_RL/EXPERIMENT_6/
 
 python src/train_deeper_model.py \
   --curve_config config/curve_config.json
