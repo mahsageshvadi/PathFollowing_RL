@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/mahsa.geshvadi001/New_Projects/PathFollowing_RL/EXPERIMENT_9/src/train_deeper_model.py", line 881, in <module>
+    run_unified_training(args.run_dir, args.base_seed, args.clean_previous, args.resume_from, args.curve_config)
+  File "/home/mahsa.geshvadi001/New_Projects/PathFollowing_RL/EXPERIMENT_9/src/train_deeper_model.py", line 856, in run_unified_training
+    update_ppo(opt, model, batch_buffer)
+  File "/home/mahsa.geshvadi001/New_Projects/PathFollowing_RL/EXPERIMENT_9/src/train_deeper_model.py", line 699, in update_ppo
+    j_loss = F.binary_cross_entropy_with_logits(junction_pred, junc_gt[mb])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mahsa.geshvadi001/miniconda3/envs/RL/lib/python3.11/site-packages/torch/nn/functional.py", line 3193, in binary_cross_entropy_with_logits
+    raise ValueError(f"Target size ({target.size()}) must be the same as input size ({input.size()})")
+ValueError: Target size (torch.Size([32, 1])) must be the same as input size (torch.Size([32]))

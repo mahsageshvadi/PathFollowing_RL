@@ -1,0 +1,946 @@
+===== JOB INFO =====
+JobID:   712746
+Node:    chimera21
+Tasks:   4
+GPUs:    
+Account: cs_funda.durupinarbabur
+====================
+
+===== NVIDIA-SMI =====
+Sun Jan 25 04:30:29 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    On  |   00000000:61:00.0 Off |                    0 |
+| N/A   34C    P0             78W /  700W |       0MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+Current directory: /var/spool/slurm/d
+Running training from: /var/spool/slurm/d
+✅ GPU detected: NVIDIA H200
+✓ Loaded curve configuration from: config/curve_config.json
+
+============================================================
+FULL CONFIGURATION LOADED FROM: config/curve_config.json
+============================================================
+{
+  "image": {
+    "height": 128,
+    "width": 128
+  },
+  "bezier": {
+    "margin": 15,
+    "n_samples": 1000,
+    "min_distance": 45.0,
+    "control_point_spread": 0.4,
+    "control_point_factor": 0.6
+  },
+  "branches": {
+    "num_branches_range": [
+      1,
+      3
+    ],
+    "start_range": [
+      0.2,
+      0.8
+    ],
+    "thickness_factor": 0.8
+  },
+  "noise": {
+    "num_blobs_range": [
+      2,
+      6
+    ],
+    "blob_sigma_range": [
+      3.0,
+      10.0
+    ],
+    "blob_intensity_range": [
+      0.1,
+      0.3
+    ],
+    "noise_level_range": [
+      0.05,
+      0.2
+    ],
+    "gaussian_blur_prob": 0.5,
+    "gaussian_blur_sigma_range": [
+      0.5,
+      1.2
+    ]
+  },
+  "tissue_noise": {
+    "sigma_range": [
+      2.0,
+      5.0
+    ],
+    "intensity_range": [
+      0.15,
+      0.35
+    ]
+  },
+  "training_stages": [
+    {
+      "stage_id": 1,
+      "name": "Stage1_Tracking_Basics",
+      "episodes": 5000,
+      "learning_rate": 0.0001,
+      "curve_generation": {
+        "width_range": [
+          4,
+          6
+        ],
+        "curvature_range": [
+          0.0,
+          0.2
+        ],
+        "min_intensity": 0.8,
+        "max_intensity": 1.0,
+        "branches": false,
+        "noise_prob": 0.0
+      },
+      "training": {
+        "strict_stop": false,
+        "mixed_start": false
+      }
+    },
+    {
+      "stage_id": 2,
+      "name": "Stage2_Geometric_Complexity",
+      "episodes": 7000,
+      "learning_rate": 0.0001,
+      "curve_generation": {
+        "width_range": [
+          3,
+          5
+        ],
+        "curvature_range": [
+          0.3,
+          1.0
+        ],
+        "min_intensity": 0.6,
+        "max_intensity": 1.0,
+        "branches": false,
+        "noise_prob": 0.2
+      },
+      "training": {
+        "strict_stop": false,
+        "mixed_start": true
+      }
+    },
+    {
+      "stage_id": 3,
+      "name": "Stage3_Topological_Discovery",
+      "episodes": 12000,
+      "learning_rate": 5e-05,
+      "curve_generation": {
+        "width_range": [
+          3,
+          5
+        ],
+        "curvature_range": [
+          0.2,
+          0.8
+        ],
+        "min_intensity": 0.5,
+        "max_intensity": 0.9,
+        "branches": true,
+        "num_branches_range": [
+          1,
+          1
+        ],
+        "thickness_factor": 0.9,
+        "noise_prob": 0.3
+      },
+      "training": {
+        "strict_stop": true,
+        "mixed_start": true,
+        "branch_reward_weight": 1.0
+      }
+    },
+    {
+      "stage_id": 4,
+      "name": "Stage4_Ambiguity_Memory",
+      "episodes": 15000,
+      "learning_rate": 5e-05,
+      "curve_generation": {
+        "width_range": [
+          2,
+          5
+        ],
+        "curvature_range": [
+          0.1,
+          1.2
+        ],
+        "min_intensity": 0.3,
+        "max_intensity": 0.8,
+        "branches": true,
+        "num_branches_range": [
+          1,
+          2
+        ],
+        "gap_prob": 0.4,
+        "noise_prob": 0.6,
+        "allow_self_cross": true,
+        "self_cross_prob": 0.3
+      },
+      "training": {
+        "strict_stop": true,
+        "mixed_start": true,
+        "tissue": true
+      }
+    },
+    {
+      "stage_id": 5,
+      "name": "Stage5_Zero_Shot_Robustness",
+      "episodes": 30000,
+      "learning_rate": 2e-05,
+      "curve_generation": {
+        "width_range": [
+          1,
+          7
+        ],
+        "width_variation": "narrow_to_wide",
+        "intensity_variation": "bright_to_dim",
+        "curvature_range": [
+          0.0,
+          1.5
+        ],
+        "branches": true,
+        "num_branches_range": [
+          1,
+          3
+        ],
+        "gap_prob": 0.6,
+        "noise_prob": 0.8,
+        "invert_prob": 0.4,
+        "background_intensity_range": [
+          0.0,
+          0.3
+        ]
+      },
+      "training": {
+        "strict_stop": true,
+        "tissue": true,
+        "mixed_start": true,
+        "hard_negatives": true
+      }
+    }
+  ]
+}
+============================================================
+
+=== Starting Training with 5 Stages ===
+
+⚡ STARTING Stage1_Tracking_Basics (Eps: 5000, LR: 0.0001)
+[Stage1_Tracking_Basics] Ep 100 | AvgRew: 86.96 
+[Stage1_Tracking_Basics] Ep 200 | AvgRew: 241.88 
+[Stage1_Tracking_Basics] Ep 300 | AvgRew: 286.90 
+[Stage1_Tracking_Basics] Ep 400 | AvgRew: 189.03 
+[Stage1_Tracking_Basics] Ep 500 | AvgRew: 421.30 
+[Stage1_Tracking_Basics] Ep 600 | AvgRew: 332.33 
+[Stage1_Tracking_Basics] Ep 700 | AvgRew: 306.50 
+[Stage1_Tracking_Basics] Ep 800 | AvgRew: 439.11 
+[Stage1_Tracking_Basics] Ep 900 | AvgRew: 428.94 
+[Stage1_Tracking_Basics] Ep 1000 | AvgRew: 443.27 
+[Stage1_Tracking_Basics] Ep 1100 | AvgRew: 428.10 
+[Stage1_Tracking_Basics] Ep 1200 | AvgRew: 491.43 
+[Stage1_Tracking_Basics] Ep 1300 | AvgRew: 380.67 
+[Stage1_Tracking_Basics] Ep 1400 | AvgRew: 541.38 
+[Stage1_Tracking_Basics] Ep 1500 | AvgRew: 501.52 
+[Stage1_Tracking_Basics] Ep 1600 | AvgRew: 431.97 
+[Stage1_Tracking_Basics] Ep 1700 | AvgRew: 465.50 
+[Stage1_Tracking_Basics] Ep 1800 | AvgRew: 498.91 
+[Stage1_Tracking_Basics] Ep 1900 | AvgRew: 554.48 
+[Stage1_Tracking_Basics] Ep 2000 | AvgRew: 596.88 
+[Stage1_Tracking_Basics] Ep 2100 | AvgRew: 557.20 
+[Stage1_Tracking_Basics] Ep 2200 | AvgRew: 556.58 
+[Stage1_Tracking_Basics] Ep 2300 | AvgRew: 543.82 
+[Stage1_Tracking_Basics] Ep 2400 | AvgRew: 544.88 
+[Stage1_Tracking_Basics] Ep 2500 | AvgRew: 578.41 
+[Stage1_Tracking_Basics] Ep 2600 | AvgRew: 515.81 
+[Stage1_Tracking_Basics] Ep 2700 | AvgRew: 568.11 
+[Stage1_Tracking_Basics] Ep 2800 | AvgRew: 578.79 
+[Stage1_Tracking_Basics] Ep 2900 | AvgRew: 519.68 
+[Stage1_Tracking_Basics] Ep 3000 | AvgRew: 588.46 
+[Stage1_Tracking_Basics] Ep 3100 | AvgRew: 653.66 
+[Stage1_Tracking_Basics] Ep 3200 | AvgRew: 587.84 
+[Stage1_Tracking_Basics] Ep 3300 | AvgRew: 638.80 
+[Stage1_Tracking_Basics] Ep 3400 | AvgRew: 619.60 
+[Stage1_Tracking_Basics] Ep 3500 | AvgRew: 593.82 
+[Stage1_Tracking_Basics] Ep 3600 | AvgRew: 601.32 
+[Stage1_Tracking_Basics] Ep 3700 | AvgRew: 584.63 
+[Stage1_Tracking_Basics] Ep 3800 | AvgRew: 661.52 
+[Stage1_Tracking_Basics] Ep 3900 | AvgRew: 650.58 
+[Stage1_Tracking_Basics] Ep 4000 | AvgRew: 437.24 
+[Stage1_Tracking_Basics] Ep 4100 | AvgRew: 573.18 
+[Stage1_Tracking_Basics] Ep 4200 | AvgRew: 574.64 
+[Stage1_Tracking_Basics] Ep 4300 | AvgRew: 608.94 
+[Stage1_Tracking_Basics] Ep 4400 | AvgRew: 607.72 
+[Stage1_Tracking_Basics] Ep 4500 | AvgRew: 711.16 
+[Stage1_Tracking_Basics] Ep 4600 | AvgRew: 620.32 
+[Stage1_Tracking_Basics] Ep 4700 | AvgRew: 600.15 
+[Stage1_Tracking_Basics] Ep 4800 | AvgRew: 616.76 
+[Stage1_Tracking_Basics] Ep 4900 | AvgRew: 638.17 
+[Stage1_Tracking_Basics] Ep 5000 | AvgRew: 606.59 
+
+⚡ STARTING Stage2_Geometric_Complexity (Eps: 7000, LR: 0.0001)
+[Stage2_Geometric_Complexity] Ep 100 | AvgRew: 572.02 
+[Stage2_Geometric_Complexity] Ep 200 | AvgRew: 596.92 
+[Stage2_Geometric_Complexity] Ep 300 | AvgRew: 555.40 
+[Stage2_Geometric_Complexity] Ep 400 | AvgRew: 507.22 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 500 | AvgRew: 627.53 
+[Stage2_Geometric_Complexity] Ep 600 | AvgRew: 575.18 
+[Stage2_Geometric_Complexity] Ep 700 | AvgRew: 555.53 
+[Stage2_Geometric_Complexity] Ep 800 | AvgRew: 569.62 
+[Stage2_Geometric_Complexity] Ep 900 | AvgRew: 529.76 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 1000 | AvgRew: 587.56 
+[Stage2_Geometric_Complexity] Ep 1100 | AvgRew: 580.34 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 1200 | AvgRew: 572.80 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 1300 | AvgRew: 545.53 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 1400 | AvgRew: 558.85 
+[Stage2_Geometric_Complexity] Ep 1500 | AvgRew: 532.70 
+[Stage2_Geometric_Complexity] Ep 1600 | AvgRew: 559.24 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 1700 | AvgRew: 552.16 
+[Stage2_Geometric_Complexity] Ep 1800 | AvgRew: 569.78 
+[Stage2_Geometric_Complexity] Ep 1900 | AvgRew: 592.16 
+[Stage2_Geometric_Complexity] Ep 2000 | AvgRew: 541.63 
+[Stage2_Geometric_Complexity] Ep 2100 | AvgRew: 650.56 
+[Stage2_Geometric_Complexity] Ep 2200 | AvgRew: 574.62 
+[Stage2_Geometric_Complexity] Ep 2300 | AvgRew: 610.41 
+[Stage2_Geometric_Complexity] Ep 2400 | AvgRew: 670.35 
+[Stage2_Geometric_Complexity] Ep 2500 | AvgRew: 600.40 
+[Stage2_Geometric_Complexity] Ep 2600 | AvgRew: 662.14 
+[Stage2_Geometric_Complexity] Ep 2700 | AvgRew: 691.75 
+[Stage2_Geometric_Complexity] Ep 2800 | AvgRew: 702.51 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 2900 | AvgRew: 731.46 
+[Stage2_Geometric_Complexity] Ep 3000 | AvgRew: 650.32 
+[Stage2_Geometric_Complexity] Ep 3100 | AvgRew: 679.45 
+[Stage2_Geometric_Complexity] Ep 3200 | AvgRew: 696.80 
+[Stage2_Geometric_Complexity] Ep 3300 | AvgRew: 759.44 
+[Stage2_Geometric_Complexity] Ep 3400 | AvgRew: 778.41 
+[Stage2_Geometric_Complexity] Ep 3500 | AvgRew: 799.74 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 3600 | AvgRew: 812.53 
+[Stage2_Geometric_Complexity] Ep 3700 | AvgRew: 830.64 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 3800 | AvgRew: 804.01 
+[Stage2_Geometric_Complexity] Ep 3900 | AvgRew: 789.04 
+[Stage2_Geometric_Complexity] Ep 4000 | AvgRew: 753.11 
+[Stage2_Geometric_Complexity] Ep 4100 | AvgRew: 825.46 
+[Stage2_Geometric_Complexity] Ep 4200 | AvgRew: 778.23 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 4300 | AvgRew: 762.69 
+[Stage2_Geometric_Complexity] Ep 4400 | AvgRew: 717.52 
+[Stage2_Geometric_Complexity] Ep 4500 | AvgRew: 793.40 
+[Stage2_Geometric_Complexity] Ep 4600 | AvgRew: 820.40 
+[Stage2_Geometric_Complexity] Ep 4700 | AvgRew: 819.22 
+[Stage2_Geometric_Complexity] Ep 4800 | AvgRew: 752.68 
+[Stage2_Geometric_Complexity] Ep 4900 | AvgRew: 778.44 
+[Stage2_Geometric_Complexity] Ep 5000 | AvgRew: 820.22 
+[Stage2_Geometric_Complexity] Ep 5100 | AvgRew: 765.76 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 5200 | AvgRew: 797.73 
+[Stage2_Geometric_Complexity] Ep 5300 | AvgRew: 768.21 
+[Stage2_Geometric_Complexity] Ep 5400 | AvgRew: 784.05 
+[Stage2_Geometric_Complexity] Ep 5500 | AvgRew: 748.12 
+[Stage2_Geometric_Complexity] Ep 5600 | AvgRew: 782.11 
+[Stage2_Geometric_Complexity] Ep 5700 | AvgRew: 815.13 
+[Stage2_Geometric_Complexity] Ep 5800 | AvgRew: 806.96 
+[Stage2_Geometric_Complexity] Ep 5900 | AvgRew: 847.34 
+[Stage2_Geometric_Complexity] Ep 6000 | AvgRew: 803.05 (PrevStage)
+[Stage2_Geometric_Complexity] Ep 6100 | AvgRew: 867.03 
+[Stage2_Geometric_Complexity] Ep 6200 | AvgRew: 897.03 
+[Stage2_Geometric_Complexity] Ep 6300 | AvgRew: 869.42 
+[Stage2_Geometric_Complexity] Ep 6400 | AvgRew: 883.07 
+[Stage2_Geometric_Complexity] Ep 6500 | AvgRew: 813.74 
+[Stage2_Geometric_Complexity] Ep 6600 | AvgRew: 831.66 
+[Stage2_Geometric_Complexity] Ep 6700 | AvgRew: 829.97 
+[Stage2_Geometric_Complexity] Ep 6800 | AvgRew: 855.91 
+[Stage2_Geometric_Complexity] Ep 6900 | AvgRew: 842.07 
+[Stage2_Geometric_Complexity] Ep 7000 | AvgRew: 809.25 
+
+⚡ STARTING Stage3_Topological_Discovery (Eps: 12000, LR: 5e-05)
+[Stage3_Topological_Discovery] Ep 100 | AvgRew: 701.19 
+[Stage3_Topological_Discovery] Ep 200 | AvgRew: 711.80 
+[Stage3_Topological_Discovery] Ep 300 | AvgRew: 723.20 
+[Stage3_Topological_Discovery] Ep 400 | AvgRew: 798.07 
+[Stage3_Topological_Discovery] Ep 500 | AvgRew: 721.72 
+[Stage3_Topological_Discovery] Ep 600 | AvgRew: 756.90 
+[Stage3_Topological_Discovery] Ep 700 | AvgRew: 798.95 
+[Stage3_Topological_Discovery] Ep 800 | AvgRew: 808.08 
+[Stage3_Topological_Discovery] Ep 900 | AvgRew: 761.87 
+[Stage3_Topological_Discovery] Ep 1000 | AvgRew: 717.48 (PrevStage)
+[Stage3_Topological_Discovery] Ep 1100 | AvgRew: 803.28 
+[Stage3_Topological_Discovery] Ep 1200 | AvgRew: 777.17 (PrevStage)
+[Stage3_Topological_Discovery] Ep 1300 | AvgRew: 777.41 
+[Stage3_Topological_Discovery] Ep 1400 | AvgRew: 797.48 (PrevStage)
+[Stage3_Topological_Discovery] Ep 1500 | AvgRew: 804.22 
+[Stage3_Topological_Discovery] Ep 1600 | AvgRew: 820.83 
+[Stage3_Topological_Discovery] Ep 1700 | AvgRew: 835.25 (PrevStage)
+[Stage3_Topological_Discovery] Ep 1800 | AvgRew: 823.86 
+[Stage3_Topological_Discovery] Ep 1900 | AvgRew: 814.53 
+[Stage3_Topological_Discovery] Ep 2000 | AvgRew: 762.10 
+[Stage3_Topological_Discovery] Ep 2100 | AvgRew: 831.53 
+[Stage3_Topological_Discovery] Ep 2200 | AvgRew: 830.88 
+[Stage3_Topological_Discovery] Ep 2300 | AvgRew: 779.09 
+[Stage3_Topological_Discovery] Ep 2400 | AvgRew: 818.31 
+[Stage3_Topological_Discovery] Ep 2500 | AvgRew: 782.30 
+[Stage3_Topological_Discovery] Ep 2600 | AvgRew: 817.15 
+[Stage3_Topological_Discovery] Ep 2700 | AvgRew: 837.35 (PrevStage)
+[Stage3_Topological_Discovery] Ep 2800 | AvgRew: 845.90 
+[Stage3_Topological_Discovery] Ep 2900 | AvgRew: 811.74 
+[Stage3_Topological_Discovery] Ep 3000 | AvgRew: 803.17 
+[Stage3_Topological_Discovery] Ep 3100 | AvgRew: 769.24 
+[Stage3_Topological_Discovery] Ep 3200 | AvgRew: 873.22 
+[Stage3_Topological_Discovery] Ep 3300 | AvgRew: 818.40 
+[Stage3_Topological_Discovery] Ep 3400 | AvgRew: 797.58 
+[Stage3_Topological_Discovery] Ep 3500 | AvgRew: 803.40 
+[Stage3_Topological_Discovery] Ep 3600 | AvgRew: 864.46 
+[Stage3_Topological_Discovery] Ep 3700 | AvgRew: 868.33 
+[Stage3_Topological_Discovery] Ep 3800 | AvgRew: 828.56 
+[Stage3_Topological_Discovery] Ep 3900 | AvgRew: 873.54 (PrevStage)
+[Stage3_Topological_Discovery] Ep 4000 | AvgRew: 821.69 (PrevStage)
+[Stage3_Topological_Discovery] Ep 4100 | AvgRew: 888.93 
+[Stage3_Topological_Discovery] Ep 4200 | AvgRew: 896.67 
+[Stage3_Topological_Discovery] Ep 4300 | AvgRew: 870.21 
+[Stage3_Topological_Discovery] Ep 4400 | AvgRew: 864.00 (PrevStage)
+[Stage3_Topological_Discovery] Ep 4500 | AvgRew: 871.03 
+[Stage3_Topological_Discovery] Ep 4600 | AvgRew: 876.41 
+[Stage3_Topological_Discovery] Ep 4700 | AvgRew: 885.50 
+[Stage3_Topological_Discovery] Ep 4800 | AvgRew: 896.83 
+[Stage3_Topological_Discovery] Ep 4900 | AvgRew: 841.56 
+[Stage3_Topological_Discovery] Ep 5000 | AvgRew: 857.67 (PrevStage)
+[Stage3_Topological_Discovery] Ep 5100 | AvgRew: 843.28 
+[Stage3_Topological_Discovery] Ep 5200 | AvgRew: 852.71 (PrevStage)
+[Stage3_Topological_Discovery] Ep 5300 | AvgRew: 910.74 
+[Stage3_Topological_Discovery] Ep 5400 | AvgRew: 938.81 
+[Stage3_Topological_Discovery] Ep 5500 | AvgRew: 911.92 
+[Stage3_Topological_Discovery] Ep 5600 | AvgRew: 829.63 (PrevStage)
+[Stage3_Topological_Discovery] Ep 5700 | AvgRew: 927.40 
+[Stage3_Topological_Discovery] Ep 5800 | AvgRew: 861.35 
+[Stage3_Topological_Discovery] Ep 5900 | AvgRew: 888.32 
+[Stage3_Topological_Discovery] Ep 6000 | AvgRew: 849.17 (PrevStage)
+[Stage3_Topological_Discovery] Ep 6100 | AvgRew: 821.34 
+[Stage3_Topological_Discovery] Ep 6200 | AvgRew: 795.04 
+[Stage3_Topological_Discovery] Ep 6300 | AvgRew: 811.02 (PrevStage)
+[Stage3_Topological_Discovery] Ep 6400 | AvgRew: 855.11 
+[Stage3_Topological_Discovery] Ep 6500 | AvgRew: 876.91 
+[Stage3_Topological_Discovery] Ep 6600 | AvgRew: 870.10 (PrevStage)
+[Stage3_Topological_Discovery] Ep 6700 | AvgRew: 841.08 
+[Stage3_Topological_Discovery] Ep 6800 | AvgRew: 876.58 
+[Stage3_Topological_Discovery] Ep 6900 | AvgRew: 862.16 
+[Stage3_Topological_Discovery] Ep 7000 | AvgRew: 902.39 
+[Stage3_Topological_Discovery] Ep 7100 | AvgRew: 896.82 
+[Stage3_Topological_Discovery] Ep 7200 | AvgRew: 877.46 (PrevStage)
+[Stage3_Topological_Discovery] Ep 7300 | AvgRew: 842.41 
+[Stage3_Topological_Discovery] Ep 7400 | AvgRew: 920.22 
+[Stage3_Topological_Discovery] Ep 7500 | AvgRew: 870.97 
+[Stage3_Topological_Discovery] Ep 7600 | AvgRew: 877.96 
+[Stage3_Topological_Discovery] Ep 7700 | AvgRew: 850.61 (PrevStage)
+[Stage3_Topological_Discovery] Ep 7800 | AvgRew: 917.31 
+[Stage3_Topological_Discovery] Ep 7900 | AvgRew: 889.54 
+[Stage3_Topological_Discovery] Ep 8000 | AvgRew: 924.35 
+[Stage3_Topological_Discovery] Ep 8100 | AvgRew: 895.83 
+[Stage3_Topological_Discovery] Ep 8200 | AvgRew: 911.72 
+[Stage3_Topological_Discovery] Ep 8300 | AvgRew: 889.07 
+[Stage3_Topological_Discovery] Ep 8400 | AvgRew: 850.96 
+[Stage3_Topological_Discovery] Ep 8500 | AvgRew: 900.14 
+[Stage3_Topological_Discovery] Ep 8600 | AvgRew: 843.39 
+[Stage3_Topological_Discovery] Ep 8700 | AvgRew: 872.98 
+[Stage3_Topological_Discovery] Ep 8800 | AvgRew: 888.56 
+[Stage3_Topological_Discovery] Ep 8900 | AvgRew: 850.54 
+[Stage3_Topological_Discovery] Ep 9000 | AvgRew: 913.99 
+[Stage3_Topological_Discovery] Ep 9100 | AvgRew: 862.80 
+[Stage3_Topological_Discovery] Ep 9200 | AvgRew: 871.80 
+[Stage3_Topological_Discovery] Ep 9300 | AvgRew: 872.50 
+[Stage3_Topological_Discovery] Ep 9400 | AvgRew: 902.32 
+[Stage3_Topological_Discovery] Ep 9500 | AvgRew: 878.92 
+[Stage3_Topological_Discovery] Ep 9600 | AvgRew: 862.22 
+[Stage3_Topological_Discovery] Ep 9700 | AvgRew: 899.15 
+[Stage3_Topological_Discovery] Ep 9800 | AvgRew: 907.75 
+[Stage3_Topological_Discovery] Ep 9900 | AvgRew: 889.64 
+[Stage3_Topological_Discovery] Ep 10000 | AvgRew: 896.16 
+[Stage3_Topological_Discovery] Ep 10100 | AvgRew: 899.81 
+[Stage3_Topological_Discovery] Ep 10200 | AvgRew: 918.86 
+[Stage3_Topological_Discovery] Ep 10300 | AvgRew: 851.35 
+[Stage3_Topological_Discovery] Ep 10400 | AvgRew: 949.84 
+[Stage3_Topological_Discovery] Ep 10500 | AvgRew: 904.88 (PrevStage)
+[Stage3_Topological_Discovery] Ep 10600 | AvgRew: 888.81 
+[Stage3_Topological_Discovery] Ep 10700 | AvgRew: 876.72 
+[Stage3_Topological_Discovery] Ep 10800 | AvgRew: 880.59 
+[Stage3_Topological_Discovery] Ep 10900 | AvgRew: 891.78 
+[Stage3_Topological_Discovery] Ep 11000 | AvgRew: 902.66 
+[Stage3_Topological_Discovery] Ep 11100 | AvgRew: 949.07 (PrevStage)
+[Stage3_Topological_Discovery] Ep 11200 | AvgRew: 905.63 
+[Stage3_Topological_Discovery] Ep 11300 | AvgRew: 887.90 
+[Stage3_Topological_Discovery] Ep 11400 | AvgRew: 881.52 (PrevStage)
+[Stage3_Topological_Discovery] Ep 11500 | AvgRew: 843.92 
+[Stage3_Topological_Discovery] Ep 11600 | AvgRew: 887.81 (PrevStage)
+[Stage3_Topological_Discovery] Ep 11700 | AvgRew: 865.99 
+[Stage3_Topological_Discovery] Ep 11800 | AvgRew: 914.01 
+[Stage3_Topological_Discovery] Ep 11900 | AvgRew: 890.23 
+[Stage3_Topological_Discovery] Ep 12000 | AvgRew: 898.62 
+
+⚡ STARTING Stage4_Ambiguity_Memory (Eps: 15000, LR: 5e-05)
+[Stage4_Ambiguity_Memory] Ep 100 | AvgRew: 822.08 
+[Stage4_Ambiguity_Memory] Ep 200 | AvgRew: 779.81 
+[Stage4_Ambiguity_Memory] Ep 300 | AvgRew: 868.79 
+[Stage4_Ambiguity_Memory] Ep 400 | AvgRew: 860.09 
+[Stage4_Ambiguity_Memory] Ep 500 | AvgRew: 863.13 
+[Stage4_Ambiguity_Memory] Ep 600 | AvgRew: 839.71 
+[Stage4_Ambiguity_Memory] Ep 700 | AvgRew: 856.93 
+[Stage4_Ambiguity_Memory] Ep 800 | AvgRew: 791.19 
+[Stage4_Ambiguity_Memory] Ep 900 | AvgRew: 890.91 
+[Stage4_Ambiguity_Memory] Ep 1000 | AvgRew: 825.70 
+[Stage4_Ambiguity_Memory] Ep 1100 | AvgRew: 821.48 
+[Stage4_Ambiguity_Memory] Ep 1200 | AvgRew: 866.59 
+[Stage4_Ambiguity_Memory] Ep 1300 | AvgRew: 883.31 
+[Stage4_Ambiguity_Memory] Ep 1400 | AvgRew: 842.79 
+[Stage4_Ambiguity_Memory] Ep 1500 | AvgRew: 865.90 
+[Stage4_Ambiguity_Memory] Ep 1600 | AvgRew: 836.45 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 1700 | AvgRew: 824.90 
+[Stage4_Ambiguity_Memory] Ep 1800 | AvgRew: 872.87 
+[Stage4_Ambiguity_Memory] Ep 1900 | AvgRew: 924.50 
+[Stage4_Ambiguity_Memory] Ep 2000 | AvgRew: 880.78 
+[Stage4_Ambiguity_Memory] Ep 2100 | AvgRew: 873.95 
+[Stage4_Ambiguity_Memory] Ep 2200 | AvgRew: 916.03 
+[Stage4_Ambiguity_Memory] Ep 2300 | AvgRew: 887.73 
+[Stage4_Ambiguity_Memory] Ep 2400 | AvgRew: 869.21 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 2500 | AvgRew: 863.60 
+[Stage4_Ambiguity_Memory] Ep 2600 | AvgRew: 811.42 
+[Stage4_Ambiguity_Memory] Ep 2700 | AvgRew: 929.69 
+[Stage4_Ambiguity_Memory] Ep 2800 | AvgRew: 868.63 
+[Stage4_Ambiguity_Memory] Ep 2900 | AvgRew: 911.24 
+[Stage4_Ambiguity_Memory] Ep 3000 | AvgRew: 913.57 
+[Stage4_Ambiguity_Memory] Ep 3100 | AvgRew: 847.59 
+[Stage4_Ambiguity_Memory] Ep 3200 | AvgRew: 883.72 
+[Stage4_Ambiguity_Memory] Ep 3300 | AvgRew: 855.91 
+[Stage4_Ambiguity_Memory] Ep 3400 | AvgRew: 847.52 
+[Stage4_Ambiguity_Memory] Ep 3500 | AvgRew: 895.10 
+[Stage4_Ambiguity_Memory] Ep 3600 | AvgRew: 896.47 
+[Stage4_Ambiguity_Memory] Ep 3700 | AvgRew: 840.62 
+[Stage4_Ambiguity_Memory] Ep 3800 | AvgRew: 862.54 
+[Stage4_Ambiguity_Memory] Ep 3900 | AvgRew: 916.00 
+[Stage4_Ambiguity_Memory] Ep 4000 | AvgRew: 894.06 
+[Stage4_Ambiguity_Memory] Ep 4100 | AvgRew: 891.67 
+[Stage4_Ambiguity_Memory] Ep 4200 | AvgRew: 874.77 
+[Stage4_Ambiguity_Memory] Ep 4300 | AvgRew: 878.37 
+[Stage4_Ambiguity_Memory] Ep 4400 | AvgRew: 882.11 
+[Stage4_Ambiguity_Memory] Ep 4500 | AvgRew: 880.18 
+[Stage4_Ambiguity_Memory] Ep 4600 | AvgRew: 875.20 
+[Stage4_Ambiguity_Memory] Ep 4700 | AvgRew: 862.12 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 4800 | AvgRew: 908.26 
+[Stage4_Ambiguity_Memory] Ep 4900 | AvgRew: 917.02 
+[Stage4_Ambiguity_Memory] Ep 5000 | AvgRew: 849.80 
+[Stage4_Ambiguity_Memory] Ep 5100 | AvgRew: 839.00 
+[Stage4_Ambiguity_Memory] Ep 5200 | AvgRew: 913.77 
+[Stage4_Ambiguity_Memory] Ep 5300 | AvgRew: 909.89 
+[Stage4_Ambiguity_Memory] Ep 5400 | AvgRew: 835.92 
+[Stage4_Ambiguity_Memory] Ep 5500 | AvgRew: 907.13 
+[Stage4_Ambiguity_Memory] Ep 5600 | AvgRew: 858.06 
+[Stage4_Ambiguity_Memory] Ep 5700 | AvgRew: 896.12 
+[Stage4_Ambiguity_Memory] Ep 5800 | AvgRew: 859.66 
+[Stage4_Ambiguity_Memory] Ep 5900 | AvgRew: 818.77 
+[Stage4_Ambiguity_Memory] Ep 6000 | AvgRew: 866.23 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 6100 | AvgRew: 904.38 
+[Stage4_Ambiguity_Memory] Ep 6200 | AvgRew: 898.56 
+[Stage4_Ambiguity_Memory] Ep 6300 | AvgRew: 874.92 
+[Stage4_Ambiguity_Memory] Ep 6400 | AvgRew: 845.01 
+[Stage4_Ambiguity_Memory] Ep 6500 | AvgRew: 790.02 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 6600 | AvgRew: 851.30 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 6700 | AvgRew: 864.68 
+[Stage4_Ambiguity_Memory] Ep 6800 | AvgRew: 839.05 
+[Stage4_Ambiguity_Memory] Ep 6900 | AvgRew: 906.70 
+[Stage4_Ambiguity_Memory] Ep 7000 | AvgRew: 888.07 
+[Stage4_Ambiguity_Memory] Ep 7100 | AvgRew: 904.86 
+[Stage4_Ambiguity_Memory] Ep 7200 | AvgRew: 896.65 
+[Stage4_Ambiguity_Memory] Ep 7300 | AvgRew: 912.09 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 7400 | AvgRew: 871.93 
+[Stage4_Ambiguity_Memory] Ep 7500 | AvgRew: 830.76 
+[Stage4_Ambiguity_Memory] Ep 7600 | AvgRew: 850.52 
+[Stage4_Ambiguity_Memory] Ep 7700 | AvgRew: 801.39 
+[Stage4_Ambiguity_Memory] Ep 7800 | AvgRew: 882.87 
+[Stage4_Ambiguity_Memory] Ep 7900 | AvgRew: 889.14 
+[Stage4_Ambiguity_Memory] Ep 8000 | AvgRew: 907.20 
+[Stage4_Ambiguity_Memory] Ep 8100 | AvgRew: 892.93 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 8200 | AvgRew: 930.53 
+[Stage4_Ambiguity_Memory] Ep 8300 | AvgRew: 933.80 
+[Stage4_Ambiguity_Memory] Ep 8400 | AvgRew: 890.23 
+[Stage4_Ambiguity_Memory] Ep 8500 | AvgRew: 921.97 
+[Stage4_Ambiguity_Memory] Ep 8600 | AvgRew: 925.81 
+[Stage4_Ambiguity_Memory] Ep 8700 | AvgRew: 853.99 
+[Stage4_Ambiguity_Memory] Ep 8800 | AvgRew: 918.52 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 8900 | AvgRew: 900.94 
+[Stage4_Ambiguity_Memory] Ep 9000 | AvgRew: 929.13 
+[Stage4_Ambiguity_Memory] Ep 9100 | AvgRew: 869.91 
+[Stage4_Ambiguity_Memory] Ep 9200 | AvgRew: 876.79 
+[Stage4_Ambiguity_Memory] Ep 9300 | AvgRew: 899.53 
+[Stage4_Ambiguity_Memory] Ep 9400 | AvgRew: 887.31 
+[Stage4_Ambiguity_Memory] Ep 9500 | AvgRew: 915.80 
+[Stage4_Ambiguity_Memory] Ep 9600 | AvgRew: 878.86 
+[Stage4_Ambiguity_Memory] Ep 9700 | AvgRew: 841.37 
+[Stage4_Ambiguity_Memory] Ep 9800 | AvgRew: 926.40 
+[Stage4_Ambiguity_Memory] Ep 9900 | AvgRew: 906.74 
+[Stage4_Ambiguity_Memory] Ep 10000 | AvgRew: 892.20 
+[Stage4_Ambiguity_Memory] Ep 10100 | AvgRew: 831.09 
+[Stage4_Ambiguity_Memory] Ep 10200 | AvgRew: 905.11 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 10300 | AvgRew: 864.24 
+[Stage4_Ambiguity_Memory] Ep 10400 | AvgRew: 856.23 
+[Stage4_Ambiguity_Memory] Ep 10500 | AvgRew: 847.12 
+[Stage4_Ambiguity_Memory] Ep 10600 | AvgRew: 923.94 
+[Stage4_Ambiguity_Memory] Ep 10700 | AvgRew: 872.75 
+[Stage4_Ambiguity_Memory] Ep 10800 | AvgRew: 882.73 
+[Stage4_Ambiguity_Memory] Ep 10900 | AvgRew: 902.47 
+[Stage4_Ambiguity_Memory] Ep 11000 | AvgRew: 887.06 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 11100 | AvgRew: 843.62 
+[Stage4_Ambiguity_Memory] Ep 11200 | AvgRew: 884.04 
+[Stage4_Ambiguity_Memory] Ep 11300 | AvgRew: 842.23 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 11400 | AvgRew: 884.17 
+[Stage4_Ambiguity_Memory] Ep 11500 | AvgRew: 838.63 
+[Stage4_Ambiguity_Memory] Ep 11600 | AvgRew: 828.62 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 11700 | AvgRew: 873.15 
+[Stage4_Ambiguity_Memory] Ep 11800 | AvgRew: 817.36 
+[Stage4_Ambiguity_Memory] Ep 11900 | AvgRew: 933.13 
+[Stage4_Ambiguity_Memory] Ep 12000 | AvgRew: 945.62 
+[Stage4_Ambiguity_Memory] Ep 12100 | AvgRew: 851.17 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 12200 | AvgRew: 879.46 
+[Stage4_Ambiguity_Memory] Ep 12300 | AvgRew: 890.73 
+[Stage4_Ambiguity_Memory] Ep 12400 | AvgRew: 894.73 
+[Stage4_Ambiguity_Memory] Ep 12500 | AvgRew: 882.72 
+[Stage4_Ambiguity_Memory] Ep 12600 | AvgRew: 929.72 
+[Stage4_Ambiguity_Memory] Ep 12700 | AvgRew: 936.80 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 12800 | AvgRew: 913.30 
+[Stage4_Ambiguity_Memory] Ep 12900 | AvgRew: 903.74 
+[Stage4_Ambiguity_Memory] Ep 13000 | AvgRew: 875.47 
+[Stage4_Ambiguity_Memory] Ep 13100 | AvgRew: 872.77 
+[Stage4_Ambiguity_Memory] Ep 13200 | AvgRew: 876.10 
+[Stage4_Ambiguity_Memory] Ep 13300 | AvgRew: 913.94 
+[Stage4_Ambiguity_Memory] Ep 13400 | AvgRew: 898.59 
+[Stage4_Ambiguity_Memory] Ep 13500 | AvgRew: 885.78 
+[Stage4_Ambiguity_Memory] Ep 13600 | AvgRew: 910.79 
+[Stage4_Ambiguity_Memory] Ep 13700 | AvgRew: 895.09 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 13800 | AvgRew: 945.38 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 13900 | AvgRew: 890.52 
+[Stage4_Ambiguity_Memory] Ep 14000 | AvgRew: 908.18 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 14100 | AvgRew: 893.60 (PrevStage)
+[Stage4_Ambiguity_Memory] Ep 14200 | AvgRew: 891.93 
+[Stage4_Ambiguity_Memory] Ep 14300 | AvgRew: 908.22 
+[Stage4_Ambiguity_Memory] Ep 14400 | AvgRew: 877.12 
+[Stage4_Ambiguity_Memory] Ep 14500 | AvgRew: 875.22 
+[Stage4_Ambiguity_Memory] Ep 14600 | AvgRew: 890.91 
+[Stage4_Ambiguity_Memory] Ep 14700 | AvgRew: 922.14 
+[Stage4_Ambiguity_Memory] Ep 14800 | AvgRew: 937.54 
+[Stage4_Ambiguity_Memory] Ep 14900 | AvgRew: 887.41 
+[Stage4_Ambiguity_Memory] Ep 15000 | AvgRew: 830.72 
+
+⚡ STARTING Stage5_Zero_Shot_Robustness (Eps: 30000, LR: 2e-05)
+[Stage5_Zero_Shot_Robustness] Ep 100 | AvgRew: 394.43 
+[Stage5_Zero_Shot_Robustness] Ep 200 | AvgRew: 504.24 
+[Stage5_Zero_Shot_Robustness] Ep 300 | AvgRew: 591.75 
+[Stage5_Zero_Shot_Robustness] Ep 400 | AvgRew: 586.21 
+[Stage5_Zero_Shot_Robustness] Ep 500 | AvgRew: 445.33 
+[Stage5_Zero_Shot_Robustness] Ep 600 | AvgRew: 518.54 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 700 | AvgRew: 531.45 
+[Stage5_Zero_Shot_Robustness] Ep 800 | AvgRew: 551.18 
+[Stage5_Zero_Shot_Robustness] Ep 900 | AvgRew: 530.97 
+[Stage5_Zero_Shot_Robustness] Ep 1000 | AvgRew: 470.76 
+[Stage5_Zero_Shot_Robustness] Ep 1100 | AvgRew: 556.04 
+[Stage5_Zero_Shot_Robustness] Ep 1200 | AvgRew: 491.51 
+[Stage5_Zero_Shot_Robustness] Ep 1300 | AvgRew: 524.61 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 1400 | AvgRew: 506.36 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 1500 | AvgRew: 648.47 
+[Stage5_Zero_Shot_Robustness] Ep 1600 | AvgRew: 510.69 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 1700 | AvgRew: 580.76 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 1800 | AvgRew: 464.25 
+[Stage5_Zero_Shot_Robustness] Ep 1900 | AvgRew: 582.67 
+[Stage5_Zero_Shot_Robustness] Ep 2000 | AvgRew: 484.72 
+[Stage5_Zero_Shot_Robustness] Ep 2100 | AvgRew: 639.60 
+[Stage5_Zero_Shot_Robustness] Ep 2200 | AvgRew: 605.59 
+[Stage5_Zero_Shot_Robustness] Ep 2300 | AvgRew: 564.20 
+[Stage5_Zero_Shot_Robustness] Ep 2400 | AvgRew: 519.99 
+[Stage5_Zero_Shot_Robustness] Ep 2500 | AvgRew: 581.98 
+[Stage5_Zero_Shot_Robustness] Ep 2600 | AvgRew: 479.35 
+[Stage5_Zero_Shot_Robustness] Ep 2700 | AvgRew: 595.73 
+[Stage5_Zero_Shot_Robustness] Ep 2800 | AvgRew: 553.79 
+[Stage5_Zero_Shot_Robustness] Ep 2900 | AvgRew: 491.68 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 3000 | AvgRew: 525.78 
+[Stage5_Zero_Shot_Robustness] Ep 3100 | AvgRew: 591.90 
+[Stage5_Zero_Shot_Robustness] Ep 3200 | AvgRew: 542.76 
+[Stage5_Zero_Shot_Robustness] Ep 3300 | AvgRew: 560.64 
+[Stage5_Zero_Shot_Robustness] Ep 3400 | AvgRew: 606.74 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 3500 | AvgRew: 567.77 
+[Stage5_Zero_Shot_Robustness] Ep 3600 | AvgRew: 596.12 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 3700 | AvgRew: 578.89 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 3800 | AvgRew: 575.32 
+[Stage5_Zero_Shot_Robustness] Ep 3900 | AvgRew: 677.45 
+[Stage5_Zero_Shot_Robustness] Ep 4000 | AvgRew: 605.11 
+[Stage5_Zero_Shot_Robustness] Ep 4100 | AvgRew: 644.15 
+[Stage5_Zero_Shot_Robustness] Ep 4200 | AvgRew: 596.78 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 4300 | AvgRew: 591.65 
+[Stage5_Zero_Shot_Robustness] Ep 4400 | AvgRew: 561.02 
+[Stage5_Zero_Shot_Robustness] Ep 4500 | AvgRew: 628.53 
+[Stage5_Zero_Shot_Robustness] Ep 4600 | AvgRew: 587.42 
+[Stage5_Zero_Shot_Robustness] Ep 4700 | AvgRew: 523.10 
+[Stage5_Zero_Shot_Robustness] Ep 4800 | AvgRew: 549.22 
+[Stage5_Zero_Shot_Robustness] Ep 4900 | AvgRew: 556.51 
+[Stage5_Zero_Shot_Robustness] Ep 5000 | AvgRew: 613.70 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 5100 | AvgRew: 599.22 
+[Stage5_Zero_Shot_Robustness] Ep 5200 | AvgRew: 575.75 
+[Stage5_Zero_Shot_Robustness] Ep 5300 | AvgRew: 529.76 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 5400 | AvgRew: 576.04 
+[Stage5_Zero_Shot_Robustness] Ep 5500 | AvgRew: 496.60 
+[Stage5_Zero_Shot_Robustness] Ep 5600 | AvgRew: 617.85 
+[Stage5_Zero_Shot_Robustness] Ep 5700 | AvgRew: 598.09 
+[Stage5_Zero_Shot_Robustness] Ep 5800 | AvgRew: 520.53 
+[Stage5_Zero_Shot_Robustness] Ep 5900 | AvgRew: 589.87 
+[Stage5_Zero_Shot_Robustness] Ep 6000 | AvgRew: 456.44 
+[Stage5_Zero_Shot_Robustness] Ep 6100 | AvgRew: 532.33 
+[Stage5_Zero_Shot_Robustness] Ep 6200 | AvgRew: 634.60 
+[Stage5_Zero_Shot_Robustness] Ep 6300 | AvgRew: 551.45 
+[Stage5_Zero_Shot_Robustness] Ep 6400 | AvgRew: 586.69 
+[Stage5_Zero_Shot_Robustness] Ep 6500 | AvgRew: 615.35 
+[Stage5_Zero_Shot_Robustness] Ep 6600 | AvgRew: 570.93 
+[Stage5_Zero_Shot_Robustness] Ep 6700 | AvgRew: 629.26 
+[Stage5_Zero_Shot_Robustness] Ep 6800 | AvgRew: 646.14 
+[Stage5_Zero_Shot_Robustness] Ep 6900 | AvgRew: 666.18 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 7000 | AvgRew: 674.03 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 7100 | AvgRew: 578.46 
+[Stage5_Zero_Shot_Robustness] Ep 7200 | AvgRew: 638.34 
+[Stage5_Zero_Shot_Robustness] Ep 7300 | AvgRew: 618.01 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 7400 | AvgRew: 677.56 
+[Stage5_Zero_Shot_Robustness] Ep 7500 | AvgRew: 568.37 
+[Stage5_Zero_Shot_Robustness] Ep 7600 | AvgRew: 626.07 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 7700 | AvgRew: 604.48 
+[Stage5_Zero_Shot_Robustness] Ep 7800 | AvgRew: 602.14 
+[Stage5_Zero_Shot_Robustness] Ep 7900 | AvgRew: 574.93 
+[Stage5_Zero_Shot_Robustness] Ep 8000 | AvgRew: 604.31 
+[Stage5_Zero_Shot_Robustness] Ep 8100 | AvgRew: 657.49 
+[Stage5_Zero_Shot_Robustness] Ep 8200 | AvgRew: 581.47 
+[Stage5_Zero_Shot_Robustness] Ep 8300 | AvgRew: 621.31 
+[Stage5_Zero_Shot_Robustness] Ep 8400 | AvgRew: 567.48 
+[Stage5_Zero_Shot_Robustness] Ep 8500 | AvgRew: 665.50 
+[Stage5_Zero_Shot_Robustness] Ep 8600 | AvgRew: 640.25 
+[Stage5_Zero_Shot_Robustness] Ep 8700 | AvgRew: 629.75 
+[Stage5_Zero_Shot_Robustness] Ep 8800 | AvgRew: 583.99 
+[Stage5_Zero_Shot_Robustness] Ep 8900 | AvgRew: 670.54 
+[Stage5_Zero_Shot_Robustness] Ep 9000 | AvgRew: 603.34 
+[Stage5_Zero_Shot_Robustness] Ep 9100 | AvgRew: 588.31 
+[Stage5_Zero_Shot_Robustness] Ep 9200 | AvgRew: 628.33 
+[Stage5_Zero_Shot_Robustness] Ep 9300 | AvgRew: 628.64 
+[Stage5_Zero_Shot_Robustness] Ep 9400 | AvgRew: 605.45 
+[Stage5_Zero_Shot_Robustness] Ep 9500 | AvgRew: 685.38 
+[Stage5_Zero_Shot_Robustness] Ep 9600 | AvgRew: 624.18 
+[Stage5_Zero_Shot_Robustness] Ep 9700 | AvgRew: 612.45 
+[Stage5_Zero_Shot_Robustness] Ep 9800 | AvgRew: 575.25 
+[Stage5_Zero_Shot_Robustness] Ep 9900 | AvgRew: 595.79 
+[Stage5_Zero_Shot_Robustness] Ep 10000 | AvgRew: 746.64 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 10100 | AvgRew: 596.62 
+[Stage5_Zero_Shot_Robustness] Ep 10200 | AvgRew: 606.47 
+[Stage5_Zero_Shot_Robustness] Ep 10300 | AvgRew: 572.66 
+[Stage5_Zero_Shot_Robustness] Ep 10400 | AvgRew: 672.24 
+[Stage5_Zero_Shot_Robustness] Ep 10500 | AvgRew: 674.16 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 10600 | AvgRew: 585.35 
+[Stage5_Zero_Shot_Robustness] Ep 10700 | AvgRew: 578.96 
+[Stage5_Zero_Shot_Robustness] Ep 10800 | AvgRew: 597.94 
+[Stage5_Zero_Shot_Robustness] Ep 10900 | AvgRew: 623.40 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 11000 | AvgRew: 558.67 
+[Stage5_Zero_Shot_Robustness] Ep 11100 | AvgRew: 701.36 
+[Stage5_Zero_Shot_Robustness] Ep 11200 | AvgRew: 659.67 
+[Stage5_Zero_Shot_Robustness] Ep 11300 | AvgRew: 689.97 
+[Stage5_Zero_Shot_Robustness] Ep 11400 | AvgRew: 589.80 
+[Stage5_Zero_Shot_Robustness] Ep 11500 | AvgRew: 591.27 
+[Stage5_Zero_Shot_Robustness] Ep 11600 | AvgRew: 652.46 
+[Stage5_Zero_Shot_Robustness] Ep 11700 | AvgRew: 583.36 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 11800 | AvgRew: 692.04 
+[Stage5_Zero_Shot_Robustness] Ep 11900 | AvgRew: 682.10 
+[Stage5_Zero_Shot_Robustness] Ep 12000 | AvgRew: 583.43 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 12100 | AvgRew: 590.23 
+[Stage5_Zero_Shot_Robustness] Ep 12200 | AvgRew: 709.69 
+[Stage5_Zero_Shot_Robustness] Ep 12300 | AvgRew: 651.09 
+[Stage5_Zero_Shot_Robustness] Ep 12400 | AvgRew: 643.11 
+[Stage5_Zero_Shot_Robustness] Ep 12500 | AvgRew: 536.71 
+[Stage5_Zero_Shot_Robustness] Ep 12600 | AvgRew: 668.31 
+[Stage5_Zero_Shot_Robustness] Ep 12700 | AvgRew: 660.58 
+[Stage5_Zero_Shot_Robustness] Ep 12800 | AvgRew: 613.91 
+[Stage5_Zero_Shot_Robustness] Ep 12900 | AvgRew: 670.21 
+[Stage5_Zero_Shot_Robustness] Ep 13000 | AvgRew: 696.22 
+[Stage5_Zero_Shot_Robustness] Ep 13100 | AvgRew: 632.18 
+[Stage5_Zero_Shot_Robustness] Ep 13200 | AvgRew: 633.00 
+[Stage5_Zero_Shot_Robustness] Ep 13300 | AvgRew: 706.48 
+[Stage5_Zero_Shot_Robustness] Ep 13400 | AvgRew: 582.71 
+[Stage5_Zero_Shot_Robustness] Ep 13500 | AvgRew: 663.50 
+[Stage5_Zero_Shot_Robustness] Ep 13600 | AvgRew: 616.97 
+[Stage5_Zero_Shot_Robustness] Ep 13700 | AvgRew: 727.71 
+[Stage5_Zero_Shot_Robustness] Ep 13800 | AvgRew: 670.78 
+[Stage5_Zero_Shot_Robustness] Ep 13900 | AvgRew: 672.05 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 14000 | AvgRew: 639.61 
+[Stage5_Zero_Shot_Robustness] Ep 14100 | AvgRew: 624.79 
+[Stage5_Zero_Shot_Robustness] Ep 14200 | AvgRew: 618.49 
+[Stage5_Zero_Shot_Robustness] Ep 14300 | AvgRew: 669.50 
+[Stage5_Zero_Shot_Robustness] Ep 14400 | AvgRew: 723.30 
+[Stage5_Zero_Shot_Robustness] Ep 14500 | AvgRew: 703.99 
+[Stage5_Zero_Shot_Robustness] Ep 14600 | AvgRew: 674.48 
+[Stage5_Zero_Shot_Robustness] Ep 14700 | AvgRew: 697.34 
+[Stage5_Zero_Shot_Robustness] Ep 14800 | AvgRew: 675.93 
+[Stage5_Zero_Shot_Robustness] Ep 14900 | AvgRew: 696.58 
+[Stage5_Zero_Shot_Robustness] Ep 15000 | AvgRew: 673.51 
+[Stage5_Zero_Shot_Robustness] Ep 15100 | AvgRew: 645.44 
+[Stage5_Zero_Shot_Robustness] Ep 15200 | AvgRew: 640.32 
+[Stage5_Zero_Shot_Robustness] Ep 15300 | AvgRew: 688.19 
+[Stage5_Zero_Shot_Robustness] Ep 15400 | AvgRew: 647.93 
+[Stage5_Zero_Shot_Robustness] Ep 15500 | AvgRew: 662.54 
+[Stage5_Zero_Shot_Robustness] Ep 15600 | AvgRew: 609.11 
+[Stage5_Zero_Shot_Robustness] Ep 15700 | AvgRew: 741.40 
+[Stage5_Zero_Shot_Robustness] Ep 15800 | AvgRew: 681.89 
+[Stage5_Zero_Shot_Robustness] Ep 15900 | AvgRew: 694.99 
+[Stage5_Zero_Shot_Robustness] Ep 16000 | AvgRew: 571.59 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 16100 | AvgRew: 666.09 
+[Stage5_Zero_Shot_Robustness] Ep 16200 | AvgRew: 703.40 
+[Stage5_Zero_Shot_Robustness] Ep 16300 | AvgRew: 687.48 
+[Stage5_Zero_Shot_Robustness] Ep 16400 | AvgRew: 622.09 
+[Stage5_Zero_Shot_Robustness] Ep 16500 | AvgRew: 664.92 
+[Stage5_Zero_Shot_Robustness] Ep 16600 | AvgRew: 707.89 
+[Stage5_Zero_Shot_Robustness] Ep 16700 | AvgRew: 639.76 
+[Stage5_Zero_Shot_Robustness] Ep 16800 | AvgRew: 758.11 
+[Stage5_Zero_Shot_Robustness] Ep 16900 | AvgRew: 729.19 
+[Stage5_Zero_Shot_Robustness] Ep 17000 | AvgRew: 673.93 
+[Stage5_Zero_Shot_Robustness] Ep 17100 | AvgRew: 714.58 
+[Stage5_Zero_Shot_Robustness] Ep 17200 | AvgRew: 636.30 
+[Stage5_Zero_Shot_Robustness] Ep 17300 | AvgRew: 667.28 
+[Stage5_Zero_Shot_Robustness] Ep 17400 | AvgRew: 746.71 
+[Stage5_Zero_Shot_Robustness] Ep 17500 | AvgRew: 656.81 
+[Stage5_Zero_Shot_Robustness] Ep 17600 | AvgRew: 654.16 
+[Stage5_Zero_Shot_Robustness] Ep 17700 | AvgRew: 651.58 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 17800 | AvgRew: 666.57 
+[Stage5_Zero_Shot_Robustness] Ep 17900 | AvgRew: 619.75 
+[Stage5_Zero_Shot_Robustness] Ep 18000 | AvgRew: 672.38 
+[Stage5_Zero_Shot_Robustness] Ep 18100 | AvgRew: 647.13 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 18200 | AvgRew: 695.68 
+[Stage5_Zero_Shot_Robustness] Ep 18300 | AvgRew: 644.48 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 18400 | AvgRew: 688.34 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 18500 | AvgRew: 701.00 
+[Stage5_Zero_Shot_Robustness] Ep 18600 | AvgRew: 751.48 
+[Stage5_Zero_Shot_Robustness] Ep 18700 | AvgRew: 631.22 
+[Stage5_Zero_Shot_Robustness] Ep 18800 | AvgRew: 660.61 
+[Stage5_Zero_Shot_Robustness] Ep 18900 | AvgRew: 678.41 
+[Stage5_Zero_Shot_Robustness] Ep 19000 | AvgRew: 655.15 
+[Stage5_Zero_Shot_Robustness] Ep 19100 | AvgRew: 749.43 
+[Stage5_Zero_Shot_Robustness] Ep 19200 | AvgRew: 709.00 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 19300 | AvgRew: 673.44 
+[Stage5_Zero_Shot_Robustness] Ep 19400 | AvgRew: 673.76 
+[Stage5_Zero_Shot_Robustness] Ep 19500 | AvgRew: 637.23 
+[Stage5_Zero_Shot_Robustness] Ep 19600 | AvgRew: 744.49 
+[Stage5_Zero_Shot_Robustness] Ep 19700 | AvgRew: 679.50 
+[Stage5_Zero_Shot_Robustness] Ep 19800 | AvgRew: 734.69 
+[Stage5_Zero_Shot_Robustness] Ep 19900 | AvgRew: 701.09 
+[Stage5_Zero_Shot_Robustness] Ep 20000 | AvgRew: 724.55 
+[Stage5_Zero_Shot_Robustness] Ep 20100 | AvgRew: 723.33 
+[Stage5_Zero_Shot_Robustness] Ep 20200 | AvgRew: 704.87 
+[Stage5_Zero_Shot_Robustness] Ep 20300 | AvgRew: 672.90 
+[Stage5_Zero_Shot_Robustness] Ep 20400 | AvgRew: 696.26 
+[Stage5_Zero_Shot_Robustness] Ep 20500 | AvgRew: 759.99 
+[Stage5_Zero_Shot_Robustness] Ep 20600 | AvgRew: 711.31 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 20700 | AvgRew: 800.20 
+[Stage5_Zero_Shot_Robustness] Ep 20800 | AvgRew: 756.24 
+[Stage5_Zero_Shot_Robustness] Ep 20900 | AvgRew: 578.71 
+[Stage5_Zero_Shot_Robustness] Ep 21000 | AvgRew: 727.83 
+[Stage5_Zero_Shot_Robustness] Ep 21100 | AvgRew: 725.52 
+[Stage5_Zero_Shot_Robustness] Ep 21200 | AvgRew: 731.77 
+[Stage5_Zero_Shot_Robustness] Ep 21300 | AvgRew: 658.87 
+[Stage5_Zero_Shot_Robustness] Ep 21400 | AvgRew: 692.09 
+[Stage5_Zero_Shot_Robustness] Ep 21500 | AvgRew: 668.32 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 21600 | AvgRew: 796.40 
+[Stage5_Zero_Shot_Robustness] Ep 21700 | AvgRew: 704.00 
+[Stage5_Zero_Shot_Robustness] Ep 21800 | AvgRew: 707.70 
+[Stage5_Zero_Shot_Robustness] Ep 21900 | AvgRew: 755.59 
+[Stage5_Zero_Shot_Robustness] Ep 22000 | AvgRew: 669.00 
+[Stage5_Zero_Shot_Robustness] Ep 22100 | AvgRew: 734.19 
+[Stage5_Zero_Shot_Robustness] Ep 22200 | AvgRew: 678.09 
+[Stage5_Zero_Shot_Robustness] Ep 22300 | AvgRew: 646.78 
+[Stage5_Zero_Shot_Robustness] Ep 22400 | AvgRew: 702.97 
+[Stage5_Zero_Shot_Robustness] Ep 22500 | AvgRew: 742.21 
+[Stage5_Zero_Shot_Robustness] Ep 22600 | AvgRew: 760.14 
+[Stage5_Zero_Shot_Robustness] Ep 22700 | AvgRew: 682.66 
+[Stage5_Zero_Shot_Robustness] Ep 22800 | AvgRew: 732.98 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 22900 | AvgRew: 756.88 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 23000 | AvgRew: 726.70 
+[Stage5_Zero_Shot_Robustness] Ep 23100 | AvgRew: 731.82 
+[Stage5_Zero_Shot_Robustness] Ep 23200 | AvgRew: 739.74 
+[Stage5_Zero_Shot_Robustness] Ep 23300 | AvgRew: 710.00 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 23400 | AvgRew: 699.31 
+[Stage5_Zero_Shot_Robustness] Ep 23500 | AvgRew: 736.37 
+[Stage5_Zero_Shot_Robustness] Ep 23600 | AvgRew: 758.05 
+[Stage5_Zero_Shot_Robustness] Ep 23700 | AvgRew: 719.31 
+[Stage5_Zero_Shot_Robustness] Ep 23800 | AvgRew: 712.25 
+[Stage5_Zero_Shot_Robustness] Ep 23900 | AvgRew: 727.61 
+[Stage5_Zero_Shot_Robustness] Ep 24000 | AvgRew: 712.59 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 24100 | AvgRew: 759.47 
+[Stage5_Zero_Shot_Robustness] Ep 24200 | AvgRew: 808.75 
+[Stage5_Zero_Shot_Robustness] Ep 24300 | AvgRew: 725.98 
+[Stage5_Zero_Shot_Robustness] Ep 24400 | AvgRew: 690.32 
+[Stage5_Zero_Shot_Robustness] Ep 24500 | AvgRew: 669.66 
+[Stage5_Zero_Shot_Robustness] Ep 24600 | AvgRew: 740.86 
+[Stage5_Zero_Shot_Robustness] Ep 24700 | AvgRew: 799.66 
+[Stage5_Zero_Shot_Robustness] Ep 24800 | AvgRew: 764.12 
+[Stage5_Zero_Shot_Robustness] Ep 24900 | AvgRew: 703.79 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 25000 | AvgRew: 811.30 
+[Stage5_Zero_Shot_Robustness] Ep 25100 | AvgRew: 751.61 
+[Stage5_Zero_Shot_Robustness] Ep 25200 | AvgRew: 753.75 
+[Stage5_Zero_Shot_Robustness] Ep 25300 | AvgRew: 777.53 
+[Stage5_Zero_Shot_Robustness] Ep 25400 | AvgRew: 800.57 
+[Stage5_Zero_Shot_Robustness] Ep 25500 | AvgRew: 693.54 
+[Stage5_Zero_Shot_Robustness] Ep 25600 | AvgRew: 741.24 
+[Stage5_Zero_Shot_Robustness] Ep 25700 | AvgRew: 742.61 
+[Stage5_Zero_Shot_Robustness] Ep 25800 | AvgRew: 720.38 
+[Stage5_Zero_Shot_Robustness] Ep 25900 | AvgRew: 733.95 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 26000 | AvgRew: 777.26 
+[Stage5_Zero_Shot_Robustness] Ep 26100 | AvgRew: 736.78 
+[Stage5_Zero_Shot_Robustness] Ep 26200 | AvgRew: 774.70 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 26300 | AvgRew: 725.75 
+[Stage5_Zero_Shot_Robustness] Ep 26400 | AvgRew: 764.81 
+[Stage5_Zero_Shot_Robustness] Ep 26500 | AvgRew: 811.44 
+[Stage5_Zero_Shot_Robustness] Ep 26600 | AvgRew: 720.21 
+[Stage5_Zero_Shot_Robustness] Ep 26700 | AvgRew: 702.21 
+[Stage5_Zero_Shot_Robustness] Ep 26800 | AvgRew: 768.52 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 26900 | AvgRew: 784.66 
+[Stage5_Zero_Shot_Robustness] Ep 27000 | AvgRew: 682.62 
+[Stage5_Zero_Shot_Robustness] Ep 27100 | AvgRew: 788.25 
+[Stage5_Zero_Shot_Robustness] Ep 27200 | AvgRew: 749.31 
+[Stage5_Zero_Shot_Robustness] Ep 27300 | AvgRew: 753.50 
+[Stage5_Zero_Shot_Robustness] Ep 27400 | AvgRew: 675.81 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 27500 | AvgRew: 773.17 
+[Stage5_Zero_Shot_Robustness] Ep 27600 | AvgRew: 710.94 
+[Stage5_Zero_Shot_Robustness] Ep 27700 | AvgRew: 826.41 
+[Stage5_Zero_Shot_Robustness] Ep 27800 | AvgRew: 767.68 
+[Stage5_Zero_Shot_Robustness] Ep 27900 | AvgRew: 813.50 
+[Stage5_Zero_Shot_Robustness] Ep 28000 | AvgRew: 826.87 
+[Stage5_Zero_Shot_Robustness] Ep 28100 | AvgRew: 811.97 
+[Stage5_Zero_Shot_Robustness] Ep 28200 | AvgRew: 764.20 
+[Stage5_Zero_Shot_Robustness] Ep 28300 | AvgRew: 779.21 
+[Stage5_Zero_Shot_Robustness] Ep 28400 | AvgRew: 785.55 
+[Stage5_Zero_Shot_Robustness] Ep 28500 | AvgRew: 764.94 
+[Stage5_Zero_Shot_Robustness] Ep 28600 | AvgRew: 731.63 
+[Stage5_Zero_Shot_Robustness] Ep 28700 | AvgRew: 754.08 
+[Stage5_Zero_Shot_Robustness] Ep 28800 | AvgRew: 721.29 
+[Stage5_Zero_Shot_Robustness] Ep 28900 | AvgRew: 763.19 
+[Stage5_Zero_Shot_Robustness] Ep 29000 | AvgRew: 687.02 
+[Stage5_Zero_Shot_Robustness] Ep 29100 | AvgRew: 702.52 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 29200 | AvgRew: 772.50 
+[Stage5_Zero_Shot_Robustness] Ep 29300 | AvgRew: 743.39 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 29400 | AvgRew: 696.36 
+[Stage5_Zero_Shot_Robustness] Ep 29500 | AvgRew: 743.92 
+[Stage5_Zero_Shot_Robustness] Ep 29600 | AvgRew: 797.71 
+[Stage5_Zero_Shot_Robustness] Ep 29700 | AvgRew: 727.37 
+[Stage5_Zero_Shot_Robustness] Ep 29800 | AvgRew: 753.50 (PrevStage)
+[Stage5_Zero_Shot_Robustness] Ep 29900 | AvgRew: 797.78 
+[Stage5_Zero_Shot_Robustness] Ep 30000 | AvgRew: 752.33 
