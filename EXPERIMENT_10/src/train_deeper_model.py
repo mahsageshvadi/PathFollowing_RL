@@ -844,9 +844,11 @@ def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
             v_loss = F.mse_loss(val, ret[mb])
             
             # Junction Loss (BCE)
+            pos_weight = torch.tensor([8.0], device=DEVICE)   # tune 5–20
             j_loss = F.binary_cross_entropy_with_logits(
                 junction_pred,
-                junc_gt[mb].squeeze(-1)
+                junc_gt[mb].squeeze(-1),
+                pos_weight=pos_weight
             )
 
             
