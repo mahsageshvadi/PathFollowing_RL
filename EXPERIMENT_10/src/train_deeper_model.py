@@ -844,7 +844,11 @@ def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
             v_loss = F.mse_loss(val, ret[mb])
             
             # Junction Loss (BCE)
-            j_loss = F.binary_cross_entropy_with_logits(junction_pred, junc_gt[mb])
+            j_loss = F.binary_cross_entropy_with_logits(
+                junction_pred,
+                junc_gt[mb].squeeze(-1)
+            )
+
             
             # Total Loss
             loss = p_loss + 0.5 * v_loss - 0.01 * entropy + 0.5 * j_loss
