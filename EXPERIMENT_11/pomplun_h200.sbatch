@@ -40,4 +40,5 @@ echo "Running training from: $PROJECT_DIR"
 cd ~/New_Projects/PathFollowing_RL/EXPERIMENT_11/
 
 python src/train_deeper_model.py \
+    --resume_from "../EXPERIMENT_11/runs/20260127_112054/weights/model_Stage4_Master_Generalization_FINAL.pth" \
   --curve_config config/curve_config.json
