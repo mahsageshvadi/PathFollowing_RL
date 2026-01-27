@@ -8,7 +8,7 @@ class AsymmetricActorCritic(nn.Module):
         super().__init__()
         # Deeper Visual Encoder (5 layers, matches your Stage 7 model)
         self.actor_cnn = nn.Sequential(
-            nn.Conv2d(4, 32, 3, padding=1), gn(32), nn.PReLU(),
+            nn.Conv2d(5, 32, 3, padding=1), gn(32), nn.PReLU(),   # <<< FIX HERE
             nn.Conv2d(32, 32, 3, padding=2, dilation=2), gn(32), nn.PReLU(),
             nn.Conv2d(32, 64, 3, padding=1), gn(64), nn.PReLU(),
             nn.Conv2d(64, 64, 3, padding=2, dilation=2), gn(64), nn.PReLU(),
