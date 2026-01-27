@@ -24,7 +24,7 @@ _script_dir = os.path.dirname(os.path.abspath(__file__))
 if _script_dir not in sys.path:
     sys.path.insert(0, _script_dir)
 
-from models_deeper import ActorOnly
+from models_deeper import AsymmetricActorCritic
 
 # --- CONSTANTS ---
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -159,6 +159,9 @@ class RealImageStepper:
         self.ax_main.imshow(self.raw_img, cmap="gray", vmin=0, vmax=1)
         self.ax_main.set_title("CLICK 1: Start Point | CLICK 2: Direction")
 
+        self.last_junction_prob = 0.0
+
+
         print("\n--- INSTRUCTIONS ---")
         print("1. Click on the vessel to START.")
         print("2. Click slightly further along the vessel to set DIRECTION.")
@@ -258,8 +261,11 @@ class RealImageStepper:
         hist_t = torch.tensor(ahist_arr[None], dtype=torch.float32, device=DEVICE)
 
         with torch.no_grad():
-            logits, _ = self.model(obs_t, hist_t)
+            dummy_critic = obs_t[:, :1]   # shape doesn't matter much for inference
+            logits, _, j_logit, _, _ = self.model(obs_t, dummy_critic, hist_t)
+
             probs = torch.softmax(logits, dim=1).cpu().numpy()[0]
+            junction_prob = torch.sigmoid(j_logit).item()
 
         self.last_probs = probs
         action = int(np.argmax(probs))
@@ -291,8 +297,11 @@ class RealImageStepper:
         oh[action] = 1.0
         self.ahist.append(oh)
 
+        self.last_junction_prob = junction_prob
         self.step_count += 1
         self.update_plot()
+
+
 
     def update_plot(self):
         self.ax_main.clear()
@@ -333,6 +342,24 @@ class RealImageStepper:
 
         self.fig.canvas.draw()
 
+        self.ax_main.set_title(
+            f"Step: {self.step_count} | Junction P = {self.last_junction_prob:.2f}"
+        )
+
+        if self.last_junction_prob > 0.6:
+            self.ax_main.text(
+                10, 20,
+                f"⚠ JUNCTION ({self.last_junction_prob:.2f})",
+                color="red",
+                fontsize=14,
+                weight="bold",
+                bbox=dict(facecolor="black", alpha=0.5)
+            )
+
+        # ✅ draw LAST
+        self.fig.canvas.draw_idle()
+
+
     def on_key(self, event):
         if event.key == " ":
             self.running = not self.running
@@ -363,10 +390,10 @@ class RealImageStepper:
 # --- ENTRY POINT ---
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--image", type=str, default="Retinal_DRIVE_pngs/37_training.png", help="Path to real image")
+    parser.add_argument("--image", type=str, default="Retinal_DRIVE_pngs/16_training.png", help="Path to real image")
     # parser.add_argument("--image", type=str, default="/Users/mahsa/Downloads/archive (4)/train/3594_sat.jpg", help="Path to real image")
     parser.add_argument("--weights", type=str,
-                        default="../EXPERIMENT_4/runs/20260121_013130/weights/model_Stage4_Master_Generalization_FINAL.pth",
+                        default="../EXPERIMENT_10/runs/20260126_002010/weights/model_Stage7_Branching_Full_Realism_FINAL.pth",
                         help="Path to .pth model")
     parser.add_argument("--invert", action="store_true", help="Invert image colors (use if background is white)")
 
@@ -377,19 +404,14 @@ def main():
     args = parser.parse_args()
 
     print(f"Initializing Model (N_ACTIONS={N_ACTIONS})...")
-    model = ActorOnly(n_actions=N_ACTIONS, K=K).to(DEVICE)
+    model = AsymmetricActorCritic(n_actions=N_ACTIONS).to(DEVICE)
+
 
     try:
-        loaded = torch.load(args.weights, map_location=DEVICE)
-        clean_weights = {}
-        for k, v in loaded.items():
-            if k.startswith("actor_"):
-                clean_weights[k] = v
-            elif "critic" not in k:
-                clean_weights[f"actor_{k}"] = v
+        model.load_state_dict(torch.load(args.weights, map_location=DEVICE), strict=False)
 
-        model.load_state_dict(clean_weights, strict=False)
         model.eval()
+
         print("✅ Model loaded!")
     except Exception as e:
         print(f"❌ Error loading weights: {e}")

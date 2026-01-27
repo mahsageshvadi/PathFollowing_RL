@@ -2,8 +2,8 @@ from PIL import Image
 import glob
 import os
 
-input_dir = "/Users/mahsa/Downloads/DRIVE/training/images"
-output_dir = "Retinal_DRIVE_pngs"
+input_dir = "RoadData"
+output_dir = "Road_pngs"
 os.makedirs(output_dir, exist_ok=True)
 
 
