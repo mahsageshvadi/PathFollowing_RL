@@ -687,6 +687,9 @@ class CurveEnvUnified:
         self.path_points = [self.agent]
         self.path_mask[int(self.agent[0]), int(self.agent[1])] = 1.0
         
+        # Initialize prev_path_indices for tracking progress on each path
+        self.prev_path_indices = [0] * len(self.all_paths)
+        
         self.L_prev = get_distance_to_poly(self.agent, self.target_poly)
         self.current_episode += 1
         return self.obs()
@@ -776,9 +779,14 @@ class CurveEnvUnified:
         best_idx = nearest_gt_index(self.agent, self.target_poly)
         
         # Progress check relative to whichever path we are on
-        # Note: In reset(), initialize self.prev_path_indices = {i: 0 for i in range(len(self.all_paths))}
-        if not hasattr(self, 'prev_path_indices'): 
+        # Ensure prev_path_indices is properly initialized and sized
+        if not hasattr(self, 'prev_path_indices') or len(self.prev_path_indices) != len(self.all_paths):
             self.prev_path_indices = [0] * len(self.all_paths)
+        
+        # Safety check: ensure best_path_idx is within bounds
+        if best_path_idx >= len(self.prev_path_indices):
+            # If somehow the index is out of range, resize the list
+            self.prev_path_indices.extend([0] * (best_path_idx - len(self.prev_path_indices) + 1))
             
         progress_delta = best_idx - self.prev_path_indices[best_path_idx]
         
@@ -939,8 +947,30 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
     K = 16
     
     if resume_from:
-        print(f"Loading checkpoint: {resume_from}")
-        model.load_state_dict(torch.load(resume_from, map_location=DEVICE))
+        # Resolve path (handle both absolute and relative paths)
+        if not os.path.isabs(resume_from):
+            # Try relative to current working directory first
+            if os.path.exists(resume_from):
+                checkpoint_path = resume_from
+            else:
+                # Try relative to project directory
+                checkpoint_path = os.path.join(parent_dir, resume_from)
+        else:
+            checkpoint_path = resume_from
+        
+        if not os.path.exists(checkpoint_path):
+            print(f"❌ ERROR: Checkpoint file not found: {checkpoint_path}")
+            print(f"   Attempted path: {resume_from}")
+            print(f"   Resolved path: {os.path.abspath(checkpoint_path) if not os.path.isabs(resume_from) else checkpoint_path}")
+            sys.exit(1)
+        
+        print(f"Loading checkpoint: {checkpoint_path}")
+        try:
+            model.load_state_dict(torch.load(checkpoint_path, map_location=DEVICE))
+            print(f"✅ Successfully loaded checkpoint from: {checkpoint_path}")
+        except Exception as e:
+            print(f"❌ ERROR loading checkpoint: {e}")
+            sys.exit(1)
 
     raw_stages = curve_config.get('training_stages', [])
     if not raw_stages:
@@ -964,7 +994,40 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
     global_episode_offset = 0
     previous_stages = [] 
     
+    # If resuming, find which stage to start from
+    start_stage_idx = 0
+    if resume_from:
+        # Extract stage name from checkpoint filename
+        checkpoint_filename = os.path.basename(checkpoint_path)
+        # Pattern: model_Stage4_Master_Generalization_FINAL.pth
+        if 'model_' in checkpoint_filename and '_FINAL.pth' in checkpoint_filename:
+            stage_name_from_checkpoint = checkpoint_filename.replace('model_', '').replace('_FINAL.pth', '')
+            # Find matching stage
+            for idx, stage in enumerate(stages):
+                if stage['name'] == stage_name_from_checkpoint:
+                    start_stage_idx = idx + 1  # Start from the NEXT stage after the checkpoint
+                    print(f"📌 Resuming from checkpoint: {stage_name_from_checkpoint}")
+                    if start_stage_idx < len(stages):
+                        print(f"📌 Will skip stages 1-{idx+1} and start from: {stages[start_stage_idx]['name']}")
+                    else:
+                        print(f"⚠️  Warning: Checkpoint is from the last stage. All stages completed!")
+                        return
+                    # Calculate episode offset for skipped stages
+                    for skip_idx in range(start_stage_idx):
+                        global_episode_offset += stages[skip_idx]['episodes']
+                        previous_stages.append(stages[skip_idx]['config'].copy())
+                    break
+            else:
+                print(f"⚠️  Warning: Could not find stage '{stage_name_from_checkpoint}' in config. Starting from Stage 1.")
+                start_stage_idx = 0
+    
     for stage_idx, stage in enumerate(stages):
+        # Skip stages before the resume point
+        if stage_idx < start_stage_idx:
+            print(f"⏭️  SKIPPING {stage['name']} (already completed)")
+            previous_stages.append(stage['config'].copy())
+            global_episode_offset += stage['episodes']
+            continue
         print(f"\n⚡ STARTING {stage['name']} (Eps: {stage['episodes']}, LR: {stage['lr']})")
         
         env = CurveEnvUnified(h=img_h, w=img_w, base_seed=base_seed, 
