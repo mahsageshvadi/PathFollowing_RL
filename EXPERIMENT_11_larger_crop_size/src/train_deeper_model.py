@@ -1084,44 +1084,72 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
             obs_dict = env.reset(episode_number=global_ep)
             done = False
             
-            ahist = []
-            ep_traj = {"obs":{'actor':[], 'critic_gt':[], 'is_junction_gt':[]}, 
-                       "ahist":[], "act":[], "logp":[], "val":[], "rew":[]}
+            # --- INSIDE run_unified_training ---
             
+            # Initialize trajectory storage
+            ahist = []
+            ep_traj = {
+                "obs": {'actor': [], 'critic_gt': [], 'is_junction_gt': []},
+                "ahist": [],
+                "act": [],      # Store INT (move_idx) only
+                "logp": [],
+                "val": [],
+                "rew": [],
+                "stop_gt": []   # NEW: Store GT for stop head
+            }
+
             while not done:
+                # Prepare Inputs
                 obs_a = torch.tensor(obs_dict['actor'][None], dtype=torch.float32, device=DEVICE)
                 obs_c = torch.tensor(obs_dict['critic_gt'][None], dtype=torch.float32, device=DEVICE)
                 A = fixed_window_history(ahist, K, N_ACTIONS)[None, ...]
                 A_t = torch.tensor(A, dtype=torch.float32, device=DEVICE)
 
+                # Inference
                 with torch.no_grad():
-                    # Unpack 5 values here
-                    logits, value, j_logit, _, _ = model(obs_a, obs_c, A_t)
+                    # Unpack 5 outputs (Updated Model Signature)
+                    move_logits, stop_logit, value, j_logit, _ = model(obs_a, obs_c, A_t)
                     
-                    logits = torch.clamp(logits, -20, 20)
+                    # 1. Movement Selection
+                    logits = torch.clamp(move_logits, -20, 20)
                     dist = Categorical(logits=logits)
-                    action = dist.sample().item()
-                    logp = dist.log_prob(torch.tensor(action, device=DEVICE)).item()
+                    move_idx = dist.sample().item()
+                    logp = dist.log_prob(torch.tensor(move_idx, device=DEVICE)).item()
+                    
+                    # 2. Stop Signal
+                    stop_prob = torch.sigmoid(stop_logit).item()
+                    
                     val = value.item()
 
-                next_obs, r, done, info = env.step(action)
+                # Step Environment (Pass Tuple)
+                # Note: We pass (move_idx, stop_prob) so env handles strict stop logic
+                next_obs, r, done, info = env.step((move_idx, stop_prob))
 
+                # Storage
                 ep_traj["obs"]['actor'].append(obs_dict['actor'])
                 ep_traj["obs"]['critic_gt'].append(obs_dict['critic_gt'])
-                # Store Junction Label
                 ep_traj["obs"]['is_junction_gt'].append(obs_dict['is_junction_gt'])
                 
                 ep_traj["ahist"].append(A[0])
-                ep_traj["act"].append(action)
+                ep_traj["act"].append(move_idx)  # <--- CRITICAL FIX: Store only INT
                 ep_traj["logp"].append(logp)
                 ep_traj["val"].append(val)
                 ep_traj["rew"].append(r)
                 
-                a_onehot = np.zeros(N_ACTIONS); a_onehot[action] = 1.0
+                # Store Stop GT (Provided by the modified Env step)
+                s_gt = info.get('stop_gt', 0.0)
+                ep_traj["stop_gt"].append(s_gt)
+                
+                # Update History
+                a_onehot = np.zeros(N_ACTIONS)
+                a_onehot[move_idx] = 1.0
                 ahist.append(a_onehot)
+                
                 obs_dict = next_obs
-            
+
+            # --- End of Episode Processing ---
             if len(ep_traj["rew"]) > 2:
+                # Calculate Advantage (GAE)
                 rews = np.array(ep_traj["rew"])
                 vals = np.array(ep_traj["val"] + [0.0])
                 delta = rews + 0.9 * vals[1:] - vals[:-1]
@@ -1132,6 +1160,7 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
                     adv[t] = acc
                 ret = adv + vals[:-1]
                 
+                # Add to Batch Buffer
                 batch_buffer.append({
                     "obs": {
                         "actor": np.array(ep_traj["obs"]['actor']), 
@@ -1139,9 +1168,11 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
                         "is_junction_gt": np.array(ep_traj["obs"]['is_junction_gt'])
                     },
                     "ahist": np.array(ep_traj["ahist"]),
-                    "act": np.array(ep_traj["act"]),
+                    "act": np.array(ep_traj["act"]), # Now purely integer array
                     "logp": np.array(ep_traj["logp"]),
-                    "adv": adv, "ret": ret
+                    "stop_gt": np.array(ep_traj["stop_gt"]), # Store for update
+                    "adv": adv, 
+                    "ret": ret
                 })
                 ep_returns.append(sum(rews))
 
