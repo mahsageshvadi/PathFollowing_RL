@@ -28,14 +28,19 @@ try:
     import numpy as np
     HAS_CV2 = True
 except ImportError:
-    try:
-        from PIL import Image
+    HAS_CV2 = False
+
+try:
+    from PIL import Image
+    if not HAS_CV2:
         import numpy as np
-        HAS_CV2 = False
-        HAS_PIL = True
-    except ImportError:
-        print("ERROR: Need either cv2 or PIL. Install with: pip install opencv-python or pip install Pillow")
-        sys.exit(1)
+    HAS_PIL = True
+except ImportError:
+    HAS_PIL = False
+
+if not HAS_CV2 and not HAS_PIL:
+    print("ERROR: Need either cv2 or PIL. Install with: pip install opencv-python or pip install Pillow")
+    sys.exit(1)
 
 def convert_to_png_cv2(src_path, dst_path):
     """Convert image to PNG using cv2."""
