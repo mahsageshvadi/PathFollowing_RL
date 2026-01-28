@@ -40,7 +40,7 @@ ACTION_STOP_IDX = 8
 N_ACTIONS = 8
 
 STEP_ALPHA = 1.0
-CROP = 33
+CROP = 66
 EPSILON = 1e-6
 BASE_SEED = 50
 
@@ -462,23 +462,36 @@ def clamp(v, lo, hi): return max(lo, min(v, hi))
 
 def crop32(img, cy, cx, size=CROP):
     h, w = img.shape
+    
+    # 1. Estimate background for padding
+    # Sampling corners is a quick heuristic
     corners = [img[0,0], img[0, w-1], img[h-1, 0], img[h-1, w-1]]
     bg_estimate = np.median(corners)
     pad_val = 1.0 if bg_estimate > 0.5 else 0.0
     
+    # 2. Calculate Window Coordinates
+    # Ensure the window width/height is exactly 'size'
     r = size // 2
-    y0, y1 = cy - r, cy + r + 1
-    x0, x1 = cx - r, cx + r + 1
+    y0 = int(cy - r)
+    y1 = y0 + size
+    x0 = int(cx - r)
+    x1 = x0 + size
     
+    # 3. Create Output Buffer
     out = np.full((size, size), pad_val, dtype=img.dtype)
+    
+    # 4. Calculate Intersection (Clamping)
     sy0, sy1 = clamp(y0, 0, h), clamp(y1, 0, h)
     sx0, sx1 = clamp(x0, 0, w), clamp(x1, 0, w)
     
+    # 5. Calculate Placement in Output
     oy0, ox0 = sy0 - y0, sx0 - x0
     sh, sw = sy1 - sy0, sx1 - sx0
     
+    # 6. Copy if there is overlap
     if sh > 0 and sw > 0:
         out[oy0:oy0+sh, ox0:ox0+sw] = img[sy0:sy1, sx0:sx1]
+        
     return out
 
 def normalize_crop(img_crop):
@@ -694,33 +707,50 @@ class CurveEnvUnified:
     def obs(self):
         curr = self.history_pos[-1]
         p1 = self.history_pos[-2]
-        p2 = self.history_pos[-3]
         
-        # Standard crops (33x33)
-        ch0 = normalize_crop(crop32(self.ep.img, int(curr[0]), int(curr[1])))
-        ch1 = normalize_crop(crop32(self.ep.img, int(p1[0]), int(p1[1])))
-        ch2 = normalize_crop(crop32(self.ep.img, int(p2[0]), int(p2[1])))
-        ch3 = crop32(self.path_mask, int(curr[0]), int(curr[1]))
+        # Channel 0: Local Detail
+        ch0 = normalize_crop(crop32(self.ep.img, int(curr[0]), int(curr[1]), size=CROP))
         
-        # NEW: Channel 4 - Wide Angle (65x65 resized to 33x33)
-        wide_raw = crop32(self.ep.img, int(curr[0]), int(curr[1]), size=65)
-        ch4 = cv2.resize(wide_raw, (33, 33), interpolation=cv2.INTER_AREA)
-        ch4 = normalize_crop(ch4)
+        # Channel 1: Wide Context
+        wide_raw = crop32(self.ep.img, int(curr[0]), int(curr[1]), size=96)
+        ch1 = cv2.resize(wide_raw, (CROP, CROP), interpolation=cv2.INTER_AREA)
+        ch1 = normalize_crop(ch1)
+        
+        # Channel 2: Visual Velocity Mask
+        ch2 = crop32(self.path_mask, int(curr[0]), int(curr[1]), size=CROP)
+        
+        # Channel 3: Edge Magnitude (Sobel)
+        sobel_patch = crop32(self.ep.img, int(curr[0]), int(curr[1]), size=CROP)
+        
+        # --- FIX IS HERE: Force .astype(np.float32) ---
+        sobel_patch = sobel_patch.astype(np.float32) 
+        
+        sx = cv2.Sobel(sobel_patch, cv2.CV_32F, 1, 0, ksize=3)
+        sy = cv2.Sobel(sobel_patch, cv2.CV_32F, 0, 1, ksize=3)
+        ch3 = cv2.magnitude(sx, sy)
+        # Normalize carefully to avoid divide-by-zero
+        max_val = ch3.max()
+        if max_val > 1e-6:
+            ch3 = ch3 / max_val
+        
+        # Channel 4: Previous Position
+        ch4 = normalize_crop(crop32(self.ep.img, int(p1[0]), int(p1[1]), size=CROP))
 
-        # Stack into 5 channels
+        # Stack
         actor_obs = np.stack([ch0, ch1, ch2, ch3, ch4], axis=0).astype(np.float32)
-        gt_crop = crop32(self.gt_map, int(curr[0]), int(curr[1]))
+        
+        # GT Obs
+        gt_crop = crop32(self.gt_map, int(curr[0]), int(curr[1]), size=CROP)
         gt_obs = gt_crop[None, ...]
         
-        # Calculate Junction GT
-        # Instead of hard 0/1:
+        # Junction GT
+        # Gaussian signal detection logic...
         is_junction = 0.0
         agent_pos = np.array(curr)
         for jp in self.gt_junctions:
             dist = np.linalg.norm(agent_pos - jp)
-            if dist < 6.0:  # Increased detection radius
-                # Gaussian signal: 1.0 at center, tapering off
-                val = np.exp(-(dist**2) / (2 * 2.5**2)) 
+            if dist < 6.0:
+                val = np.exp(-(dist**2) / (2 * 2.5**2))
                 is_junction = max(is_junction, val)
 
         return {
@@ -729,154 +759,205 @@ class CurveEnvUnified:
             "is_junction_gt": np.array([is_junction], dtype=np.float32)
         }
 
-    def step(self, a_idx):
+    def step(self, action_data):
+        """
+        Step function supporting Split Heads (Movement + Stop Signal).
+        
+        Args:
+            action_data: Can be an int (move_idx) for legacy/testing, 
+                         or tuple (move_idx, stop_prob) for the new architecture.
+        """
         self.steps += 1
         
-        # 1. Handle STOP Action
-        if a_idx == ACTION_STOP_IDX:
-            # Check distance to the end of ALL paths (allows stopping at any terminal point)
-            dists_to_ends = [np.linalg.norm(np.array(self.agent) - p[-1]) for p in self.all_paths]
-            min_dist_to_end = min(dists_to_ends)
-            
-            is_strict = self.stage_config.get('strict_stop', False)
-            if min_dist_to_end < 5.0:
-                # Big bonus for stopping at a true end
-                stop_reward = 40.0 if is_strict else 20.0
-                return self.obs(), stop_reward, True, {"reached_end": True, "stopped_correctly": True}
-            else:
-                # Penalty for stopping prematurely
-                return self.obs(), -5.0, False, {"reached_end": False, "stopped_correctly": False}
+        # Parse Input
+        if isinstance(action_data, (tuple, list)):
+            move_idx, stop_prob = action_data
+        else:
+            move_idx = action_data
+            stop_prob = 0.0 # Default if not provided
 
-        # 2. Movement Update
-        dy, dx = ACTIONS_MOVEMENT[a_idx]
+        # --- 1. VISUAL VELOCITY (Memory Decay) ---
+        # Decay previous history to create a "comet tail" effect (indicates speed/direction)
+        self.path_mask = self.path_mask * 0.85
+        
+        # Mark current position (agent is "hot")
+        iy, ix = int(self.agent[0]), int(self.agent[1])
+        self.path_mask[iy, ix] = 1.0
+
+        # --- 2. STOP LOGIC (Terminator Head) ---
+        # Calculate distance to nearest endpoint (Ground Truth for Stopping)
+        dists_to_ends = [np.linalg.norm(np.array(self.agent) - p[-1]) for p in self.all_paths]
+        min_dist_to_end = min(dists_to_ends)
+        
+        # Calculate Stop GT (Target for BCE Loss)
+        # We want the network to shout "STOP" when within 6 pixels of the end
+        stop_gt = 1.0 if min_dist_to_end < 6.0 else 0.0
+
+        # Inference Threshold: Did the agent decide to stop?
+        # Note: In 'strict_stop' mode, we trust this probability.
+        stop_threshold = 0.6
+        if stop_prob > stop_threshold:
+            if min_dist_to_end < 6.0:
+                # SUCCESS: Stopped at the right place
+                r = 50.0 # Huge bonus to overcome sparsity
+                return self.obs(), r, True, {
+                    "reached_end": True, 
+                    "stopped_correctly": True, 
+                    "stop_gt": stop_gt
+                }
+            else:
+                # FAILURE: Stopped randomly in the middle of a line
+                # Check if we are at least on a line to soften the blow
+                on_vessel = self.gt_map[iy, ix] > 0.5
+                penalty = -2.0 if on_vessel else -5.0
+                return self.obs(), penalty, False, {
+                    "reached_end": False, 
+                    "stopped_correctly": False, 
+                    "stop_gt": stop_gt
+                }
+
+        # --- 3. MOVEMENT UPDATE ---
+        # If we didn't stop, we move.
+        dy, dx = ACTIONS_MOVEMENT[move_idx]
         ny = clamp(self.agent[0] + dy * STEP_ALPHA, 0, self.h-1)
         nx = clamp(self.agent[1] + dx * STEP_ALPHA, 0, self.w-1)
-        
-        # 3. Memory Check (Retracing Penalty)
-        # Check if we've been here before (using path_mask)
-        iy, ix = int(ny), int(nx)
-        memory_penalty = 0.0
-        if self.path_mask[iy, ix] > 0.5:
-            memory_penalty = -1.5 # Discourage retracing
-        
+
         # Update Position
         self.agent = (ny, nx)
         self.history_pos.append(self.agent)
         self.path_points.append(self.agent)
-        self.path_mask[iy, ix] = 1.0
+        
+        # Re-mark mask at new position (ensure current pos is always 1.0)
+        self.path_mask[int(ny), int(nx)] = 1.0
 
-        # 4. Multi-Path Tracking (Junction Logic)
-        # Find the closest path among all available vessels/branches
+        # --- 4. PATH TRACKING & REWARD CALCULATION ---
+        # Find nearest path and progress
         all_dists = [get_distance_to_poly(self.agent, p) for p in self.all_paths]
         L_t = min(all_dists)
         best_path_idx = np.argmin(all_dists)
-        self.target_poly = self.all_paths[best_path_idx] # Switch target to nearest path
+        self.target_poly = self.all_paths[best_path_idx]
         
         dist_diff = abs(L_t - self.L_prev)
         best_idx = nearest_gt_index(self.agent, self.target_poly)
-        
-        # Progress check relative to whichever path we are on
-        # Note: In reset(), initialize self.prev_path_indices = {i: 0 for i in range(len(self.all_paths))}
+
+        # Initialize progress tracker if needed
         if not hasattr(self, 'prev_path_indices'): 
             self.prev_path_indices = [0] * len(self.all_paths)
+        if best_path_idx >= len(self.prev_path_indices):
+             self.prev_path_indices.extend([0] * (best_path_idx - len(self.prev_path_indices) + 1))
             
         progress_delta = best_idx - self.prev_path_indices[best_path_idx]
-        
-        # 5. Reward Calculation
-        # Precision: How centered are we on the vessel?
-        sigma = 1.5 if self.stage_config.get('stage_id') == 1 else 1.0
-        precision_score = np.exp(-(L_t**2) / (2 * sigma**2))
-        
-        # Distance delta reward
+
+        # A. Distance Reward (Keep close to center)
         if L_t < self.L_prev:
             r = np.log(EPSILON + dist_diff)
         else:
             r = -np.log(EPSILON + dist_diff)
         r = float(np.clip(r, -2.0, 2.0))
 
-        # Progress reward (moving forward along the vessel)
+        # B. Precision Bonus
+        sigma = 1.0 # Strict sigma for later stages
+        precision_score = np.exp(-(L_t**2) / (2 * sigma**2))
+        
+        # C. Progress Reward
         if progress_delta > 0:
             r += precision_score * 2.0
         else:
-            r -= 0.2 # Penalty for stagnation or moving backward
+            r -= 0.2 # Stagnation penalty
 
-        # Alignment reward (Stage 2+)
-        if self.stage_config.get('stage_id', 1) >= 2:
-            lookahead = min(best_idx + 4, len(self.target_poly) - 1)
-            gt_vec = self.target_poly[lookahead] - self.target_poly[best_idx]
-            act_vec = np.array([dy, dx])
-            ng, na = np.linalg.norm(gt_vec), np.linalg.norm(act_vec)
-            if ng > 1e-6 and na > 1e-6:
-                cos_sim = np.dot(gt_vec, act_vec) / (ng * na)
-                if cos_sim > 0: r += cos_sim * 0.5
+        # D. Alignment Reward (Cosine Similarity)
+        lookahead = min(best_idx + 4, len(self.target_poly) - 1)
+        gt_vec = self.target_poly[lookahead] - self.target_poly[best_idx]
+        act_vec = np.array([dy, dx])
+        ng, na = np.linalg.norm(gt_vec), np.linalg.norm(act_vec)
+        if ng > 1e-6 and na > 1e-6:
+            cos_sim = np.dot(gt_vec, act_vec) / (ng * na)
+            if cos_sim > 0: r += cos_sim * 0.5
 
-        # Apply retracing penalty
-        r += memory_penalty
-        
-        # Jitter/Action-Switching penalty
-        if self.prev_action != -1 and self.prev_action != a_idx:
+        # --- 5. SENSING REWARD (Proximity Bonus) ---
+        # "Hot/Cold" game to guide the agent toward the stopping zone
+        sensing_radius = 20.0
+        if min_dist_to_end < sensing_radius:
+            # Reward scales from 0.0 to 1.0 as we get closer
+            proximity_bonus = (1.0 - (min_dist_to_end / sensing_radius))
+            r += proximity_bonus
+
+        # --- 6. PENALTIES ---
+        # Retracing
+        if self.path_mask[int(ny), int(nx)] > 0.8: # Threshold due to decay
+            r -= 1.5 
+            
+        # Jitter
+        if self.prev_action != -1 and self.prev_action != move_idx:
             r -= 0.1
-        self.prev_action = a_idx
+        self.prev_action = move_idx
 
-        # 6. Terminal Conditions
+        # --- 7. TERMINAL CHECKS ---
         self.L_prev = L_t
         self.prev_path_indices[best_path_idx] = max(self.prev_path_indices[best_path_idx], best_idx)
-
-        # Check for any endpoint
-        dists_to_ends = [np.linalg.norm(np.array(self.agent) - p[-1]) for p in self.all_paths]
-        reached_end = any(d < 5.0 for d in dists_to_ends)
-
-        done = False
-        off_track_lim = 10.0 if self.stage_config.get('stage_id', 1) == 1 else 8.0
         
+        done = False
+        
+        # Off-track check
+        off_track_lim = 8.0
         if L_t > off_track_lim:
             r -= 10.0
             done = True
-        
+            
+        # Max steps check
         if self.steps >= self.max_steps:
             done = True
 
-        # End of vessel reward logic
-        if reached_end:
-            if not self.stage_config.get('strict_stop', False):
-                r += 20.0
-                done = True
-            else:
-                # Shaping reward: get closer to end, but must hit STOP to get big bonus
-                r += 2.0 
+        # NOTE: If strict_stop is True, simply reaching the end (coordinate-wise) 
+        # does NOT end the episode. The agent MUST trigger the stop probability 
+        # (handled in block #2).
+        
+        # Pass stop_gt to info for training loss
+        return self.obs(), r, done, {"stop_gt": stop_gt, "reached_end": False}
 
-        return self.obs(), r, done, {"reached_end": reached_end, "stopped_correctly": False}
-# ---------- NETWORK & PPO ----------
-from src.models_deeper import AsymmetricActorCritic
+
+from src.models_deeper import VisualMemoryActorCritic
 
 def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
+    # --- 1. PREPARE TENSORS ---
     obs_a = torch.tensor(np.concatenate([x['obs']['actor'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
     obs_c = torch.tensor(np.concatenate([x['obs']['critic_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
-    
-    # NEW: Junction GT
-    junc_gt = torch.tensor(np.concatenate([x['obs']['is_junction_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
-    
     ahist = torch.tensor(np.concatenate([x['ahist'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
-    act   = torch.tensor(np.concatenate([x['act'] for x in buf_list]), dtype=torch.long, device=DEVICE)
-    logp  = torch.tensor(np.concatenate([x['logp'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
-    adv   = torch.tensor(np.concatenate([x['adv'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
-    ret   = torch.tensor(np.concatenate([x['ret'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
+    
+    # Actions & Returns
+    act   = torch.tensor(np.array([x['act'] for x in buf_list]), dtype=torch.long, device=DEVICE)
+    logp  = torch.tensor(np.array([x['logp'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
+    adv   = torch.tensor(np.array([x['adv'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
+    ret   = torch.tensor(np.array([x['ret'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
 
-    if adv.numel() > 1: adv = (adv - adv.mean()) / (adv.std() + 1e-8)
+    # Auxiliary Ground Truths
+    # Note: Flattening assumes these are scalars or (1,) arrays in the buffer
+    junc_gt = torch.tensor(np.array([x['obs']['is_junction_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE).reshape(-1)
+    stop_gt = torch.tensor(np.array([x['stop_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE).reshape(-1)
+
+    # Normalize Advantage
+    if adv.numel() > 1: 
+        adv = (adv - adv.mean()) / (adv.std() + 1e-8)
     
     N = obs_a.shape[0]
     idxs = np.arange(N)
+    
+    # --- 2. OPTIMIZATION LOOP ---
     for _ in range(epochs):
         np.random.shuffle(idxs)
+        
         for s in range(0, N, minibatch):
-            mb = idxs[s:s+minibatch]
+            mb = idxs[s : s+minibatch]
             if len(mb) == 0: continue
             
-            # Updated Model Call
-            logits, val, junction_pred, _, _ = model(obs_a[mb], obs_c[mb], ahist[mb])
+            # Forward pass ONLY on minibatch
+            # Returns: move_logits(B,8), stop_logit(B,), val(B,), junc_logit(B,), hidden
+            move_logits, stop_logit, val, junc_pred, _ = model(obs_a[mb], obs_c[mb], ahist[mb])
             
-            logits = torch.clamp(logits, -20, 20)
-            dist = Categorical(logits=logits)
+            # --- A. MOVEMENT LOSS (PPO) ---
+            # Clamp logits for stability
+            move_logits = torch.clamp(move_logits, -20, 20)
+            dist = Categorical(logits=move_logits)
             new_logp = dist.log_prob(act[mb])
             entropy = dist.entropy().mean()
             
@@ -884,20 +965,34 @@ def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
             surr1 = ratio * adv[mb]
             surr2 = torch.clamp(ratio, 1.0-clip, 1.0+clip) * adv[mb]
             p_loss = -torch.min(surr1, surr2).mean()
-            v_loss = F.mse_loss(val, ret[mb])
             
-            # Junction Loss (BCE)
-            pos_weight = torch.tensor([15.0], device=DEVICE)   # tune 5–20
-            j_loss = F.binary_cross_entropy_with_logits(
-                junction_pred,
-                junc_gt[mb].squeeze(-1),
-                pos_weight=pos_weight
+            # --- B. VALUE LOSS (MSE) ---
+            v_loss = F.mse_loss(val.squeeze(), ret[mb])
+            
+            # --- C. STOP LOSS (Weighted BCE) ---
+            # 95% of life is moving, 5% is stopping.
+            # We heavily penalize missing a STOP (pos_weight=20.0).
+            stop_weight = torch.tensor([20.0], device=DEVICE)
+            stop_loss = F.binary_cross_entropy_with_logits(
+                stop_logit.squeeze(), 
+                stop_gt[mb], 
+                pos_weight=stop_weight
             )
 
+            # --- D. JUNCTION LOSS (Weighted BCE) ---
+            junc_weight = torch.tensor([15.0], device=DEVICE)
+            junc_loss = F.binary_cross_entropy_with_logits(
+                junc_pred.squeeze(),
+                junc_gt[mb],
+                pos_weight=junc_weight
+            )
             
-            # Total Loss
-            loss = p_loss + 0.5 * v_loss - 0.01 * entropy + 0.5 * j_loss
-
+            # --- TOTAL LOSS ---
+            # Balance the tasks. 
+            # - Stop loss is critical (1.0). 
+            # - Junction is auxiliary (0.5).
+            # - Entropy ensures exploration (-0.01).
+            loss = p_loss + 0.5 * v_loss + 1.0 * stop_loss + 0.5 * junc_loss - 0.01 * entropy
             
             ppo_opt.zero_grad()
             loss.backward()
@@ -935,7 +1030,7 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
     os.makedirs(os.path.join(run_dir, "weights"), exist_ok=True)
     shutil.copy2(config_path, os.path.join(run_dir, "curve_config.json"))
 
-    model = AsymmetricActorCritic(n_actions=N_ACTIONS).to(DEVICE)
+    model = VisualMemoryActorCritic(n_actions=N_ACTIONS).to(DEVICE)
     K = 16
     
     if resume_from:
