@@ -20,3 +20,64 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml.DS_Store
+############################
+# OS files
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Python cache / artifacts
+############################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+############################
+# Virtual environments
+############################
+venv/
+env/
+.venv/
+miniconda3/
+conda/
+
+############################
+# Training outputs / experiments
+############################
+checkpoints/
+runs/
+logs/
+wandb/
+tensorboard/
+outputs/
+
+############################
+# Large model caches
+############################
+.cache/
+huggingface/
+*.pt
+*.pth
+*.ckpt
+
+############################
+# IDE / Editor
+############################
+.vscode/
+.idea/
+*.swp
+
+############################
+# Temporary files
+############################
+*.tmp
+*.log
+*.bak
+*.zip
+*.tar.gz
+
