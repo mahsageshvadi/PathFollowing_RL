@@ -31,14 +31,15 @@ OUT_ROOT=$BASE/results
 # Experiment config
 # ----------------------------
 
-DATASET=drive          # drive | isbi12 | crack
+DATASET=drive          # drive | isbi12_train | crack_train
 MODEL=unet             # unet | unetpp
 
 # One RUN_ID per dataset (contains both unet + unetpp)
-RUN_ID=${DATASET}_unet
+# For drive, use "drive" as RUN_ID (no _train suffix)
+RUN_ID=drive_unet
 OUT=$OUT_ROOT/$RUN_ID
 
-mkdir -p $OUT/$DATASET/$MODEL
+mkdir -p $OUT/drive/$MODEL
 mkdir -p logs
 
 # ----------------------------
@@ -47,16 +48,16 @@ mkdir -p logs
 
 echo
 echo "===== TRAINING ====="
-echo "Dataset: $DATASET"
+echo "Dataset: drive (train set)"
 echo "Model:   $MODEL"
-echo "Output:  $OUT/$DATASET/$MODEL"
+echo "Output:  $OUT/drive/$MODEL"
 
 cd $PROJECT
 
 python train.py \
-  --dataset_root $DATA/$DATASET \
+  --dataset_root $DATA/drive \
   --model $MODEL \
-  --outdir $OUT/$DATASET/$MODEL \
+  --outdir $OUT/drive/$MODEL \
   --epochs 80 \
   --batch 8 \
   --lr 1e-3 \

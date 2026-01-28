@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 import pandas as pd
 
-from metrics import dice, iou, cldice, n_components, largest_component_ratio
+from metrics import dice, iou, cldice, n_components, largest_component_ratio, betti_number_error, count_holes
 
 def main():
     ap = argparse.ArgumentParser()
@@ -29,8 +29,11 @@ def main():
             "dice": dice(pr, gt),
             "iou": iou(pr, gt),
             "cldice": cldice(pr, gt),
+            "bne": betti_number_error(pr, gt),
             "pred_components": n_components(pr),
             "gt_components": n_components(gt),
+            "pred_holes": count_holes(pr),
+            "gt_holes": count_holes(gt),
             "largest_comp_ratio": largest_component_ratio(pr),
         })
 
