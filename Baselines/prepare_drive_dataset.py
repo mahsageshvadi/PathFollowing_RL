@@ -39,25 +39,59 @@ except ImportError:
 
 def convert_to_png_cv2(src_path, dst_path):
     """Convert image to PNG using cv2."""
-    img = cv2.imread(str(src_path), cv2.IMREAD_GRAYSCALE)
+    src_str = str(src_path)
+    
+    # cv2 often fails with .tif files, so try PIL first if available
+    if src_path.suffix.lower() in ['.tif', '.tiff'] and HAS_PIL:
+        try:
+            img = Image.open(src_path)
+            if img.mode != 'L':
+                img = img.convert('L')
+            # Convert PIL to numpy for consistency
+            img_array = np.array(img)
+            cv2.imwrite(str(dst_path), img_array)
+            return True
+        except Exception as e:
+            print(f"  PIL fallback failed for {src_path.name}: {e}")
+    
+    # Try reading as grayscale first
+    img = cv2.imread(src_str, cv2.IMREAD_GRAYSCALE)
     if img is None:
-        # Try color
-        img = cv2.imread(str(src_path))
+        # Try reading as color/BGR
+        img = cv2.imread(src_str, cv2.IMREAD_COLOR)
         if img is not None:
             img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     if img is None:
+        # Try with different flags for .tif files
+        img = cv2.imread(src_str, cv2.IMREAD_ANYDEPTH | cv2.IMREAD_ANYCOLOR)
+        if img is not None:
+            # Handle 16-bit or other bit depths
+            if img.dtype != np.uint8:
+                # Normalize to 0-255 range
+                img = cv2.normalize(img, None, 0, 255, cv2.NORM_MINMAX, dtype=cv2.CV_8U)
+            # Convert to grayscale if needed
+            if len(img.shape) == 3:
+                img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    if img is None:
+        print(f"  ERROR: cv2 failed to read {src_path.name}")
         return False
-    cv2.imwrite(str(dst_path), img)
+    success = cv2.imwrite(str(dst_path), img)
+    if not success:
+        print(f"  ERROR: cv2 failed to write {dst_path.name}")
+        return False
     return True
 
 def convert_to_png_pil(src_path, dst_path):
     """Convert image to PNG using PIL."""
     try:
-        img = Image.open(src_path).convert('L')
-        img.save(dst_path)
+        img = Image.open(src_path)
+        # Convert to grayscale
+        if img.mode != 'L':
+            img = img.convert('L')
+        img.save(dst_path, 'PNG')
         return True
     except Exception as e:
-        print(f"Error converting {src_path}: {e}")
+        print(f"  ERROR: PIL failed to convert {src_path}: {e}")
         return False
 
 def convert_to_png(src_path, dst_path):
@@ -70,12 +104,29 @@ def convert_to_png(src_path, dst_path):
 
 def ensure_binary_mask(mask_path, output_path):
     """Convert mask to binary PNG (0/255)."""
+    # For .gif files, PIL usually works better
+    if mask_path.suffix.lower() == '.gif' and HAS_PIL:
+        try:
+            img = Image.open(mask_path).convert('L')
+            arr = np.array(img)
+            arr_binary = (arr > 0).astype(np.uint8) * 255
+            img_binary = Image.fromarray(arr_binary)
+            img_binary.save(output_path, 'PNG')
+            return True
+        except Exception as e:
+            print(f"  ERROR: PIL failed for mask {mask_path.name}: {e}")
+    
+    # Try cv2
     if HAS_CV2:
         mask = cv2.imread(str(mask_path), cv2.IMREAD_GRAYSCALE)
         if mask is None:
+            print(f"  ERROR: cv2 failed to read mask {mask_path.name}")
             return False
         mask_binary = (mask > 0).astype(np.uint8) * 255
-        cv2.imwrite(str(output_path), mask_binary)
+        success = cv2.imwrite(str(output_path), mask_binary)
+        if not success:
+            print(f"  ERROR: cv2 failed to write mask {output_path.name}")
+            return False
         return True
     elif HAS_PIL:
         try:
@@ -83,10 +134,10 @@ def ensure_binary_mask(mask_path, output_path):
             arr = np.array(img)
             arr_binary = (arr > 0).astype(np.uint8) * 255
             img_binary = Image.fromarray(arr_binary)
-            img_binary.save(output_path)
+            img_binary.save(output_path, 'PNG')
             return True
         except Exception as e:
-            print(f"Error processing {mask_path}: {e}")
+            print(f"  ERROR: PIL failed for mask {mask_path.name}: {e}")
             return False
     return False
 
@@ -139,10 +190,16 @@ def main():
         out_img = train_out / "images" / f"{num}.png"
         out_msk = train_out / "masks" / f"{num}.png"
         
-        if convert_to_png(img, out_img) and ensure_binary_mask(gt, out_msk):
-            count_train += 1
-        else:
-            print(f"WARNING: Failed to convert {img.name}")
+        if not convert_to_png(img, out_img):
+            print(f"WARNING: Failed to convert image {img.name}")
+            continue
+        if not ensure_binary_mask(gt, out_msk):
+            print(f"WARNING: Failed to convert mask {gt.name}")
+            # Remove the image if mask conversion failed
+            if out_img.exists():
+                out_img.unlink()
+            continue
+        count_train += 1
     
     print(f"  Created {count_train} train image-mask pairs.")
     print()
@@ -164,10 +221,16 @@ def main():
         out_img = test_out / "images" / f"{num}.png"
         out_msk = test_out / "masks" / f"{num}.png"
         
-        if convert_to_png(img, out_img) and ensure_binary_mask(gt, out_msk):
-            count_test += 1
-        else:
-            print(f"WARNING: Failed to convert {img.name}")
+        if not convert_to_png(img, out_img):
+            print(f"WARNING: Failed to convert image {img.name}")
+            continue
+        if not ensure_binary_mask(gt, out_msk):
+            print(f"WARNING: Failed to convert mask {gt.name}")
+            # Remove the image if mask conversion failed
+            if out_img.exists():
+                out_img.unlink()
+            continue
+        count_test += 1
     
     print(f"  Created {count_test} test image-mask pairs.")
     print()
