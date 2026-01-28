@@ -183,12 +183,10 @@ class ManualTreeBuilder:
         )
 
         with torch.no_grad():
-            move_logits, _, j_logit, _, _ = self.model(
-                obs_t, obs_t[:, :1], h16_t
-            )
-            self.last_probs = torch.softmax(move_logits, dim=1).cpu().numpy()[0]
-            self.last_p_junc = torch.sigmoid(j_logit).item()
-
+            move_logits, stop_logit, _, j_logit, _ = self.model(obs_t, ...)
+            
+            stop_prob = torch.sigmoid(stop_logit).item()
+            move_probs = torch.softmax(move_logits, dim=1).cpu().numpy()[0]
         # --------------------------------------------------
         # Junction Logic
         # --------------------------------------------------
@@ -357,7 +355,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--img", default="../Retinal_DRIVE_pngs/21_training.png")
     parser.add_argument("--weights",
-        default="~/Downloads/runs_EXPERIMENT_11/20260127_112054/weights/model_Stage4_Master_Generalization_FINAL.pth",
+        default=os.path.join(os.path.dirname(__file__), "model_Stage7_Branching_Full_Realism_FINAL.pth"),
         type=str)
     args = parser.parse_args()
 
