@@ -1024,6 +1024,12 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
     os.makedirs(os.path.join(run_dir, "checkpoints"), exist_ok=True)
     os.makedirs(os.path.join(run_dir, "weights"), exist_ok=True)
     shutil.copy2(config_path, os.path.join(run_dir, "curve_config.json"))
+    
+    print(f"\n{'='*60}")
+    print(f"SAVING TO: {run_dir}")
+    print(f"  Checkpoints: {os.path.join(run_dir, 'checkpoints')}")
+    print(f"  Weights:     {os.path.join(run_dir, 'weights')}")
+    print(f"{'='*60}\n")
 
     model = VisualMemoryActorCritic(n_actions=N_ACTIONS).to(DEVICE)
     K = 16
@@ -1182,9 +1188,11 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
             if ep % 2000 == 0:
                 p = os.path.join(run_dir, "checkpoints", f"ckpt_{stage['name']}_ep{ep}.pth")
                 torch.save(model.state_dict(), p)
+                print(f"💾 Saved checkpoint: {p}")
         
         final_path = os.path.join(run_dir, "weights", f"model_{stage['name']}_FINAL.pth")
         torch.save(model.state_dict(), final_path)
+        print(f"💾 Saved final weights: {final_path}")
         previous_stages.append(stage['config'].copy())
         global_episode_offset += stage['episodes']
 
