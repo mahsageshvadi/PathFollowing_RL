@@ -4,9 +4,11 @@ import torch
 from torch.utils.data import Dataset
 
 def _read_gray(path):
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"File does not exist: {path}")
     img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
     if img is None:
-        raise FileNotFoundError(path)
+        raise FileNotFoundError(f"Failed to read image (may be corrupted or wrong format): {path}")
     return img
 
 class SegDataset(Dataset):
@@ -43,12 +45,31 @@ class SegDataset(Dataset):
             if missing_in_imgs:
                 error_msg += f"  Missing images for masks: {sorted(missing_in_imgs)[:5]}\n"
             raise AssertionError(error_msg)
+        
+        # Verify all files actually exist (catch broken symlinks, deleted files, etc.)
+        missing_imgs = [f for f in self.imgs if not os.path.exists(f)]
+        missing_masks = [f for f in self.masks if not os.path.exists(f)]
+        if missing_imgs or missing_masks:
+            error_msg = f"Dataset verification failed at {root}:\n"
+            if missing_imgs:
+                error_msg += f"  Missing image files ({len(missing_imgs)}): {missing_imgs[:3]}\n"
+            if missing_masks:
+                error_msg += f"  Missing mask files ({len(missing_masks)}): {missing_masks[:3]}\n"
+            raise FileNotFoundError(error_msg)
 
     def __len__(self): return len(self.imgs)
 
     def __getitem__(self, idx):
-        img = _read_gray(self.imgs[idx]).astype(np.float32) / 255.0
-        msk = _read_gray(self.masks[idx]).astype(np.float32) / 255.0
+        try:
+            img = _read_gray(self.imgs[idx]).astype(np.float32) / 255.0
+            msk = _read_gray(self.masks[idx]).astype(np.float32) / 255.0
+        except FileNotFoundError as e:
+            raise FileNotFoundError(
+                f"Error accessing dataset at index {idx}:\n"
+                f"  Image path: {self.imgs[idx]}\n"
+                f"  Mask path: {self.masks[idx]}\n"
+                f"  Original error: {e}"
+            )
         msk = (msk > 0.5).astype(np.float32)
 
         if self.resize is not None:

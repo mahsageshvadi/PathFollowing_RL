@@ -34,7 +34,22 @@ def main():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     os.makedirs(args.outdir, exist_ok=True)
 
-    ds = SegDataset(args.dataset_root, resize=tuple(args.resize))
+    # Verify dataset before training
+    print(f"Loading dataset from: {args.dataset_root}")
+    try:
+        ds = SegDataset(args.dataset_root, resize=tuple(args.resize))
+        print(f"✓ Dataset loaded: {len(ds)} samples")
+    except (FileNotFoundError, ValueError, AssertionError) as e:
+        print(f"ERROR: Dataset verification failed!")
+        print(f"  Dataset root: {args.dataset_root}")
+        print(f"  Error: {e}")
+        print("\nPlease ensure:")
+        print(f"  1. Dataset directory exists: {args.dataset_root}")
+        print(f"  2. Contains 'images/' and 'masks/' subdirectories")
+        print(f"  3. Both contain matching PNG files")
+        print(f"\nTo prepare DRIVE dataset, run:")
+        print(f"  python prepare_drive_dataset.py")
+        raise
     n = len(ds)
     n_val = max(1, int(0.2*n))
     n_train = n - n_val
@@ -84,3 +99,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
