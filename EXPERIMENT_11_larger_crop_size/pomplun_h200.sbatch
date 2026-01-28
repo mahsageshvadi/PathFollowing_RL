@@ -5,7 +5,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
-#SBATCH --mem=100G
+#SBATCH --mem=200G
 #SBATCH --time=00-10:00:00
 #SBATCH --gres=gpu:h200:1
 

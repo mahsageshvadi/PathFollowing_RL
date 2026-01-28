@@ -918,7 +918,7 @@ class CurveEnvUnified:
 
 from src.models_deeper import VisualMemoryActorCritic
 
-def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
+def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=16):
     # --- 1. PREPARE TENSORS ---
     # We must use np.concatenate because episodes have different lengths
     obs_a = torch.tensor(np.concatenate([x['obs']['actor'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
@@ -993,6 +993,10 @@ def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
             loss.backward()
             nn.utils.clip_grad_norm_(model.parameters(), 0.5)
             ppo_opt.step()
+    
+    # Clear GPU cache after PPO update to prevent OOM
+    if DEVICE == "cuda":
+        torch.cuda.empty_cache()
 
 # ---------- MAIN ----------
 def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, resume_from=None, curve_config_path=None):
@@ -1177,9 +1181,15 @@ def run_unified_training(run_dir, base_seed=BASE_SEED, clean_previous=False, res
                 })
                 ep_returns.append(sum(rews))
 
-            if len(batch_buffer) >= 64:
+            # Reduce batch buffer size to prevent OOM with larger images
+            # Original: 64, reduced to 32 for larger crop sizes
+            batch_buffer_size = 32
+            if len(batch_buffer) >= batch_buffer_size:
                 update_ppo(opt, model, batch_buffer)
                 batch_buffer = []
+                # Clear GPU cache to prevent OOM
+                if DEVICE == "cuda":
+                    torch.cuda.empty_cache()
 
             if ep % 100 == 0:
                 avg_r = np.mean(ep_returns[-100:])
