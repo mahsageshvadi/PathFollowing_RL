@@ -920,20 +920,21 @@ from src.models_deeper import VisualMemoryActorCritic
 
 def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
     # --- 1. PREPARE TENSORS ---
+    # We must use np.concatenate because episodes have different lengths
     obs_a = torch.tensor(np.concatenate([x['obs']['actor'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
     obs_c = torch.tensor(np.concatenate([x['obs']['critic_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
     ahist = torch.tensor(np.concatenate([x['ahist'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
     
-    # Actions & Returns
-    act   = torch.tensor(np.array([x['act'] for x in buf_list]), dtype=torch.long, device=DEVICE)
-    logp  = torch.tensor(np.array([x['logp'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
-    adv   = torch.tensor(np.array([x['adv'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
-    ret   = torch.tensor(np.array([x['ret'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
+    # Actions & Returns (Use concatenate, NOT array)
+    act   = torch.tensor(np.concatenate([x['act'] for x in buf_list]), dtype=torch.long, device=DEVICE)
+    logp  = torch.tensor(np.concatenate([x['logp'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
+    adv   = torch.tensor(np.concatenate([x['adv'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
+    ret   = torch.tensor(np.concatenate([x['ret'] for x in buf_list]), dtype=torch.float32, device=DEVICE)
 
     # Auxiliary Ground Truths
-    # Note: Flattening assumes these are scalars or (1,) arrays in the buffer
-    junc_gt = torch.tensor(np.array([x['obs']['is_junction_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE).reshape(-1)
-    stop_gt = torch.tensor(np.array([x['stop_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE).reshape(-1)
+    # Flatten helps ensure 1D shape (N,)
+    junc_gt = torch.tensor(np.concatenate([x['obs']['is_junction_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE).reshape(-1)
+    stop_gt = torch.tensor(np.concatenate([x['stop_gt'] for x in buf_list]), dtype=torch.float32, device=DEVICE).reshape(-1)
 
     # Normalize Advantage
     if adv.numel() > 1: 
@@ -955,7 +956,6 @@ def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
             move_logits, stop_logit, val, junc_pred, _ = model(obs_a[mb], obs_c[mb], ahist[mb])
             
             # --- A. MOVEMENT LOSS (PPO) ---
-            # Clamp logits for stability
             move_logits = torch.clamp(move_logits, -20, 20)
             dist = Categorical(logits=move_logits)
             new_logp = dist.log_prob(act[mb])
@@ -970,8 +970,7 @@ def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
             v_loss = F.mse_loss(val.squeeze(), ret[mb])
             
             # --- C. STOP LOSS (Weighted BCE) ---
-            # 95% of life is moving, 5% is stopping.
-            # We heavily penalize missing a STOP (pos_weight=20.0).
+            # Penalize missing a STOP heavily (pos_weight=20.0).
             stop_weight = torch.tensor([20.0], device=DEVICE)
             stop_loss = F.binary_cross_entropy_with_logits(
                 stop_logit.squeeze(), 
@@ -988,10 +987,6 @@ def update_ppo(ppo_opt, model, buf_list, clip=0.2, epochs=4, minibatch=32):
             )
             
             # --- TOTAL LOSS ---
-            # Balance the tasks. 
-            # - Stop loss is critical (1.0). 
-            # - Junction is auxiliary (0.5).
-            # - Entropy ensures exploration (-0.01).
             loss = p_loss + 0.5 * v_loss + 1.0 * stop_loss + 0.5 * junc_loss - 0.01 * entropy
             
             ppo_opt.zero_grad()
