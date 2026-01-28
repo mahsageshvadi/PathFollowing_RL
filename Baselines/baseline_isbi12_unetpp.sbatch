@@ -21,14 +21,22 @@
 source ~/.bashrc
 conda activate RL
 
-RUN_ID=isbi12_unet
+# Base paths
+BASE=/home/mahsa.geshvadi001/New_Projects/PathFollowing_RL/Baselines
+PROJECT=$BASE/seg_baselines
+DATA=$BASE/Dataset
+OUT_ROOT=$BASE/results
 
-PROJECT=/home/mahsa.geshvadi001/New_Projects/PathFollowing_RL/Baselines/seg_baselines
-DATA=/home/mahsa.geshvadi001/New_Projects/PathFollowing_RL/Baselines/Dataset
-OUT=/home/mahsa.geshvadi001/New_Projects/PathFollowing_RL/Baselines/results/$RUN_ID
+# ----------------------------
+# Experiment config
+# ----------------------------
 
-DATASET=drive        # drive | isbi12 | crack
-MODEL=unetpp           # unet | unetpp
+DATASET=isbi12        # drive | isbi12 | crack
+MODEL=unetpp          # unet | unetpp
+
+# One RUN_ID per dataset (contains both unet + unetpp)
+RUN_ID=${DATASET}_unet
+OUT=$OUT_ROOT/$RUN_ID
 
 mkdir -p $OUT/$DATASET/$MODEL
 mkdir -p logs
@@ -43,7 +51,7 @@ echo "Dataset: $DATASET"
 echo "Model:   $MODEL"
 echo "Output:  $OUT/$DATASET/$MODEL"
 
-cd ~/New_Projects/PathFollowing_RL/Baselines/seg_baselines/
+cd $PROJECT
 
 python train.py \
   --dataset_root $DATA/$DATASET \
