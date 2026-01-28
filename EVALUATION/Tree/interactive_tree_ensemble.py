@@ -183,10 +183,12 @@ class ManualTreeBuilder:
         )
 
         with torch.no_grad():
-            move_logits, stop_logit, _, j_logit, _ = self.model(obs_t, ...)
-            
-            stop_prob = torch.sigmoid(stop_logit).item()
-            move_probs = torch.softmax(move_logits, dim=1).cpu().numpy()[0]
+            move_logits, _, j_logit, _, _ = self.model(
+                obs_t, obs_t[:, :1], h16_t
+            )
+            self.last_probs = torch.softmax(move_logits, dim=1).cpu().numpy()[0]
+            self.last_p_junc = torch.sigmoid(j_logit).item()
+
         # --------------------------------------------------
         # Junction Logic
         # --------------------------------------------------
